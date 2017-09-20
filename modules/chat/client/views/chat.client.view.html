@@ -1,5 +1,9 @@
 <!-- The chat view -->
 <section class="container">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
   <div class="page-header">
     <h1>Chat Example</h1>
   </div>
@@ -9,7 +13,7 @@
       <div class="input-group">
         <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message" autofocus>
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Submit</button>
+          <button type="submit" class="btn btn-success" ng-disabled="!vm.messageText.length">Submit</button>
         </span>
       </div>
     </fieldset>
