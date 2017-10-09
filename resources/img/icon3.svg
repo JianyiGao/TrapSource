@@ -1,86 +1,79 @@
-<svg width="90" height="90" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<title>transform</title>
+<svg  viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>icon</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(-443 234)">
-<g id="transform">
-<clipPath id="clip-0" clip-rule="evenodd">
-<path d="M 443 -234L 533 -234L 533 -144L 443 -144L 443 -234Z" fill="#FFFFFF"/>
-</clipPath>
-<g id="label" clip-path="url(#clip-0)">
-</g>
+<g id="Canvas" transform="translate(-1858 -57)">
 <g id="icon">
 <g id="Vector">
-<use xlink:href="#path0_fill" transform="translate(466 -211)" fill="#00C6FF"/>
+<use xlink:href="#path0_fill" transform="translate(1859 58)" fill="#00C6FF"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path1_fill" transform="translate(465 -212)" fill="#3D3D3D"/>
+<use xlink:href="#path1_fill" transform="translate(1858 57)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path2_fill" transform="translate(484.62 -211)" fill="#E5E5E5"/>
+<use xlink:href="#path2_fill" transform="translate(1877.62 58)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path3_fill" transform="translate(483.62 -212)" fill="#3D3D3D"/>
+<use xlink:href="#path3_fill" transform="translate(1876.62 57)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path4_fill" transform="translate(503.23 -211)" fill="#E5E5E5"/>
+<use xlink:href="#path4_fill" transform="translate(1896.23 58)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path5_fill" transform="translate(502.23 -212)" fill="#3D3D3D"/>
+<use xlink:href="#path5_fill" transform="translate(1895.23 57)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path6_fill" transform="translate(466 -173.77)" fill="#E5E5E5"/>
+<use xlink:href="#path6_fill" transform="translate(1859 95.23)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path7_fill" transform="translate(465 -174.77)" fill="#3D3D3D"/>
+<use xlink:href="#path7_fill" transform="translate(1858 94.23)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path8_fill" transform="translate(484.62 -173.77)" fill="#E5E5E5"/>
+<use xlink:href="#path8_fill" transform="translate(1877.62 95.23)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path9_fill" transform="translate(483.62 -174.77)" fill="#3D3D3D"/>
+<use xlink:href="#path9_fill" transform="translate(1876.62 94.23)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path10_fill" transform="translate(466 -192.38)" fill="#E5E5E5"/>
+<use xlink:href="#path10_fill" transform="translate(1859 76.62)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path11_fill" transform="translate(465 -193.38)" fill="#3D3D3D"/>
+<use xlink:href="#path11_fill" transform="translate(1858 75.62)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path12_fill" transform="translate(503.23 -192.38)" fill="#E5E5E5"/>
+<use xlink:href="#path12_fill" transform="translate(1896.23 76.62)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path13_fill" transform="translate(502.23 -193.38)" fill="#3D3D3D"/>
+<use xlink:href="#path13_fill" transform="translate(1895.23 75.62)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path14_fill" transform="translate(503.23 -173.77)" fill="#F2C94C"/>
+<use xlink:href="#path14_fill" transform="translate(1896.23 95.23)" fill="#F2C94C"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path15_fill" transform="translate(502.23 -174.77)" fill="#3D3D3D"/>
+<use xlink:href="#path15_fill" transform="translate(1895.23 94.23)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path16_fill" transform="translate(468.38 -205.23)" fill="#3D3D3D"/>
+<use xlink:href="#path16_fill" transform="translate(1861.38 63.77)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path17_fill" transform="translate(468.38 -185.77)" fill="#3D3D3D"/>
+<use xlink:href="#path17_fill" transform="translate(1861.38 83.23)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path18_fill" transform="translate(471.77 -171.38)" fill="#3D3D3D"/>
+<use xlink:href="#path18_fill" transform="translate(1864.77 97.62)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path19_fill" transform="translate(490.38 -171.38)" fill="#3D3D3D"/>
+<use xlink:href="#path19_fill" transform="translate(1883.38 97.62)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path20_fill" transform="translate(490.38 -208.62)" fill="#3D3D3D"/>
+<use xlink:href="#path20_fill" transform="translate(1883.38 60.38)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path21_fill" transform="translate(471.77 -208.62)" fill="#3D3D3D"/>
+<use xlink:href="#path21_fill" transform="translate(1864.77 60.38)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path22_fill" transform="translate(505.62 -185.77)" fill="#3D3D3D"/>
+<use xlink:href="#path22_fill" transform="translate(1898.62 83.23)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path23_fill" transform="translate(505.62 -205.23)" fill="#3D3D3D"/>
-</g>
+<use xlink:href="#path23_fill" transform="translate(1898.62 63.77)" fill="#3D3D3D"/>
 </g>
 </g>
 </g>

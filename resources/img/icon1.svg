@@ -1,69 +1,58 @@
-<svg width="90" height="90" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<title>pencil-ruler</title>
+<svg viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>icon</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(179 234)">
-<g id="pencil-ruler">
-<g id="pencil ruler">
-<g id="pencil-ruler">
-<clipPath id="clip-0" clip-rule="evenodd">
-<path d="M -179 -234L -89 -234L -89 -144L -179 -144L -179 -234Z" fill="#FFFFFF"/>
-</clipPath>
-<g id="label" clip-path="url(#clip-0)">
-</g>
+<g id="Canvas" transform="translate(-1857 552)">
 <g id="icon">
 <g id="Vector">
-<use xlink:href="#path0_fill" transform="translate(-156 -211)" fill="#F2C94C"/>
+<use xlink:href="#path0_fill" transform="translate(1858 -550.974)" fill="#F2C94C"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path1_fill" transform="translate(-157.001 -211.991)" fill="#3D3D3D"/>
+<use xlink:href="#path1_fill" transform="translate(1857 -551.965)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path2_fill" transform="translate(-138.57 -201.105)" fill="#3D3D3D"/>
+<use xlink:href="#path2_fill" transform="translate(1875.43 -541.08)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path3_fill" transform="translate(-145.17 -207.879)" fill="#3D3D3D"/>
+<use xlink:href="#path3_fill" transform="translate(1868.83 -547.854)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path4_fill" transform="translate(-131.678 -194.335)" fill="#464C63"/>
+<use xlink:href="#path4_fill" transform="translate(1882.32 -534.31)" fill="#464C63"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path5_fill" transform="translate(-124.88 -187.565)" fill="#3D3D3D"/>
+<use xlink:href="#path5_fill" transform="translate(1889.12 -527.54)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path6_fill" transform="translate(-135.919 -197.688)" fill="#464C63"/>
+<use xlink:href="#path6_fill" transform="translate(1878.08 -537.662)" fill="#464C63"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path7_fill" transform="translate(-142.639 -204.41)" fill="#3D3D3D"/>
+<use xlink:href="#path7_fill" transform="translate(1871.36 -544.385)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path8_fill" transform="translate(-129.05 -190.958)" fill="#464C63"/>
+<use xlink:href="#path8_fill" transform="translate(1884.95 -530.932)" fill="#464C63"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path9_fill" transform="translate(-122.339 -184.068)" fill="#3D3D3D"/>
+<use xlink:href="#path9_fill" transform="translate(1891.66 -524.042)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path10_fill" transform="translate(-118.26 -180.799)" fill="#3D3D3D"/>
+<use xlink:href="#path10_fill" transform="translate(1895.74 -520.774)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path11_fill" transform="translate(-156 -207.68)" fill="#E5E5E5"/>
+<use xlink:href="#path11_fill" transform="translate(1858 -547.654)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path12_fill" transform="translate(-157.001 -208.594)" fill="#3D3D3D"/>
+<use xlink:href="#path12_fill" transform="translate(1857 -548.569)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path13_fill" transform="translate(-126.6 -209.66)" fill="#E5E5E5"/>
+<use xlink:href="#path13_fill" transform="translate(1887.4 -549.634)" fill="#E5E5E5"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path14_fill" transform="translate(-127.6 -210.704)" fill="#3D3D3D"/>
+<use xlink:href="#path14_fill" transform="translate(1886.4 -550.678)" fill="#3D3D3D"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path15_fill" transform="translate(-117.87 -211)" fill="#00C6FF"/>
+<use xlink:href="#path15_fill" transform="translate(1896.13 -550.974)" fill="#00C6FF"/>
 </g>
 <g id="Vector">
-<use xlink:href="#path16_fill" transform="translate(-118.866 -212.026)" fill="#3D3D3D"/>
-</g>
-</g>
-</g>
+<use xlink:href="#path16_fill" transform="translate(1895.14 -552)" fill="#3D3D3D"/>
 </g>
 </g>
 </g>
