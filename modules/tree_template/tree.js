@@ -115,7 +115,7 @@ var data = {
     choices: {
 
 
-        // TOP LEVEL
+        //Root
 
         'Lorem': {
             name: 'Lorem',
@@ -127,7 +127,7 @@ var data = {
             children: ['consectetur', 'adipiscing', 'elit']
         },
 
-        // STAY IN
+        //Parent_1
 
         'dolor': {
             name: 'dolor',
@@ -142,7 +142,7 @@ var data = {
             children: ['at', 'quam']
         },
 
-        // GO OUT
+        // Parent_2
 
         'consectetur': {
             name: 'consectetur',
@@ -157,7 +157,7 @@ var data = {
             children: ['pellentesque', 'habitant']
         },
 
-        // WATCH MOVIE
+        // Child_1
 
         'mauris': {
             name: 'morbi'
@@ -172,7 +172,7 @@ var data = {
             name: 'et'
         },
 
-        // WATCH TV 
+        // Child_2 
 
         'mi': {
             name: 'netus'
@@ -184,7 +184,7 @@ var data = {
             name: 'malesuada'
         },
 
-        // COOK
+        // Child_3
         'at': {
             name: 'fames'
         },
@@ -192,7 +192,7 @@ var data = {
             name: 'ac'
         },
 
-        // CINEMA
+        // Child_4
         'a': {
             name: 'turpis'
         },
@@ -200,7 +200,7 @@ var data = {
             name: 'egestas'
         },
 
-        // DRINK
+        // Leaf_1
         'hendrerit': {
             name: 'sed'
         },
@@ -208,7 +208,7 @@ var data = {
             name: 'vitae'
         },
 
-        // RESTAURANT
+        // Leaf_2
         'pellentesque': {
             name: 'lectus'
         },
