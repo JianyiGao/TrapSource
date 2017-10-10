@@ -111,14 +111,13 @@ var DecisionTree = function(data) {
 
 /*** TEST DATA ***/
 
-
 /** TEST CODE **/
 
 $(function() {
   
   var tree = new DecisionTree(data);
   var $list = $('#choices');
-  var $title = $('h1');
+  var $title = $('#initial');  ////
   
   var current_id = null;
   
@@ -134,7 +133,9 @@ $(function() {
     $list.empty();
     for(var i = 0; i < items.length; i++) {
       var item = items[i];
-      $list.append('<li><a href="#" data-choice="' + item.id + '">' + item.name + '</a></li>');
+      //$list.append('<li><a href="#" data-choice="' + item.id + '">' + item.name + '</a></li>');
+     $list.append('<p><span><a href="#" data-choice="' + item.id + '">' + item.name + '</a></p>');
+ 
     }
   };
   
