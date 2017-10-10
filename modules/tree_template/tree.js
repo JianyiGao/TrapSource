@@ -114,8 +114,7 @@ var data = {
     initial: ['Lorem', 'ipsum'],
     choices: {
 
-<<<<<<< HEAD
-=======
+
         // TOP LEVEL
 
         'Lorem': {
@@ -220,7 +219,6 @@ var data = {
     }
 };
 
->>>>>>> 5d59f363d391ecae387d7761db9e480990adb5f6
 /** TEST CODE **/
 
 $(function() {
