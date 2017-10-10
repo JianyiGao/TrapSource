@@ -110,7 +110,113 @@ var DecisionTree = function(data) {
 
 
 /*** TEST DATA ***/
+var data = {
+    initial: ['Lorem', 'ipsum'],
+    choices: {
 
+        // TOP LEVEL
+
+        'Lorem': {
+            name: 'Lorem',
+            children: ['dolor', 'sit', 'amet']
+        },
+
+        'ipsum': {
+            name: 'ipsum',
+            children: ['consectetur', 'adipiscing', 'elit']
+        },
+
+        // STAY IN
+
+        'dolor': {
+            name: 'dolor',
+            children: ['Mauris', 'efficitur', 'consequat', 'Nullam']
+        },
+        'sit': {
+            name: 'sit',
+            children: ['mi', 'est', 'pharetra']
+        },
+        'amet': {
+            name: 'amet',
+            children: ['at', 'quam']
+        },
+
+        // GO OUT
+
+        'consectetur': {
+            name: 'consectetur',
+            children: ['a', 'volutpat']
+        },
+        'adipiscing': {
+            name: 'adipiscing',
+            children: ['hendrerit', 'velit']
+        },
+        'elit': {
+            name: 'elit',
+            children: ['pellentesque', 'habitant']
+        },
+
+        // WATCH MOVIE
+
+        'mauris': {
+            name: 'morbi'
+        },
+        'efficitur': {
+            name: 'tristique'
+        },
+        'consequat': {
+            name: 'senectus'
+        },
+        'nullam': {
+            name: 'et'
+        },
+
+        // WATCH TV 
+
+        'mi': {
+            name: 'netus'
+        },
+        'est': {
+            name: 'et'
+        },
+        'pharetra': {
+            name: 'malesuada'
+        },
+
+        // COOK
+        'at': {
+            name: 'fames'
+        },
+        'quam': {
+            name: 'ac'
+        },
+
+        // CINEMA
+        'a': {
+            name: 'turpis'
+        },
+        'volutpat': {
+            name: 'egestas'
+        },
+
+        // DRINK
+        'hendrerit': {
+            name: 'sed'
+        },
+        'velit': {
+            name: 'vitae'
+        },
+
+        // RESTAURANT
+        'pellentesque': {
+            name: 'lectus'
+        },
+        'habitant': {
+            name: 'et'
+        }
+
+    }
+};
 
 /** TEST CODE **/
 
