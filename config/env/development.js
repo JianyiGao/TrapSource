@@ -3,13 +3,15 @@
 var defaultEnvConfig = require('./default');
 
 module.exports = {
-   db: {
-	uri:process.env.MONGOHQ_URL||process.env.MONGOLAB_URI||'mongodb://6a_username:6abunny@ds043057.mlab.com:43057/6a_db', 
-		options: {
-			user: '',
-			pass: ''
-	},
-   },
+  db: {
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://6a_username:6abunny@ds043057.mlab.com:43057/6a_db',
+    options: {
+      user: '',
+      pass: ''
+    },
+    // Enable mongoose debug mode
+    debug: process.env.MONGODB_DEBUG || false
+  },
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
