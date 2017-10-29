@@ -35,3 +35,26 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.lead span {
+  color: #00C6FF;
+}
+
+* {
+  color: #3d3d3d;
+}
+
+.icon {
+  display: inline-block;
+  width: 5rem;
+}
+
+.icon-title {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.icon-div {
+  text-align: center;
+  margin-bottom: 3rem;
+}
