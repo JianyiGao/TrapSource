@@ -106,6 +106,4 @@ var DecisionTree = function(data) {
   this.init();
   
 };
-module.exports = {
-    DecisionTree: DecisionTree
-};
+module.exports = DecisionTree;
