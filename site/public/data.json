@@ -1,0 +1,34 @@
+{
+	"question": {
+		"questionTitle": "Title title title...",
+		"questionParagraph": "something something something?",
+		"answers": {
+			"yes": {
+				"question": {
+					"questionTitle": "Title title title...",
+					"questionParagraph": "something something something?",
+					"answers": {
+						"yes": {},
+						"no": {},
+						"unsure": {}
+					}
+				}
+			},
+			"no": {
+				"resourceTitle": "Titlelelealska",
+				"resourceParagraph": "hauhduahsd",
+				"resourceLinks": [
+					{
+						"url": "url.com",
+						"linkName": "link"
+					},
+					{
+						"url": "url.com",
+						"linkName": "link"
+					}
+				]
+			},
+			"unsure": {}
+		}
+	}
+}
