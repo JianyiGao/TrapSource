@@ -4,6 +4,9 @@
 }
 
 #question {
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
+	box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
 	margin: 0 auto;
 	width: 60%;
 	margin-top: 2rem;
@@ -18,4 +21,33 @@
 #question p {
 	text-align: center;
 	margin: 0 2rem;
+}
+
+#question #buttons {
+	text-align: center;
+}
+
+#question .answer_button {
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+	box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+	display: inline-block;
+	text-align: center;
+	padding: 1rem 2rem;
+	border: 0.1rem solid #00c6ff;
+	cursor: pointer;
+	margin-left: 2rem;
+	transition: all 0.1s ease-in-out;
+	border-radius: 0.2rem;
+}
+
+#question .answer_button:first-of-type {
+	margin-left: 0;
+}
+
+#question .answer_button:hover {
+	background-color: #00c6ff;
+	font-weight: bold;
+	color: #ffffff;
+	transform: scale(1.2);
 }

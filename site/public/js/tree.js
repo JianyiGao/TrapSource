@@ -19,9 +19,9 @@ $(document).ready(function() {
 		for (q in question.answers) {
 			props.push(q);
 		}
-
+		$buttons.empty();
 		for (var i = 0; i < props.length; i++) {
-			button = "<a class='answer_button'>" + props[i] + "</a>";
+			button = "<div class='answer_button'>" + props[i] + "</div>";
 			$button = $(button);
 			if (question.answers[props[i]].question != null) {
 				$button.on(
