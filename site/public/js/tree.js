@@ -1,18 +1,46 @@
 $(document).ready(function() {
 	$.getJSON("../data.json", function(d) {
-		render(d);
+		renderClosure(d);
 	});
 
 	function renderClosure(d) {
 		function renderResources(resource) {}
 
-		function renderBreadCrumbs(questionTitle) {}
+		function renderBreadCrumbsUtil(breadCrumbs) {
+			$breadCrumbs = $("#bread_crumbs");
+			$breadCrumbs.empty();
+			for (var i = 0; i < breadCrumbs.length; i++) {
+				var link =
+					"<div class='bread_crumb'>" +
+					breadCrumbs[i].questionTitle +
+					"</div>";
+				var $link = $(link);
+
+				$link.on("click", render.bind(null, breadCrumbs[i]));
+				$breadCrumbs.append($link);
+				$breadCrumbs.append($("<p> >> </p>"));
+			}
+		}
+
+		function renderBreadCrumbs(questionTitle) {
+			var breadCrumbs = [];
+			var itter = d.question;
+			while (true) {
+				if (itter.questionTitle == questionTitle) {
+					break;
+				} else {
+					breadCrumbs.push(itter);
+					itter = itter.answers.yes.question;
+				}
+			}
+			renderBreadCrumbsUtil(breadCrumbs);
+		}
 
 		function render(question) {
-			$question = $("#question");
-			$h2 = $question.find("h2");
-			$p = $question.find("p");
-			$buttons = $question.find("#buttons");
+			var $question = $("#question");
+			var $h2 = $question.find("h2");
+			var $p = $question.find("p");
+			var $buttons = $question.find("#buttons");
 
 			$h2.text(question.questionTitle);
 			$p.text(question.questionParagraph);
@@ -24,7 +52,10 @@ $(document).ready(function() {
 			}
 			$buttons.empty();
 			for (var i = 0; i < props.length; i++) {
-				button = "<div class='answer_button'>" + props[i] + "</div>";
+				button =
+					"<div class='answer_button noselect'>" +
+					props[i] +
+					"</div>";
 				$button = $(button);
 				if (question.answers[props[i]].question != null) {
 					$button.on(
@@ -39,7 +70,7 @@ $(document).ready(function() {
 				}
 				$buttons.append($button);
 			}
-			renderBreadCrumbs(questions.questionTitle);
+			renderBreadCrumbs(question.questionTitle);
 		}
 
 		render(d.question);

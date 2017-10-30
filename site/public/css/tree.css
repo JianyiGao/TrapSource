@@ -11,6 +11,7 @@
 	width: 60%;
 	margin-top: 2rem;
 	background-color: #e5e5e5;
+	transition: all 0.2s ease-in-out;
 }
 
 #question h2 {
@@ -50,4 +51,30 @@
 	font-weight: bold;
 	color: #ffffff;
 	transform: scale(1.2);
+}
+
+#question .answer_button:active {
+	background-color: #00c6ff;
+	font-weight: bold;
+	color: #ffffff;
+	transform: scale(1);
+}
+
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.bread_crumb {
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+}
+
+.bread_crumb:hover,
+bread_crumb:active {
+	color: #00c6ff;
 }

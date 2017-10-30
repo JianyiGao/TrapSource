@@ -1,34 +1,156 @@
 {
 	"question": {
-		"questionTitle": "Title title title...",
-		"questionParagraph": "something something something?",
+		"questionTitle": "Start",
+		"questionParagraph":
+			"Do you know what type of business you want to start?",
 		"answers": {
 			"yes": {
 				"question": {
-					"questionTitle": "Title title title...",
-					"questionParagraph": "something something something?",
+					"questionTitle": "Market and Competition",
+					"questionParagraph":
+						"Do you know the market and competition for your business?Do you know the market and competition for your business?Do you know the market and competition for your business?Do you know the market and competition for your business?Do you know the market and competition for your business?Do you know the market and competition for your business?Do you know the market and competition for your business?",
 					"answers": {
-						"yes": {},
-						"no": {},
-						"unsure": {}
+						"yes": {
+							"question": {
+								"questionTitle": "Business Plan",
+								"questionParagraph":
+									" Do you have a business plan",
+								"answers": {
+									"yes": {},
+									"no": {
+										"resourceTitle":
+											"Create a business plan",
+										"resourceParagraph":
+											"Your business plan is the foundation of your business. Learn how to write a business plan quickly and efficiently with a business plan template. These resources from the SBA will help you learn how: Business plans help you run your business, Pick a business plan format that works for you. ",
+										"resourceLinks": [
+											{
+												"url":
+													"https://www.sba.gov/business-guide/plan/write-your-business-plan-template",
+												"linkName":
+													"sba business plan guide"
+											},
+											{
+												"url":
+													"https://strategyzer.com/canvas/business-model-canvas",
+												"linkName":
+													"sba business plan build "
+											},
+											{
+												"url":
+													"https://www.sba.gov/tools/business-plan/1?from_mobile=true",
+												"linkName": "strategyzer"
+											},
+											{
+												"url":
+													"https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20We%20Can%20Do%20It%20Consulting.doc",
+
+												"linkName": "sba consulting"
+											},
+											{
+												"url":
+													"https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20Wooden%20Grain%20Toy%20Company.doc",
+												"linkName": "sba company"
+											}
+										]
+									},
+									"unsure": {}
+								}
+							}
+						},
+						"no": {
+							"resourceTitle":
+								"Market research and competitive analysis",
+							"resourceParagraph":
+								"Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+							"resourceLinks": [
+								{
+									"url":
+										"https://www.sba.gov/business-guide/plan/market-research-competitive-analysis",
+									"linkName":
+										"sba research and competitive analysis"
+								},
+								{
+									"url":
+										"https://www.sba.gov/tools/local-assistance?from_mobile=true",
+									"linkName": "sba local assistance"
+								},
+								{
+									"url":
+										"https://www.sba.gov/tools/sizeup?from_mobile=true",
+									"linkName": "sba analyze your business "
+								}
+							]
+						},
+						"unsure": {
+							"resourceTitle": "....",
+							"resourceParagraph":
+								"Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+							"resourceLinks": [
+								{
+									"url":
+										"https://www.sba.gov/business-guide/plan/market-research-competitive-analysis",
+									"linkName":
+										"sba research and competitive analysis"
+								},
+								{
+									"url":
+										"https://www.sba.gov/tools/local-assistance?from_mobile=true",
+									"linkName": "sba local assistance"
+								},
+								{
+									"url":
+										"https://www.sba.gov/tools/sizeup?from_mobile=true",
+									"linkName": "sba analyze your business "
+								}
+							]
+						}
 					}
 				}
 			},
 			"no": {
-				"resourceTitle": "Titlelelealska",
-				"resourceParagraph": "hauhduahsd",
+				"resourceTitle": "....",
+				"resourceParagraph":
+					"Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
 				"resourceLinks": [
 					{
-						"url": "url.com",
-						"linkName": "link"
+						"url":
+							"https://www.sba.gov/business-guide/plan/market-research-competitive-analysis",
+						"linkName": "sba research and competitive analysis"
 					},
 					{
-						"url": "url.com",
-						"linkName": "link"
+						"url":
+							"https://www.sba.gov/tools/local-assistance?from_mobile=true",
+						"linkName": "sba local assistance"
+					},
+					{
+						"url":
+							"https://www.sba.gov/tools/sizeup?from_mobile=true",
+						"linkName": "sba analyze your business "
 					}
 				]
 			},
-			"unsure": {}
+			"unsure": {
+				"resourceTitle": "",
+				"resourceParagraph":
+					"Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+				"resourceLinks": [
+					{
+						"url":
+							"https://www.sba.gov/business-guide/plan/market-research-competitive-analysis",
+						"linkName": "sba research and competitive analysis"
+					},
+					{
+						"url":
+							"https://www.sba.gov/tools/local-assistance?from_mobile=true",
+						"linkName": "sba local assistance"
+					},
+					{
+						"url":
+							"https://www.sba.gov/tools/sizeup?from_mobile=true",
+						"linkName": "sba analyze your business "
+					}
+				]
+			}
 		}
 	}
 }
