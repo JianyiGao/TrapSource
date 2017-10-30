@@ -11,5 +11,9 @@
   function menuConfig(Menus) {
     // Config logic
     // ...
+    Menus.addMenuItem('topbar', {
+      title: 'Novice Tree',
+      state: 'novice-tree'
+    });
   }
 })();
