@@ -1,67 +1,69 @@
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
-  angular.module("admins").config(routeConfig);
+  angular
+    .module('admins')
+    .config(routeConfig);
 
-  routeConfig.$inject = ["$stateProvider"];
+  routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state("admins", {
+      .state('admins', {
         abstract: true,
-        url: "/admins",
-        template: "<ui-view/>"
+        url: '/admins',
+        template: '<ui-view/>'
       })
-      .state("admins.list", {
-        url: "",
-        templateUrl: "modules/admins/views/list-admins.client.view.html",
-        controller: "AdminsListController",
-        controllerAs: "vm",
+      .state('admins.list', {
+        url: '',
+        templateUrl: 'modules/admins/client/views/list-admins.client.view.html',
+        controller: 'AdminsListController',
+        controllerAs: 'vm',
         data: {
-          pageTitle: "Admins List"
+          pageTitle: 'Admins List'
         }
       })
-      .state("admins.create", {
-        url: "/create",
-        templateUrl: "modules/admins/views/form-admin.client.view.html",
-        controller: "AdminsController",
-        controllerAs: "vm",
+      .state('admins.create', {
+        url: '/create',
+        templateUrl: 'modules/admins/client/views/form-admin.client.view.html',
+        controller: 'AdminsController',
+        controllerAs: 'vm',
         resolve: {
           adminResolve: newAdmin
         },
         data: {
-          roles: ["user", "admin"],
-          pageTitle: "Admins Create"
+          roles: ['user', 'admin'],
+          pageTitle: 'Admins Create'
         }
       })
-      .state("admins.edit", {
-        url: "/:adminId/edit",
-        templateUrl: "modules/admins/views/form-admin.client.view.html",
-        controller: "AdminsController",
-        controllerAs: "vm",
+      .state('admins.edit', {
+        url: '/:adminId/edit',
+        templateUrl: 'modules/admins/client/views/form-admin.client.view.html',
+        controller: 'AdminsController',
+        controllerAs: 'vm',
         resolve: {
           adminResolve: getAdmin
         },
         data: {
-          roles: ["user", "admin"],
-          pageTitle: "Edit Admin {{ adminResolve.name }}"
+          roles: ['user', 'admin'],
+          pageTitle: 'Edit Admin {{ adminResolve.name }}'
         }
       })
-      .state("admins.view", {
-        url: "/:adminId",
-        templateUrl: "modules/admins/views/view-admin.client.view.html",
-        controller: "AdminsController",
-        controllerAs: "vm",
+      .state('admins.view', {
+        url: '/:adminId',
+        templateUrl: 'modules/admins/client/views/view-admin.client.view.html',
+        controller: 'AdminsController',
+        controllerAs: 'vm',
         resolve: {
           adminResolve: getAdmin
         },
         data: {
-          pageTitle: "Admin {{ adminResolve.name }}"
+          pageTitle: 'Admin {{ adminResolve.name }}'
         }
       });
   }
 
-  getAdmin.$inject = ["$stateParams", "AdminsService"];
+  getAdmin.$inject = ['$stateParams', 'AdminsService'];
 
   function getAdmin($stateParams, AdminsService) {
     return AdminsService.get({
@@ -69,9 +71,9 @@
     }).$promise;
   }
 
-  newAdmin.$inject = ["AdminsService"];
+  newAdmin.$inject = ['AdminsService'];
 
   function newAdmin(AdminsService) {
     return new AdminsService();
   }
-})();
+}());
