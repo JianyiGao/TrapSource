@@ -14,8 +14,8 @@
     // ...
     var DecisionTree = require('decision-tree-template');
     var data = require('modules/novice-tree/data/test');
-    $scope.Decisiontree = function() {
-      
+    function run() {
+      alert("penis");
       var tree = new DecisionTree(data);
       var $list = '#choices';
       var $title = '#initial';  ////
@@ -90,9 +90,9 @@
       _doInitial();
 
       
-    };
+    }
 
-
+    run();
     init();
 
     function init() {

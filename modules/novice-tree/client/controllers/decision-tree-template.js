@@ -1,4 +1,4 @@
-module.exports = function DecisionTree(data) {
+var DecisionTree = function(data) {
   'use strict';  
   this.initial = data.initial;
   this.choices = data.choices;
@@ -105,4 +105,7 @@ module.exports = function DecisionTree(data) {
   
   this.init();
   
+};
+module.exports = {
+    DecisionTree: DecisionTree
 };
