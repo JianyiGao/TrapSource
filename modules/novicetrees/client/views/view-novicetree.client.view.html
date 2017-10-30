@@ -1,26 +1,13 @@
-<section>
-  <div class="page-header">
-    <h1 ng-bind="vm.novicetree.name"></h1>
-  </div>
-  <div class="pull-right"
-       ng-show="vm.novicetree.isCurrentUserOwner">
-    <a class="btn btn-primary"
-       ui-sref="novicetrees.edit({ novicetreeId: vm.novicetree._id })">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <small>
-    <em class="text-muted">
-      Posted on
-      <span ng-bind="vm.novicetree.created | date:'mediumDate'"></span>
-      by
-      <span ng-if="vm.novicetree.user"
-            ng-bind="vm.novicetree.user.displayName"></span>
-      <span ng-if="!vm.novicetree.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="vm.novicetree.content"></p>
-</section>
+<!DOCTYPE html>
+<html>
+  <head>  
+    <img src = "modules/novicetrees/client/img/logo.png" alt = "Trap Source logo"  style="width:294px;height:102x;"">
+    <h1 id="initial" ></h1>
+  </head>
+  <body>
+  <h1 id="Question"></h1>
+  <script src="public/lib/jquery/src/jquery.min.js"></script>
+  <script src="modules/novicetrees/client/controllers/novicetrees.client.controller.js"></script>
+  <button id="back">Back</button>
+  </body>
+</html>
