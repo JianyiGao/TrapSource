@@ -65,15 +65,15 @@ nav {
 	color: #00c6ff;
 }
 
-#jumbotron a {
+#learn_more {
 	transition: all 0.2s ease-in-out;
 	display: inline-block;
 	padding: 0.35rem 2rem;
 	text-decoration: none;
 }
 
-#jumbotron a:hover,
-#jumbotron a:active {
+#learn_more:hover,
+#learn_more:active {
 	transform: scale(1.1);
 }
 
@@ -140,12 +140,8 @@ footer p {
 		width: 13rem;
 	}
 
-	#jumbotron a {
+	#learn_more {
 		padding: 0.8rem 3.5rem;
-	}
-
-	#sign_up {
-		margin-right: 2rem;
 	}
 
 	.text_column div img {
