@@ -18,7 +18,9 @@ $(document).ready(function() {
 
 				$link.on("click", render.bind(null, breadCrumbs[i]));
 				$breadCrumbs.append($link);
-				$breadCrumbs.append($("<p> >> </p>"));
+				$breadCrumbs.append(
+					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
+				);
 			}
 		}
 
@@ -27,6 +29,7 @@ $(document).ready(function() {
 			var itter = d.question;
 			while (true) {
 				if (itter.questionTitle == questionTitle) {
+					breadCrumbs.push(itter);
 					break;
 				} else {
 					breadCrumbs.push(itter);

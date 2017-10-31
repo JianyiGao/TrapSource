@@ -1,6 +1,11 @@
 #tree h1 {
 	text-align: center;
 	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+#footer_line {
+	margin-top: 0rem;
 }
 
 #question {
@@ -9,9 +14,10 @@
 	box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
 	margin: 0 auto;
 	width: 60%;
-	margin-top: 2rem;
+	margin-top: 0.5rem;
 	background-color: #e5e5e5;
 	transition: all 0.2s ease-in-out;
+	max-width: 50rem;
 }
 
 #question h2 {
@@ -71,10 +77,39 @@
 }
 .bread_crumb {
 	cursor: pointer;
+	display: inline-block;
 	transition: all 0.1s ease-in-out;
 }
 
 .bread_crumb:hover,
 bread_crumb:active {
 	color: #00c6ff;
+}
+
+#bread_crumbs {
+	width: 58%;
+	max-width: 49rem;
+	font-size: 0.9rem;
+	margin: 0 auto;
+}
+
+* {
+	margin: 0;
+}
+html,
+body {
+	height: 100%;
+}
+.page-wrap {
+	min-height: 100%;
+	/* equal to footer height */
+	margin-bottom: -2rem;
+}
+.page-wrap:after {
+	content: "";
+	display: block;
+}
+.site-footer,
+.page-wrap:after {
+	height: 2rem;
 }
