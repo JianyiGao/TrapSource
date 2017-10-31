@@ -6,9 +6,11 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/agular-ui-tree/dist/angular-ui-tree.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
+        'public/lib/agular-ui-tree/dist/angular-ui-tree.min.js',
         'public/lib/angular-resource/angular-resource.min.js',
         'public/lib/angular-animate/angular-animate.min.js',
         'public/lib/angular-messages/angular-messages.min.js',

@@ -13,7 +13,8 @@
     // ...
     Menus.addMenuItem('topbar', {
       title: 'Novice Tree',
-      state: 'novice-tree'
+      state: 'novice-tree',
+      roles: ['*']
     });
   }
 })();

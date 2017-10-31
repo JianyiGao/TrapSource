@@ -5,10 +5,12 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/agular-ui-tree/dist/angular-ui-tree.css',
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
       ],
       js: [
         'public/lib/angular/angular.js',
+        'public/lib/agular-ui-tree/dist/angular-ui-tree.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-messages/angular-messages.js',
