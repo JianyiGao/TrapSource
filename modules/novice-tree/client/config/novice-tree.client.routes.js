@@ -14,8 +14,7 @@
       .state('novice-tree', {
         url: '/novice-tree',
         templateUrl: 'modules/novice-tree/client/views/novice-tree.client.view.html',
-        controller: 'NoviceTreeController',
-        controllerAs: 'vm'
+        controller: 'NoviceTreeController'
       });
   }
 })();

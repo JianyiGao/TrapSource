@@ -1,7 +1,7 @@
-<section ng-controller="NoviceTreeController" ng-app="ui.tree">
+<section ng-controller="NoviceTreeController">
  <img src = "modules/novice-tree/client/img/logo.png" alt = "Trap Source logo"	style="width:294px;height:102x;"">
-  <link rel="stylesheet" href="public/lib/angular-ui-tree/dist/angular-ui-tree.min.css">
-  <script type="text/javascript" src="public/lib/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+  <link rel="stylesheet" href="public/lib/angular-ui-tree/dist/angular-ui-tree.css">
+  <script type="text/javascript" src="public/lib/angular-ui-tree/dist/angular-ui-tree.js"></script>
   	<div ui-tree>
   	  <ol ui-tree-nodes="" ng-model="list">
   	    <li ng-repeat="item in list" ui-tree-node>
@@ -16,6 +16,11 @@
   	        </li>
   	      </ol>
   	    </li>
+  	  </ol>
+  	</div>
+  	<div ui-tree="treeOptions">
+  	  <ol ui-tree-nodes ng-model="nodes">
+  	    <li ng-repeat="node in nodes" ui-tree-node>{{node.title}}</li>
   	  </ol>
   	</div>
 </section>
