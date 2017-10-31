@@ -32,7 +32,6 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
-
         <div class="form-group" show-errors>
           <label for="password">Password</label>
             <input type="password" id="password" name="password" class="form-control" ng-model="passwordDetails.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
@@ -42,6 +41,7 @@
               <p class="help-block error-text" ng-show="userForm.password.$error.requirements">{{passwordError}}</p>
             </div>
           </div>
+        </div>
 
 <!-- Lines 47-54 were added in order to require a password verification for new user signups -->
           <div class="form-group" show-errors>
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-        </div>
+        
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
