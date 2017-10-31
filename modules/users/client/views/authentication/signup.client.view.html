@@ -32,15 +32,27 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
+
         <div class="form-group" show-errors>
           <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+            <input type="password" id="password" name="password" class="form-control" ng-model="passwordDetails.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
           <div ng-messages="userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Password is required.</p>
             <div ng-repeat="passwordError in passwordErrors">
               <p class="help-block error-text" ng-show="userForm.password.$error.requirements">{{passwordError}}</p>
             </div>
           </div>
+
+<!-- Lines 47-54 were added in order to require a password verification for new user signups -->
+          <div class="form-group" show-errors>
+            <label for="verifyPassword">Verify Password</label>
+            <input type="password" id="verifyPassword" name="verifyPassword" class="form-control" ng-model="passwordDetails.verifyPassword" placeholder="Verify Password" password-verify="passwordDetails.password" required>
+            <div ng-messages="passwordForm.verifyPassword.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Verify your new password.</p>
+              <p class="help-block error-text" ng-show=userForm.verifyPassword.$error.passwordVerify>Passwords do not match.</p>
+            </div>
+          </div>
+
         </div>
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
