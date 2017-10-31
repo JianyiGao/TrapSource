@@ -14,7 +14,7 @@
 							"question": {
 								"questionTitle": "Business Plan",
 								"questionParagraph":
-									" Do you have a business plan",
+									" Do you have a business plan?",
 								"answers": {
 									"yes": {
 										"question": {
