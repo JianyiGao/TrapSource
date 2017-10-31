@@ -12,7 +12,7 @@ $(document).ready(function() {
 				"</h2>" +
 				"<p>" +
 				resource.resourceParagraph +
-				"</p>";
+				"</p><h3>Resources</h3>";
 			for (var i = 0; i < resource.resourceLinks.length; i++) {
 				popup +=
 					"<a src='" +
@@ -21,11 +21,9 @@ $(document).ready(function() {
 					resource.resourceLinks[i].linkName +
 					"</a>";
 			}
-			popup += "</div>";
+			popup += "<div class='close_button'>Close</div></div>";
 			var $popup = $(popup);
-			console.log(popup);
-			console.log($popup);
-			$("body").append($popup);
+			$("#wrap").append($popup);
 		}
 
 		function renderBreadCrumbsUtil(breadCrumbs) {
