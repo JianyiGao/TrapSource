@@ -15,8 +15,6 @@ $(document).ready(function() {
 		function updateJSON() {
 			// get json
 			var json = editor.get();
-			console.log(JSON.stringify(json));
-
 			$.ajax({
 				type: "POST",
 				dataType: "json",
@@ -27,7 +25,7 @@ $(document).ready(function() {
 					alert("JSON Updated!");
 				},
 				error: function(e) {
-					alert(e.message);
+					console.log(e.message);
 				}
 			});
 		}

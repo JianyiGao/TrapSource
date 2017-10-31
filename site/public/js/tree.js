@@ -1,3 +1,5 @@
+// rules: all question titles must be unique, answers should all be "yes", "no", "unsure"
+
 $(document).ready(function() {
 	$.getJSON("../data.json", function(d) {
 		renderClosure(d);
@@ -70,7 +72,13 @@ $(document).ready(function() {
 					break;
 				} else {
 					breadCrumbs.push(itter);
-					itter = itter.answers.yes.question;
+					if (itter.answers.yes.question != null) {
+						itter = itter.answers.yes.question;
+					} else if (itter.answers.no.question != null) {
+						itter = itter.answers.no.question;
+					} else if (itter.answers.unsure.question != null) {
+						itter = itter.answers.no.question;
+					}
 				}
 			}
 			renderBreadCrumbsUtil(breadCrumbs);
