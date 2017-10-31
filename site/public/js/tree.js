@@ -1,4 +1,4 @@
-// rules: all question titles must be unique, answers should all be "yes", "no", "unsure"
+// rules: all question titles must be unique, there can be only one answer leading to a new question
 
 $(document).ready(function() {
 	$.getJSON("../data.json", function(d) {
@@ -72,12 +72,12 @@ $(document).ready(function() {
 					break;
 				} else {
 					breadCrumbs.push(itter);
-					if (itter.answers.yes.question != null) {
-						itter = itter.answers.yes.question;
-					} else if (itter.answers.no.question != null) {
-						itter = itter.answers.no.question;
-					} else if (itter.answers.unsure.question != null) {
-						itter = itter.answers.no.question;
+					for (answer in itter.answers) {
+						var a = answer;
+						if (itter.answers[answer].question != null) {
+							itter = itter.answers[answer].question;
+							break;
+						}
 					}
 				}
 			}
