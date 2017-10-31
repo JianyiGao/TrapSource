@@ -1,5 +1,4 @@
 (function (app) {
   'use strict';
-
-  app.registerModule('novice-tree', ['ui.tree']);
+  app.registerModule('novice-tree');
 }(ApplicationConfiguration));

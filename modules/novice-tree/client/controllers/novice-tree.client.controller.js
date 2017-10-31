@@ -1,4 +1,5 @@
-'use strict';
+(function() {
+  'use strict';
 
   angular
     .module('novice-tree')
@@ -8,5 +9,13 @@
 
   function NoviceTreeController($scope) {
     var vm = this;
-  
-}
+
+    // Novice tree controller logic
+    // ...
+
+    init();
+
+    function init() {
+    }
+  }
+})();
