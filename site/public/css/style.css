@@ -5,7 +5,7 @@
 }
 
 h1 {
-	font-size: 3.5rem;	
+	font-size: 3.5rem;
 }
 
 h2 {
@@ -13,7 +13,7 @@ h2 {
 }
 
 header {
-	margin-top: 2%;
+	padding-top: 2%;
 	padding-bottom: 2%;
 }
 
@@ -21,7 +21,7 @@ header {
 	width: 12rem;
 	display: inline-block;
 	margin-left: 2%;
-}	
+}
 
 nav {
 	display: none;
@@ -29,10 +29,10 @@ nav {
 
 #hamburger {
 	width: 1.5rem;
-	margin: 1rem 0	;
+	margin: 1rem 0;
 	vertical-align: middle;
 	float: right;
-	margin-right: 1rem
+	margin-right: 1rem;
 }
 
 #nav_line {
@@ -45,9 +45,9 @@ nav {
 	padding-top: 2%;
 	background-color: #eeeeee;
 	text-align: center;
-	-webkit-box-shadow: 0px 5px 15px 0px rgba(199,199,199,1);
-	-moz-box-shadow: 0px 5px 15px 0px rgba(199,199,199,1);
-	box-shadow: 0px 5px 15px 0px rgba(199,199,199,1);
+	-webkit-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
+	-moz-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
+	box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
 	padding-bottom: 4rem;
 }
 
@@ -62,18 +62,19 @@ nav {
 }
 
 #jumbotron span {
-	color: #00C6FF;
+	color: #00c6ff;
 }
 
 #jumbotron a {
-	transition: all 0.2s ease-in-out; 
+	transition: all 0.2s ease-in-out;
 	display: inline-block;
 	padding: 0.35rem 2rem;
 	text-decoration: none;
 }
 
-#jumbotron a:hover, #jumbotron a:active {
-	transform: scale(1.1); 
+#jumbotron a:hover,
+#jumbotron a:active {
+	transform: scale(1.1);
 }
 
 #sign_up {
@@ -83,10 +84,10 @@ nav {
 }
 
 #sign_in {
-	background: #00C6FF;
+	background: #00c6ff;
 	color: #ffffff;
 	font-weight: bold;
-	border: 1px solid #00C6FF;
+	border: 1px solid #00c6ff;
 }
 
 .text_column {
@@ -100,14 +101,14 @@ nav {
 	margin-bottom: 1rem;
 }
 
-.text_column div img{
+.text_column div img {
 	width: 15%;
 	margin-right: 0.5rem;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.text_column div h2{
+.text_column div h2 {
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -116,7 +117,7 @@ nav {
 	margin-top: 4rem;
 	width: 100%;
 	height: 0.5rem;
-	background-color: #00C6FF;
+	background-color: #00c6ff;
 }
 
 footer {
@@ -137,11 +138,10 @@ footer p {
 }
 
 @media (min-width: 25rem) {
-
 	h1 {
 		font-size: 3.5rem;
 	}
-	
+
 	#logo {
 		width: 13rem;
 	}
@@ -151,17 +151,15 @@ footer p {
 	}
 
 	#sign_up {
-		margin-right: 2rem
+		margin-right: 2rem;
 	}
 
 	.text_column div img {
 		width: 3.5rem;
 	}
-
 }
 
 @media (min-width: 46rem) {
-
 	h1 {
 		font-size: 4rem;
 	}
@@ -172,7 +170,7 @@ footer p {
 
 	header {
 		margin: 0 auto;
-		margin-top: 1rem;
+		padding-top: 1rem;
 		padding-bottom: 1rem;
 		max-width: 70rem;
 	}
@@ -187,16 +185,17 @@ footer p {
 	nav a {
 		margin-right: 1rem;
 		text-decoration: none;
-		transition: all 0.15s ease-in-out; 
+		transition: all 0.15s ease-in-out;
 	}
 
-	nav a:hover, nav a:active {
-		color: #00C6FF;
+	nav a:hover,
+	nav a:active {
+		color: #00c6ff;
 	}
 
 	#current_page {
 		padding-bottom: 0.1rem;
-		border-bottom: 1.5px solid #00C6FF;
+		border-bottom: 1.5px solid #00c6ff;
 	}
 
 	#hamburger {

@@ -15,7 +15,7 @@ $(document).ready(function() {
 				"</p><h3>Resources</h3>";
 			for (var i = 0; i < resource.resourceLinks.length; i++) {
 				popup +=
-					"<a src='" +
+					"<a target='_blank' href='" +
 					resource.resourceLinks[i].url +
 					"'>" +
 					resource.resourceLinks[i].linkName +
