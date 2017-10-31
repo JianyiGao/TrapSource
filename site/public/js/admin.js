@@ -16,13 +16,12 @@ $(document).ready(function() {
 			// get json
 			var json = editor.get();
 			$.ajax({
+				url: "/php/updateJSON.php",
 				type: "POST",
-				dataType: "json",
-				url: "../php/updateJSON.php",
-				data: { myData: json },
-				contentType: "application/json; charset=utf-8",
-				success: function(data) {
-					alert("JSON Updated!");
+				data: { data: json },
+				success: function(result) {
+					console.log(result);
+					alert("JSON updated!");
 				},
 				error: function(e) {
 					console.log(e.message);

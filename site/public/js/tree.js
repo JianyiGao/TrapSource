@@ -14,7 +14,7 @@ $(document).ready(function() {
 				"</h2>" +
 				"<p>" +
 				resource.resourceParagraph +
-				"</p><h3>Resources</h3> ";
+				"</p><h3>Resources</h3>";
 			for (var i = 0; i < resource.resourceLinks.length; i++) {
 				popup +=
 					"<a target='_blank' href='" +

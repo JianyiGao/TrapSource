@@ -1,14 +1,9 @@
 <?php
 
-if(isset($_POST['myData'])){
+if(isset($_POST['data'])){
 	$path = "../data.json";
-	if (!unlink($path)) {
-		echo "Error deleting";
-	} else {
-		echo "JSON deleted";
-	}
-	echo $_POST['myData']
- //some php operation
+ 	unlink($path);
+ 	$json_data = json_encode($_POST['data']);
+	file_put_contents('../data.json', $json_data); 
 }
-
 ?>
