@@ -1,7 +1,7 @@
 // rules: all question titles must be unique, there can be only one answer leading to a new question
 
 $(document).ready(function() {
-	$.getJSON("../data.json", function(d) {
+	$.getJSON("data.json", function(d) {
 		renderClosure(d);
 	});
 

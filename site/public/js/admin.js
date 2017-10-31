@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$.getJSON("../data.json", function(d) {
+	$.getJSON("data.json", function(d) {
 		renderEditor(d);
 	});
 
