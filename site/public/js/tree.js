@@ -6,7 +6,7 @@ $(document).ready(function() {
 	function renderClosure(d) {
 		function renderResources(resource) {
 			var popup =
-				"<div class='popup'>" +
+				"<div id='popup'>" +
 				"<h2>" +
 				resource.resourceTitle +
 				"</h2>" +
@@ -21,9 +21,26 @@ $(document).ready(function() {
 					resource.resourceLinks[i].linkName +
 					"</a>";
 			}
-			popup += "<div class='close_button'>Close</div></div>";
+			popup +=
+				"<div id='close_btn' class='close_button noselect'>Close</div></div>";
 			var $popup = $(popup);
-			$("#wrap").append($popup);
+			var $wrapper = $("#wrap");
+			var $footerLine = $("#footer_line");
+			var $footer = $("footer");
+			$wrapper.css({ filter: "blur(3px)" });
+			$footerLine.css({ filter: "blur(3px)" });
+			$footer.css({ filter: "blur(3px)" });
+			$popup.css({ filter: "blur(0px)" });
+
+			var removePopup = function() {
+				$popup.remove();
+				$footerLine.css({ filter: "blur(0px)" });
+				$footer.css({ filter: "blur(0px)" });
+				$wrapper.css({ filter: "blur(0px)" });
+			};
+
+			$popup.find("#close_btn").on("click", removePopup);
+			$("body").append($popup);
 		}
 
 		function renderBreadCrumbsUtil(breadCrumbs) {
