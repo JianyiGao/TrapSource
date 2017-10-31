@@ -1,10 +1,22 @@
-<section ng-controller="NoviceTreeController">
-  <head>
-  	<img src = "modules/novice-tree/client/img/logo.png" alt = "Trap Source logo"	style="width:294px;height:102x;"">
-  	<link rel="stylesheet" href="public/lib/angular-ui-tree/dist/angular-ui-tree.min.css">
-  	<script type="text/javascript" src="public/lib/angular-ui-tree/dist/angular-ui-tree.js"></script>
-  </head>
-  <body>
-  </body>
+<section ng-controller="NoviceTreeController" ng-app="ui.tree">
+ <img src = "modules/novice-tree/client/img/logo.png" alt = "Trap Source logo"	style="width:294px;height:102x;"">
+  <link rel="stylesheet" href="public/lib/angular-ui-tree/dist/angular-ui-tree.min.css">
+  <script type="text/javascript" src="public/lib/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+  	<div ui-tree>
+  	  <ol ui-tree-nodes="" ng-model="list">
+  	    <li ng-repeat="item in list" ui-tree-node>
+  	      <div ui-tree-handle>
+  	        {{item.title}}
+  	      </div>
+  	      <ol ui-tree-nodes="" ng-model="item.items">
+  	        <li ng-repeat="subItem in item.items" ui-tree-node>
+  	          <div ui-tree-handle>
+  	            {{subItem.title}}
+  	          </div>
+  	        </li>
+  	      </ol>
+  	    </li>
+  	  </ol>
+  	</div>
 </section>
 
