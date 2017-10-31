@@ -113,3 +113,10 @@ body {
 .page-wrap:after {
 	height: 2rem;
 }
+
+.popup {
+	position: absolute;
+	display: inline-block;
+	width: 60%;
+	height: 50rem;
+}

@@ -4,7 +4,29 @@ $(document).ready(function() {
 	});
 
 	function renderClosure(d) {
-		function renderResources(resource) {}
+		function renderResources(resource) {
+			var popup =
+				"<div class='popup'>" +
+				"<h2>" +
+				resource.resourceTitle +
+				"</h2>" +
+				"<p>" +
+				resource.resourceParagraph +
+				"</p>";
+			for (var i = 0; i < resource.resourceLinks.length; i++) {
+				popup +=
+					"<a src='" +
+					resource.resourceLinks[i].url +
+					"'>" +
+					resource.resourceLinks[i].linkName +
+					"</a>";
+			}
+			popup += "</div>";
+			var $popup = $(popup);
+			console.log(popup);
+			console.log($popup);
+			$("body").append($popup);
+		}
 
 		function renderBreadCrumbsUtil(breadCrumbs) {
 			$breadCrumbs = $("#bread_crumbs");
