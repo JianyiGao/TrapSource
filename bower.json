@@ -15,7 +15,8 @@
     "angular-file-upload": "1.1.5",
     "angular-messages": "~1.3.17",
     "owasp-password-strength-test": "~1.3.0",
-    "jquery.min": "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+    "jquery.min": "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+    "angular-ui-tree": "^2.22.6"
   },
   "resolutions": {
     "angular": "~1.3"
