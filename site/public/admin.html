@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Trap Source</title>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
@@ -25,12 +27,84 @@
 		<div id="nav_line"></div>
 		<div id="header_title">
 			<h1>Admin Page</h1>
-			<p>Here you can change the JSON file the renders the decision Tree</p>
+			
 		</div>
-
+	<!--
 	<div id="jsoneditor""></div>
 	<div id="submit_button" class="noselect">Submit</div>
+    -->
 
+    <div class = "container">
+    	
+   		 <div class = "row">
+   		 	<div class = "col-xs-3 well">
+   		 		this is a place holder for now
+   		 	</div>
+
+   		 	<div class = "col-xs-9 well">
+   		 		<form  id = "needs-validation" novalidate>
+   		 			<div class = "row">
+   		 				<div class = "col-xs-12 form-group">
+   		 					<label for = "Title"> Title </label>
+   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required>
+   		 					<div class = "invalid-feedback ">
+   		 						Please provide a valid Title.
+   		 					</div>
+   		 				</div>	
+   		 			</div>
+
+   		 			<div class = "row">
+   		 				<div class = "col-xs-12 form-group">
+   		 					<label for = "Description"> Description </label>
+   		 					<textarea class ="form-control" id = "Description" placeholder = "Description" required rows=3> </textarea>
+   		 					<div class = "invalid-feedback ">
+   		 						Please provide a valid Description.
+   		 					</div>
+   		 				</div>	
+   		 			</div>
+
+   		 			<div class = "row">
+   		 				<div class = "col-xs-10 form-group">
+   		 					<label for = "Title"> Title </label>
+   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required>
+
+   		 					<div class = "invalid-feedback ">
+   		 						Please provide a valid Title.
+   		 					</div>
+   		 				</div>
+   		 				<div class = "col-xs-2 form-group"> <br> <span style="font-size:2em;"  class="glyphicon glyphicon-plus"></span> </div>
+   		 			</div>
+
+
+
+
+   		 			</div>
+   		 			<button class="btn btn-primary" type="submit">Submit form</button>
+   		 		</form>
+   		 		<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    var form = document.getElementById('needs-validation');
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  }, false);
+})();
+</script>
+
+
+
+   		 	</div>
+
+
+   		 </div>
 	</div>
 		<div id="footer_line"></div>
 	<footer  class="site-footer">
@@ -43,3 +117,5 @@
 <script src="js/jsoneditor.min.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/admin.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
