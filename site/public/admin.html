@@ -4,6 +4,7 @@
 	<title>Trap Source</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -17,10 +18,10 @@
 		<header>
 			<a href="index"><img id="logo" src="images/logo.png" alt="Trap Source Logo"></a>
 			<nav>
-				<a href="index">Home</a>
-				<a href="tree">Tree</a>
+				<a href="index.html">Home</a>
+				<a href="tree.html">Tree</a>
 				<a id="current_page" href="">Admin</a>
-				<a href="about">About</a>
+				<a href="about.html">About</a>
 			</nav>
 			<img id="hamburger" src="images/hamburger.svg" alt="Menu">
 		</header>
@@ -34,52 +35,86 @@
 	<div id="submit_button" class="noselect">Submit</div>
     -->
 
-    <div class = "container">
-    	
+
+
    		 <div class = "row">
-   		 	<div class = "col-xs-3 well">
+   		 	<div class = "col-md-3 well">
    		 		this is a place holder for now
    		 	</div>
 
-   		 	<div class = "col-xs-9 well">
+   		 	<div class = "col-md-9 well">
    		 		<form  id = "needs-validation" novalidate>
    		 			<div class = "row">
-   		 				<div class = "col-xs-12 form-group">
+   		 				<div class = "col-md-12 form-group">
    		 					<label for = "Title"> Title </label>
-   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required>
-   		 					<div class = "invalid-feedback ">
+   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required/>
+   		 					<div class = "invalid-feedback">
    		 						Please provide a valid Title.
    		 					</div>
    		 				</div>	
    		 			</div>
 
    		 			<div class = "row">
-   		 				<div class = "col-xs-12 form-group">
+   		 				<div class = "col-md-12 form-group">
    		 					<label for = "Description"> Description </label>
-   		 					<textarea class ="form-control" id = "Description" placeholder = "Description" required rows=3> </textarea>
-   		 					<div class = "invalid-feedback ">
+   		 					<textarea class ="form-control" rows=3 id = "Description"  placeholder = "Descriptiosn"  required ></textarea>
+   		 					<div class = "invalid-feedback">
    		 						Please provide a valid Description.
    		 					</div>
    		 				</div>	
    		 			</div>
 
    		 			<div class = "row">
-   		 				<div class = "col-xs-10 form-group">
-   		 					<label for = "Title"> Title </label>
-   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required>
+   		 				<div class = "col-md-11 form-group">
+   		 					<label for = "Answer"> Answer </label>
+   		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
-   		 					<div class = "invalid-feedback ">
-   		 						Please provide a valid Title.
+   		 					<div class = "invalid-feedback">
+   		 						Please provide a valid Answer.
    		 					</div>
    		 				</div>
-   		 				<div class = "col-xs-2 form-group"> <br> <span style="font-size:2em;"  class="glyphicon glyphicon-plus"></span> </div>
+   		 				<div class = "col-md-1 form-group"> 
+   		 					<label for "check" class = "text-right"> Path </label>
+   		 					<input type = "checkbox" class = "form-control" id= "check" />
+
+   		 				</div>
    		 			</div>
 
 
+   		 			<div class = "row">
+   		 				<div class = "col-md-11 form-group">
+   		 					<label for = "Answer"> Answer </label>
+   		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
+   		 					<div class = "invalid-feedback">
+   		 						Please provide a valid Answer.
+   		 					</div>
+   		 				</div>
+   		 				<div class = "col-md-1 form-group"> 
+   		 					<label for "check" class = "text-right"> Path </label>
+   		 					<input type = "checkbox" class = "form-control" id= "check" />
 
+   		 				</div>
    		 			</div>
-   		 			<button class="btn btn-primary" type="submit">Submit form</button>
+
+   		 			<div class = "row">
+   		 				<div class = "col-md-12 form-group">
+   		 					<label for = "Resources"> Resource </label>
+   		 					<div class = "row">
+   		 						<div class = "col-md-1"></div>
+   		 						<div class = "col-md-11">
+   		 							<textarea class ="form-control" rows=3 id = "Resources"  placeholder = "Resource"  required ></textarea>
+   		 							<div class = "invalid-feedback">Please provide a valid Resource.</div>
+   		 						</div>
+   		 					</div>
+   		 				</div>	
+   		 			</div>
+   		 		<div class = "row">
+   		 			<div class = "col-md-8"></div>
+   		 			<div class = "col-md-4">
+						<button class="btn btn-primary" type="submit">Save form</button>
+						<button class="btn btn-primary" type="submit">Upload form</button>
+					</div>
    		 		</form>
    		 		<script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -98,6 +133,10 @@
   }, false);
 })();
 </script>
+
+
+   		 			</div>
+   		 		
 
 
 
