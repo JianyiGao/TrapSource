@@ -1,0 +1,22 @@
+<svg width="81" height="45" viewBox="0 0 81 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Page 1</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(1072 -3385)">
+<g id="Rectangle 7.2">
+<mask id="mask0_outline_ins">
+<use xlink:href="#path0_fill" fill="white" transform="matrix(1 0 0 -1 -1072 3430)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path1_stroke_2x" transform="matrix(1 0 0 -1 -1072 3430)" fill="#00C6FF"/>
+</g>
+</g>
+<g id="Polygon">
+<use xlink:href="#path2_fill" transform="matrix(1 0 0 -1 -1059 3421)" fill="#00C6FF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 0L 81 0L 81 45L 0 45L 0 0Z"/>
+<path id="path1_stroke_2x" d="M 0 0L 0 -2L -2 -2L -2 0L 0 0ZM 81 0L 83 0L 83 -2L 81 -2L 81 0ZM 81 45L 81 47L 83 47L 83 45L 81 45ZM 0 45L -2 45L -2 47L 0 47L 0 45ZM 0 2L 81 2L 81 -2L 0 -2L 0 2ZM 79 0L 79 45L 83 45L 83 0L 79 0ZM 81 43L 0 43L 0 47L 81 47L 81 43ZM 2 45L 2 0L -2 0L -2 45L 2 45Z"/>
+<path id="path2_fill" d="M 28 0L 52.2487 20.25L 3.75129 20.25L 28 0Z"/>
+</defs>
+</svg>
