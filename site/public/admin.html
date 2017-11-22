@@ -1,154 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Trap Source</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trap Source</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/admin.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
 
-	<div id="wrap" class="page-wrap">
-		<header>
-			<a href="index"><img id="logo" src="images/logo.png" alt="Trap Source Logo"></a>
-			<nav>
-				<a href="index.html">Home</a>
-				<a href="tree.html">Tree</a>
-				<a id="current_page" href="">Admin</a>
-				<a href="about.html">About</a>
-			</nav>
-			<img id="hamburger" src="images/hamburger.svg" alt="Menu">
-		</header>
-		<div id="nav_line"></div>
-
-
-
-
-		<div id="header_title">
-			<h1>Admin Page</h1>
-      <ul class="nav nav-pills">
-        <li class="active"><a data-toggle="pill" href="#EDIT_TREE">EDIT TREE</a></li>
-        <li><a data-toggle="pill" href="#EDIT_HOMEPAGE">EDIT HOMEPAGE</a></li>
-        <li><a data-toggle="pill" href="#EDIT_ABOUTPAGE">EDIT ABOUT PAGE</a></li>
-      </ul>
-		</div>
-	<!--
-	<div id="jsoneditor""></div>
-	<div id="submit_button" class="noselect">Submit</div>
+  <div id="wrap" class="page-wrap">
+    <header>
+      <a href="index"><img id="logo" src="images/logo.png" alt="Trap Source Logo"></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tree.html">Tree</a>
+        <a id="current_page" href="">Admin</a>
+        <a href="about.html">About</a>
+      </nav>
+      <img id="hamburger" src="images/hamburger.svg" alt="Menu">
+    </header>
+    <div id="nav_line"></div>
+    <div id="header_title">
+      <h1>Admin Page</h1>
+      
+    </div>
+  <!--
+  <div id="jsoneditor""></div>
+  <div id="submit_button" class="noselect">Submit</div>
     -->
 
 
 
-   		 <div class = "row" >
-   		 	<div class = "col-sm-3 ">
-   		 		<div class = "row">
+       <div class = "row">
+        <div class = "col-md-3 ">
+          <div class = "row">
+            
+            <div class = "col-xs-6 text-center">
+              <img id="up_reg" src="images/up_arrow.svg" alt="up_depressed">
+            </div>
+            
+            <div class = "col-xs-6 text-center">
+              <img id="down_reg" src="images/down_arrow.svg" alt="down_depressed">
+            </div>
+            
+          </div>
+          <div class = "row">
+            <div class = "well">
+              <ul class="nav nav-pills nav-stacked">
+                  <li class="active text-center"><a data-toggle="pill" href="#needs-validatoin">Question 1</a></li>
+                  <li id = "addForm"><button class="btn btn-primary btn-block" type="submit" id="addFormBtn">Add Form</button></li>
 
-   		 			<div class = "col-xs-6 text-center">
-   		 				<img id="up_reg" src="images/up_arrow.svg" alt="up_depressed">
-   		 			</div>
+                </ul>
+              </div>
+            </div>
+        </div>
 
-   		 			<div class = "col-xs-6 text-center">
-   		 				<img id="down_reg" src="images/down_arrow.svg" alt="down_depressed">
-   		 			</div>
+        <div class = "col-md-9 well tab-content">
+          <form  id = "needs-validation" class="tab-pane fade in active" novalidate>
+            <div class = "row">
+              <div class = "col-md-12 form-group">
+                <label for = "Title"> Title </label>
+                <input type = "text" class ="form-control" id = "Title" placeholder = "Title" required/>
+                <div class = "invalid-feedback">
+                  Please provide a valid Title.
+                </div>
+              </div>  
+            </div>
 
-   		 		</div>
-   		 		<div class = "row">
-   		 			<div class = "well">
-   		 		 		<ul class="nav nav-pills nav-stacked">
-        					<li class="active text-center"><a data-toggle="pill" href="#needs-validatoin">Question 1</a></li>
-        					<li id = "addForm"><button class="btn btn-primary btn-block" type="submit" id="addFormBtn">Add Form</button></li>
+            <div class = "row">
+              <div class = "col-md-12 form-group">
+                <label for = "Description"> Description </label>
+                <textarea class ="form-control" rows=3 id = "Description"  placeholder = "Description"  required ></textarea>
+                <div class = "invalid-feedback">
+                  Please provide a valid Description.
+                </div>
+              </div>  
+            </div>
 
-        		 		</ul>
-       				</div>
-        		</div>
-   		 	</div>
+            <div class = "row">
+              <div class = "col-sm-11 col-xs-10 form-group">
+                <label for = "Answer"> Answer </label>
+                <input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
-   		 	<div class = "col-md-9 well tab-content tab-pane fade in active" id="EDIT_TREE" >
-   		 		<form  id = "needs-validation" class="tab-pane fade in active" novalidate>
-   		 			<div class = "row">
-   		 				<div class = "col-md-12 form-group">
-   		 					<label for = "Title">Title</label>
-   		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required/>
-   		 					<!--<div class = "invalid-feedback">
-   		 						Please provide a valid Title.
-   		 					</div>-->
-   		 				</div>
-   		 			</div>
+                <div class = "invalid-feedback">
+                  Please provide a valid Answer.
+                </div>
+              </div>
+              <div class = "col-sm-1 col-xs-2 form-group"> 
+                <label for "check" class = "text-right"> Path </label>
+                <input type = "checkbox" class = "form-control" id= "check" />
 
-   		 			<div class = "row">
-   		 				<div class = "col-md-12 form-group">
-   		 					<label for = "Description"> Description </label>
-   		 					<textarea class ="form-control" rows=3 id = "Description"  placeholder = "Description"  required ></textarea>
-   		 					<!--<div class = "invalid-feedback">
-   		 						Please provide a valid Description.
-   		 					</div>-->
-   		 				</div>
-   		 			</div>
-
-   		 			<div class = "row">
-   		 				<div class = "col-sm-11 col-xs-10 form-group">
-   		 					<label for = "Answer"> Answer </label>
-   		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
-
-   		 					<!--<div class = "invalid-feedback">
-   		 						Please provide a valid Answer.
-   		 					</div>-->
-   		 				</div>
-   		 				<div class = "col-sm-1 col-xs-2 form-group">
-   		 					<label for "check" class = "text-right"> Path </label>
-   		 					<input type = "checkbox" class = "form-control" id= "check" />
-
-   		 				</div>
-   		 			</div>
+              </div>
+            </div>
 
 
-   		 			<div class = "row">
-   		 				<div class = "col-sm-11 col-xs-10 form-group">
-   		 					<label for = "Answer"> Answer </label>
-   		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
+            <div class = "row">
+              <div class = "col-sm-11 col-xs-10 form-group">
+                <label for = "Answer"> Answer </label>
+                <input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
-   		 					<!--<div class = "invalid-feedback">
-   		 						Please provide a valid Answer.
-   		 					</div>-->
-   		 				</div>
-   		 				<div class = "col-sm-1 col-xs-2 form-group">
-   		 					<label for "check" class = "text-right"> Path </label>
-   		 					<input type = "checkbox" class = "form-control" id= "check" />
+                <div class = "invalid-feedback">
+                  Please provide a valid Answer.
+                </div>
+              </div>
+              <div class = "col-sm-1 col-xs-2 form-group"> 
+                <label for "check" class = "text-right"> Path </label>
+                <input type = "checkbox" class = "form-control" id= "check" />
 
-   		 				</div>
-   		 			</div>
+              </div>
+            </div>
 
-   		 			<div class = "row">
-   		 				<div class = "col-md-12 form-group">
-   		 					<label for = "Resources"> Resource </label>
-   		 					<div class = "row">
-   		 						<div class = "col-md-1"></div>
-   		 						<div class = "col-md-11">
-   		 							<textarea class ="form-control" rows=3 id = "Resources"  placeholder = "Resource"  required ></textarea>
-   		 							<!--<div class = "invalid-feedback">Please provide a valid Resource.</div>-->
-   		 						</div>
-   		 						<div class = "col-md-1"></div>
-   		 						<div class = "col-md-10 input-group-button">
-   		 							<button class="btn btn-primary btn-lg" type="submit"><span style="font-size:1.5em;" class="glyphicon glyphicon-plus" ></span> Add Resource</button>
-   		 						</div>
+            <div class = "row">
+              <div class = "col-md-12 form-group">
+                <label for = "Resources"> Resource </label>
+                <div class = "row">
+                  <div class = "col-md-1"></div>
+                  <div class = "col-md-11">
+                    <textarea class ="form-control" rows=3 id = "Resources"  placeholder = "Resource"  required ></textarea>
+                    <div class = "invalid-feedback">Please provide a valid Resource.</div>
+                  </div>
+                  <div class = "col-md-1"></div>
+                  <div class = "col-md-10 input-group-button">
+                    <button class="btn btn-primary btn-lg" type="submit"><span style="font-size:1.5em;" class="glyphicon glyphicon-plus" ></span> Add Resource</button>
+                  </div>
 
-   		 					</div>
-   		 				</div>
-   		 			</div>
-   		 		<div class = "row">
-   		 			<div class = "col-sm-8 col-xs-7"></div>
-   		 			<div class = "col-sm-4 col-xs-5 input-group-button">
-						<button class="btn btn-primary" type="submit">Save form</button>
-						<button class="btn btn-primary" type="submit">Upload form</button>
-					</div>
-   		 		</form>
-   		 		<script>
+                </div>
+              </div>  
+            </div>
+          <div class = "row">
+            <div class = "col-sm-8 col-xs-7"></div>
+            <div class = "col-sm-4 col-xs-5 input-group-button">
+            <button class="btn btn-primary" type="submit">Save form</button>
+            <button class="btn btn-primary" type="submit">Upload form</button>
+          </div>
+          </form>
+          <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
@@ -167,31 +159,21 @@
 </script>
 
 
-   		 			</div>
-
-
-         <div id="EDIT_HOMEPAGE" class="tab-pane fade">
-           <h3>EDIT HOMEPAGE</h3>
-           <p>edit homepage here</p>
-         </div>
-         <div id="EDIT_ABOUTPAGE" class="tab-pane fade">
-           <h3>EDIT ABOUT PAGE</h3>
-           <p>edit about page here</p>
-         </div>
+            </div>
+          
 
 
 
+        </div>
 
-   		 	</div>
 
-
-   		 </div>
-	</div>
-		<div id="footer_line"></div>
-	<footer  class="site-footer">
-		<p>Copyright &copy; 2017 Trap Source</p>
-		<p id="developed_by">Developed with &#9829; by team 6A </p>
-	</footer>
+       </div>
+  </div>
+    <div id="footer_line"></div>
+  <footer  class="site-footer">
+    <p>Copyright &copy; 2017 Trap Source</p>
+    <p id="developed_by">Developed with &#9829; by team 6A </p>
+  </footer>
 
 </body>
 </html>
@@ -199,3 +181,4 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/admin.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
