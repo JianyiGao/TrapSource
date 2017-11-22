@@ -26,9 +26,17 @@
 			<img id="hamburger" src="images/hamburger.svg" alt="Menu">
 		</header>
 		<div id="nav_line"></div>
+
+
+
+
 		<div id="header_title">
 			<h1>Admin Page</h1>
-			
+      <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#EDIT_TREE">EDIT TREE</a></li>
+        <li><a data-toggle="pill" href="#EDIT_HOMEPAGE">EDIT HOMEPAGE</a></li>
+        <li><a data-toggle="pill" href="#EDIT_ABOUTPAGE">EDIT ABOUT PAGE</a></li>
+      </ul>
 		</div>
 	<!--
 	<div id="jsoneditor""></div>
@@ -37,18 +45,18 @@
 
 
 
-   		 <div class = "row">
-   		 	<div class = "col-md-3 ">
+   		 <div class = "row" >
+   		 	<div class = "col-sm-3 ">
    		 		<div class = "row">
-   		 			
+
    		 			<div class = "col-xs-6 text-center">
    		 				<img id="up_reg" src="images/up_arrow.svg" alt="up_depressed">
    		 			</div>
-   		 			
+
    		 			<div class = "col-xs-6 text-center">
    		 				<img id="down_reg" src="images/down_arrow.svg" alt="down_depressed">
    		 			</div>
-   		 			
+
    		 		</div>
    		 		<div class = "row">
    		 			<div class = "well">
@@ -61,26 +69,26 @@
         		</div>
    		 	</div>
 
-   		 	<div class = "col-md-9 well tab-content">
+   		 	<div class = "col-md-9 well tab-content tab-pane fade in active" id="EDIT_TREE" >
    		 		<form  id = "needs-validation" class="tab-pane fade in active" novalidate>
    		 			<div class = "row">
    		 				<div class = "col-md-12 form-group">
-   		 					<label for = "Title"> Title </label>
+   		 					<label for = "Title">Title</label>
    		 					<input type = "text" class ="form-control" id = "Title" placeholder = "Title" required/>
-   		 					<div class = "invalid-feedback">
+   		 					<!--<div class = "invalid-feedback">
    		 						Please provide a valid Title.
-   		 					</div>
-   		 				</div>	
+   		 					</div>-->
+   		 				</div>
    		 			</div>
 
    		 			<div class = "row">
    		 				<div class = "col-md-12 form-group">
    		 					<label for = "Description"> Description </label>
    		 					<textarea class ="form-control" rows=3 id = "Description"  placeholder = "Description"  required ></textarea>
-   		 					<div class = "invalid-feedback">
+   		 					<!--<div class = "invalid-feedback">
    		 						Please provide a valid Description.
-   		 					</div>
-   		 				</div>	
+   		 					</div>-->
+   		 				</div>
    		 			</div>
 
    		 			<div class = "row">
@@ -88,11 +96,11 @@
    		 					<label for = "Answer"> Answer </label>
    		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
-   		 					<div class = "invalid-feedback">
+   		 					<!--<div class = "invalid-feedback">
    		 						Please provide a valid Answer.
-   		 					</div>
+   		 					</div>-->
    		 				</div>
-   		 				<div class = "col-sm-1 col-xs-2 form-group"> 
+   		 				<div class = "col-sm-1 col-xs-2 form-group">
    		 					<label for "check" class = "text-right"> Path </label>
    		 					<input type = "checkbox" class = "form-control" id= "check" />
 
@@ -105,11 +113,11 @@
    		 					<label for = "Answer"> Answer </label>
    		 					<input type = "text" class ="form-control" id = "Answer" placeholder = "Answer" required/>
 
-   		 					<div class = "invalid-feedback">
+   		 					<!--<div class = "invalid-feedback">
    		 						Please provide a valid Answer.
-   		 					</div>
+   		 					</div>-->
    		 				</div>
-   		 				<div class = "col-sm-1 col-xs-2 form-group"> 
+   		 				<div class = "col-sm-1 col-xs-2 form-group">
    		 					<label for "check" class = "text-right"> Path </label>
    		 					<input type = "checkbox" class = "form-control" id= "check" />
 
@@ -123,7 +131,7 @@
    		 						<div class = "col-md-1"></div>
    		 						<div class = "col-md-11">
    		 							<textarea class ="form-control" rows=3 id = "Resources"  placeholder = "Resource"  required ></textarea>
-   		 							<div class = "invalid-feedback">Please provide a valid Resource.</div>
+   		 							<!--<div class = "invalid-feedback">Please provide a valid Resource.</div>-->
    		 						</div>
    		 						<div class = "col-md-1"></div>
    		 						<div class = "col-md-10 input-group-button">
@@ -131,7 +139,7 @@
    		 						</div>
 
    		 					</div>
-   		 				</div>	
+   		 				</div>
    		 			</div>
    		 		<div class = "row">
    		 			<div class = "col-sm-8 col-xs-7"></div>
@@ -160,7 +168,17 @@
 
 
    		 			</div>
-   		 		
+
+
+         <div id="EDIT_HOMEPAGE" class="tab-pane fade">
+           <h3>EDIT HOMEPAGE</h3>
+           <p>edit homepage here</p>
+         </div>
+         <div id="EDIT_ABOUTPAGE" class="tab-pane fade">
+           <h3>EDIT ABOUT PAGE</h3>
+           <p>edit about page here</p>
+         </div>
+
 
 
 
@@ -181,4 +199,3 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/admin.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 

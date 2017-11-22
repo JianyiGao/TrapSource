@@ -89,3 +89,14 @@ div.jsoneditor-menu {
 	color: #ffffff;
 	transform: scale(1);
 }
+
+#thepillshaveeyes_ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	text-align:center;
+}
+#thepillshaveyes_li {
+	display:inline-block;
+}
+
