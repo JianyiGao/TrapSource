@@ -243,25 +243,26 @@ footer p {
 }
 
 #submit_changes {
-    transition: all 0.2s ease-in-out;
     display: inline;
     align-self: center;
     padding: 0.35rem 2rem;
     text-decoration: none;
     cursor: pointer;
 }
-#submit_changes:hover,
-#submit_changes:active {
-    transform: scale(1.1);
-}
 #submit_changes {
-    background: #18d100;
     color: #ffffff;
     font-weight: bold;
+    background-color: #00c6ff;
+    border: 1px solid #00c6ff;
+}
+
+#submit_changes:hover,
+#submit_changes:active {
     border: 1px solid #18d100;
+    background: #18d100;
 }
 
 .text-center {
+    margin-top: 1rem;
     text-align: center;
-    margin-top: 2rem;
 }
