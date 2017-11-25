@@ -87,10 +87,10 @@ nav {
     color: #ffffff;
     font-weight: bold;
     border: 1px solid #00c6ff;
-    margin-left: 1rem;
 }
 
 #sign_in {
+    margin-right: 1rem;
     color: #3d3d3d;
     border: 1px solid #3d3d3d;
 }
