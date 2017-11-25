@@ -118,6 +118,10 @@ nav {
     vertical-align: middle;
 }
 
+#mainPar1 {
+    white-space: pre-wrap !important;
+}
+
 #footer_line {
     margin-top: 4rem;
     width: 100%;
@@ -244,6 +248,7 @@ footer p {
     align-self: center;
     padding: 0.35rem 2rem;
     text-decoration: none;
+    cursor: pointer;
 }
 #submit_changes:hover,
 #submit_changes:active {
