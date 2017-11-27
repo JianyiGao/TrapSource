@@ -33,6 +33,9 @@ $(document).ready(function () {
 					props[l].answerTitle +
 					"</div>";
 				$button = $(button);
+				if (props[l].nextBool){
+				
+				}
 				$buttons.append($button);
 			}
 			for (var k = 0; k < props.length; k++) {
