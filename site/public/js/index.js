@@ -4,7 +4,7 @@ $(document).ready(function adminWrapper() {
   var user;
   var snapshot;
   var adminOn = false;
-
+  toastr.options.closeButton = true;
   function render() {
     if (snapshot && user && user.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
       admin(snapshot);

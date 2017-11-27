@@ -19,8 +19,7 @@ body {
     height: 2rem;
 }
 #about {
-    text-align: center;
-    display: inline-block;
+    display: block;
     width: 60%;
     max-width: 50rem;
     background-color: #fff;
@@ -29,12 +28,12 @@ body {
     padding: 1rem 2rem;
     overflow-y: auto;
     max-height: 60vh;
-    position: absolute;
-    top: 55%;
+    position: relative;
+    top: 85%;
     border: 0.1rem solid #c7c7c7;
-    left: 50%;
     padding: 5%;
-    transform: translate(-50%, -50%);
+    margin: 2rem auto;
+    margin-top: 5rem;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
     -moz-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
     box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
