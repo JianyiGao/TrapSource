@@ -150,16 +150,28 @@ $(document).ready(function() {
       );
     }
     sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' type=\'submit\' id=\'addFormBtn\'>Add Form</button></li>'
+      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' type=\'submit\' id=\'addFormBtn\'>Add Question</button></li>'
     );
     var questions = $('.frm-question');
-    console.log(questions.get(index));
     $(questions.get(index)).addClass('current-question');
     $.each(questions, function(key, question) {
       $(question).on('click', function() {
         index = key;
         render(tree);
       });
+    });
+
+    $('#addForm').on('click', function() {
+      tree.push({
+        questionParagraph: '',
+        questionTitle: 'New Question',
+        answers: [
+          {
+            answerTitle: ''
+          }
+        ]
+      });
+      render(tree);
     });
   }
   // database.ref('tree').on('value', function(snapshot) {
