@@ -21,11 +21,12 @@
 }
 
 .invalid-feedback {
-    display: none;
+    visibility: hidden;
+    margin-bottom: 0 !important;
 }
 
-label.col-md-offset-1 {
-    margin-top: 1rem;
+.form-group {
+    margin-bottom: 0rem !important;
 }
 
 #header_title p {

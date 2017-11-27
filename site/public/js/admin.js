@@ -48,7 +48,7 @@ $(document).ready(function() {
             answer.resourceTitle +
             '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Title\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>			  </div> <label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Description </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<textarea  class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Paragraph\' placeholder=\'Resource\' required>' +
             answer.resourceParagraph +
-            '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-top: 0.5rem; display: block">Links</b></div>' +
+            '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-bottom: 0.5rem; display: block">Links</b></div>' +
             resources +
             '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>				<button class=\'btn btn-primary btn-lg frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
         );
@@ -58,47 +58,60 @@ $(document).ready(function() {
       '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
     );
 
+    function checkEmpty(inputs) {
+      $.each(inputs, function(key, input) {
+        $input = $(input);
+        if ($input.val() === '') {
+          console.log('empty input', input);
+          console.log($input.prev());
+          return false;
+        }
+      });
+      return true;
+    }
+
     function save() {
       var answerCount = 0;
       var resourceCount = 0;
       var inputs = $('.frm-submit');
-      $.each(inputs, function(key, input) {
-        $input = $(input);
-        if (key === 0) {
-          tree[index].questionTitle = $input.val();
-        } else if (key === 1) {
-          tree[index].questionParagraph = $input.val();
-        } else if ($input.attr('id') === 'Answer') {
-          if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
-            tree[index].answers[answerCount].answerTitle = $input.val();
-            answerCount++;
-          } else {
-            tree[index].answers[answerCount].answerTitle = $input.val();
-          }
-        } else if ($input.attr('id') === 'Resource-Title') {
-          tree[index].answers[answerCount].resourceTitle = $input.val();
-        } else if ($input.attr('id') === 'Resource-Paragraph') {
-          tree[index].answers[answerCount].resourceParagraph = $input.val();
-        } else if ($input.attr('id') === 'Resource-Name') {
-          tree[index].answers[answerCount].resourceLinks[
-            resourceCount
-          ].linkName = $input.val();
-        } else if ($input.attr('id') === 'Resource-URL') {
-          if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
+      if (checkEmpty(inputs)) {
+        $.each(inputs, function(key, input) {
+          $input = $(input);
+          if (key === 0) {
+            tree[index].questionTitle = $input.val();
+          } else if (key === 1) {
+            tree[index].questionParagraph = $input.val();
+          } else if ($input.attr('id') === 'Answer') {
+            if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
+              tree[index].answers[answerCount].answerTitle = $input.val();
+              answerCount++;
+            } else {
+              tree[index].answers[answerCount].answerTitle = $input.val();
+            }
+          } else if ($input.attr('id') === 'Resource-Title') {
+            tree[index].answers[answerCount].resourceTitle = $input.val();
+          } else if ($input.attr('id') === 'Resource-Paragraph') {
+            tree[index].answers[answerCount].resourceParagraph = $input.val();
+          } else if ($input.attr('id') === 'Resource-Name') {
             tree[index].answers[answerCount].resourceLinks[
               resourceCount
-            ].url = $input.val();
-            answerCount++;
-            resourceCount = 0;
-          } else {
-            tree[index].answers[answerCount].resourceLinks[
-              resourceCount
-            ].url = $input.val();
-            resourceCount++;
+            ].linkName = $input.val();
+          } else if ($input.attr('id') === 'Resource-URL') {
+            if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
+              tree[index].answers[answerCount].resourceLinks[
+                resourceCount
+              ].url = $input.val();
+              answerCount++;
+              resourceCount = 0;
+            } else {
+              tree[index].answers[answerCount].resourceLinks[
+                resourceCount
+              ].url = $input.val();
+              resourceCount++;
+            }
           }
-        }
-      });
-      console.log(tree);
+        });
+      }
     }
 
     $('#frm-save').on('click', function(e) {
