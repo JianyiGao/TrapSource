@@ -48,14 +48,14 @@ $(document).ready(function() {
             answer.resourceTitle +
             '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Title\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>			  </div> <label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Description </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<textarea  class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Paragraph\' placeholder=\'Resource\' required>' +
             answer.resourceParagraph +
-            '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-bottom: 0.5rem; display: block">Links</b></div>' +
+            '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-top: 0.5rem; display: block">Links</b></div>' +
             resources +
-            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>				<button class=\'btn btn-primary btn-lg frm-btn\' type=\'submit\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
+            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>				<button class=\'btn btn-primary btn-lg frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
         );
       }
     }
     container.append(
-      '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\' type=\'submit\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Question</button>            </div>'
+      '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
     );
 
     function save() {
@@ -158,7 +158,7 @@ $(document).ready(function() {
       );
     }
     sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' type=\'submit\' id=\'addFormBtn\'>Add Question</button></li>'
+      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
     );
     var questions = $('.frm-question');
     $(questions.get(index)).addClass('current-question');

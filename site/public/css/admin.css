@@ -20,6 +20,14 @@
     border: 1px solid #e5e5e5;
 }
 
+.invalid-feedback {
+    display: none;
+}
+
+label.col-md-offset-1 {
+    margin-top: 1rem;
+}
+
 #header_title p {
     text-align: center;
     margin-top: 0.5rem;
