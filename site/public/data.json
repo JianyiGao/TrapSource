@@ -9,6 +9,7 @@
       },
       {
         "answerTitle": "no",
+        "nextBool": "true",
         "resourceTitle": "Market research and competitive analysis",
         "resourceParagraph": "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
         "resourceLinks": [
@@ -28,6 +29,7 @@
       },
       {
         "answerTitle": "unsure",
+        "nextBool": "true",
         "resourceTitle": "Market research and competitive analysis",
         "resourceParagraph": "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
         "resourceLinks": [
