@@ -1,102 +1,102 @@
 #header_title h1 {
-	text-align: center;
-	margin-top: 3rem;
-	font-size: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 #header_title p {
-	text-align: center;
-	margin-top: 0.5rem;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 * {
-	margin: 0;
+    margin: 0;
 }
 html,
 body {
-	height: 100%;
+    height: 100%;
 }
 .page-wrap {
-	min-height: 100%;
-	/* equal to footer height */
-	margin-bottom: -2rem;
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -2rem;
 }
 .page-wrap:after {
-	content: "";
-	display: block;
+    content: "";
+    display: block;
 }
 .site-footer,
 .page-wrap:after {
-	height: 2rem;
+    height: 2rem;
 }
 
 #jsoneditor {
-	width: 80%;
-	margin: 0 auto;
-	margin-top: 2rem;
-	height: 70vh;
-	-webkit-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
-	-moz-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
-	box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    height: 70vh;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
+    box-shadow: 3px 3px 5px 0px rgba(199, 199, 199, 1);
 }
 
 div.jsoneditor {
-	border: 0;
+    border: 0;
 }
 
 div.jsoneditor-menu {
-	background-color: #c7c7c7;
-	border-color: #c7c7c7;
+    background-color: #c7c7c7;
+    border-color: #c7c7c7;
 }
 
 .noselect {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
 
 #submit_button {
-	margin: 0 auto;
-	margin-top: 2rem;
-	width: 7rem;
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
-	-moz-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
-	box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
-	display: inline-block;
-	padding: 1rem 0;
-	border: 0.1rem solid #c7c7c7;
-	cursor: pointer;
-	transition: all 0.1s ease-in-out;
-	border-radius: 0.2rem;
-	display: block;
-	text-align: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 7rem;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+    box-shadow: 2px 2px 5px 0px rgba(199, 199, 199, 1);
+    display: inline-block;
+    padding: 1rem 0;
+    border: 0.1rem solid #c7c7c7;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    border-radius: 0.2rem;
+    display: block;
+    text-align: center;
 }
 
 #submit_button:hover {
-	background-color: #c7c7c7;
-	font-weight: bold;
-	color: #ffffff;
-	transform: scale(1.2);
+    background-color: #c7c7c7;
+    font-weight: bold;
+    color: #ffffff;
+    transform: scale(1.2);
 }
 
 #submit_button:active {
-	background-color: #c7c7c7;
-	font-weight: bold;
-	color: #ffffff;
-	transform: scale(1);
+    background-color: #c7c7c7;
+    font-weight: bold;
+    color: #ffffff;
+    transform: scale(1);
 }
 
 #thepillshaveeyes_ul {
-	margin:0;
-	padding:0;
-	list-style-type:none;
-	text-align:center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
 }
 #thepillshaveyes_li {
-	display:inline-block;
+    display: inline-block;
 }
-
