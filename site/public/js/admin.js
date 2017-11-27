@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var database = firebase.database();
+  // var database = firebase.database();
   var user;
   var index = 0;
 
@@ -8,14 +8,19 @@ $(document).ready(function() {
   var description = $('#Description');
 
   function render(tree) {
+    $('.rm-li').each(function() {
+      $(this).unbind();
+    });
     console.log('render');
     var resourceAnswers = [];
     var question = tree[index];
-    title.val(question.questionTitle);
-    description.val(question.questionParagraph);
     container.html('');
     container.append(
-      '<div class=\'row\'><div class=\'col-md-12 form-group\'><label for=\'Title\'> Title </label><input type=\'text\' class=\'form-control frm-submit\' id=\'Title\' placeholder=\'Title\' required/><div class=\'invalid-feedback\'>Please provide a valid Title.</div>      </div>    </div>    <div class=\'row\'>      <div class=\'col-md-12 form-group\'>        <label for=\'Description\'> Description </label>        <textarea class=\'form-control frm-submit\' rows=3 id=\'Description\' placeholder=\'Description\' required></textarea>        <div class=\'invalid-feedback\'>          Please provide a valid Description.        </div>      </div>    </div>'
+      '<div class=\'row\'><div class=\'col-md-12 form-group\'><label for=\'Title\'> Title </label><input value="' +
+        question.questionTitle +
+        '"type=\'text\' class=\'form-control frm-submit\' id=\'Title\' placeholder=\'Title\' required/><div class=\'invalid-feedback\'>Please provide a valid Title.</div>      </div>    </div>    <div class=\'row\'>      <div class=\'col-md-12 form-group\'>        <label for=\'Description\'> Description </label>        <textarea class=\'form-control frm-submit\' rows=3 id=\'Description\' placeholder=\'Description\' required>' +
+        question.questionParagraph +
+        '</textarea>        <div class=\'invalid-feedback\'>          Please provide a valid Description.        </div>      </div>    </div>'
     );
     for (var i = 0; i < question.answers.length; i++) {
       var answer = question.answers[i];
@@ -109,6 +114,7 @@ $(document).ready(function() {
           linkName: '',
           url: ''
         });
+
         render(tree);
       });
     });
@@ -132,12 +138,14 @@ $(document).ready(function() {
           tree[index].answers[key].resourceParagraph = '';
           tree[index].answers[key].resourceTitle = '';
         }
+
         render(tree);
       });
     });
     $('#add-question').on('click', function(e) {
       e.preventDefault();
       tree[index].answers.push({ answerTitle: '' });
+
       render(tree);
     });
     var sidepanel = $('#sidepanel');
@@ -157,6 +165,7 @@ $(document).ready(function() {
     $.each(questions, function(key, question) {
       $(question).on('click', function() {
         index = key;
+
         render(tree);
       });
     });
@@ -171,7 +180,28 @@ $(document).ready(function() {
           }
         ]
       });
+
       render(tree);
+    });
+
+    $('#up-arrow').on('click', function() {
+      if (index !== 0) {
+        var temp = tree[index - 1];
+        tree[index - 1] = tree[index];
+        tree[index] = temp;
+        index--;
+        render(tree);
+      }
+    });
+
+    $('#down-arrow').on('click', function() {
+      if (index !== tree.length - 1) {
+        var temp = tree[index + 1];
+        tree[index + 1] = tree[index];
+        tree[index] = temp;
+        index++;
+        render(tree);
+      }
     });
   }
   // database.ref('tree').on('value', function(snapshot) {
@@ -713,5 +743,6 @@ $(document).ready(function() {
       ]
     }
   ];
+
   render(json);
 });
