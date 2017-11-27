@@ -133,6 +133,27 @@ $(document).ready(function() {
       tree[index].answers.push({ answerTitle: '' });
       render(tree);
     });
+    var sidepanel = $('#sidepanel');
+    sidepanel.empty();
+    for (var ind = 0; ind < tree.length; ind++) {
+      sidepanel.append(
+        '<li class=\'active text-center frm-question\'><a data-toggle=\'pill\' href=\'#needs-validatoin\'>' +
+          tree[ind].questionTitle +
+          '</a></li>'
+      );
+    }
+    sidepanel.append(
+      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' type=\'submit\' id=\'addFormBtn\'>Add Form</button></li>'
+    );
+    var questions = $('.frm-question');
+    console.log(questions.get(index));
+    $(questions.get(index)).addClass('current-question');
+    $.each(questions, function(key, question) {
+      $(question).on('click', function() {
+        index = key;
+        render(tree);
+      });
+    });
   }
 
   database.ref('tree').on('value', function(snapshot) {
