@@ -19,23 +19,28 @@ $(document).ready(function () {
 			var $buttons = $question.find("#buttons");
 
 			$h2.text(tree[i].questionTitle);
-			$p.text(tree[i].questionParagraph);
+			$p.text(tree[i].questionParagraph + !(!tree[i].answers[0].nextBool));
 			var props = [];
 
 			for (var j = 0; j < tree[i].answers.length; j++) {
 				props.push(tree[i].answers[j]);
 			}
-			console.log(props);
+			console.log(tree[i].answers);
 			$buttons.empty();
-			for (var l = 0; l < props.length; l++) {
+			for (var l = 0; l < tree[i].answers.length; l++) {
 				button =
 					"<div class='answer_button noselect'>" +
-					props[l].answerTitle +
+					tree[i].answers[l].answerTitle +
 					"</div>";
 				$button = $(button);
-				if (props[l].nextBool){
-				
-				}
+				$button.on("click", function(){
+					if (!(!tree[i].answers[l].nextBool)){
+						$h2.text(tree[i].answers[l].resourceTitle);
+					}
+					else {
+						i++;
+					}
+				})
 				$buttons.append($button);
 			}
 			for (var k = 0; k < props.length; k++) {
