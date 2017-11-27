@@ -29,7 +29,9 @@ $(document).ready(function() {
           resources +=
             '<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Title </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
             answer.resourceLinks[j].linkName +
-            '\' class=\'form-control\' rows=3 id=\'Resources\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>			  </div>	<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource URL </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'\' +				answer.url +				\'\' class=\'form-control\' rows=3 id=\'Resources\' placeholder=\'Resource\' required></input>				<div style=\'margin-bottom:1rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>';
+            '\' class=\'form-control\' rows=3 id=\'Resources\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please provide a valid Resource.</div>			  </div>	<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource URL </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            answer.resourceLinks[j].url +
+            '\' class=\'form-control\' rows=3 id=\'Resources\' placeholder=\'Resource\' required></input>				<div  class=\'invalid-feedback\'>Please provide a valid Resource.</div><div class="div-line"></div></div>';
         }
         container.append(
           ' <div class=\'row\'>		  <div class=\'col-sm-11 col-xs-10 form-group\'>			<label for=\'Answer\'> Answer </label>			<input value="' +
