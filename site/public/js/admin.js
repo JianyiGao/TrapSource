@@ -45,10 +45,10 @@ $(document).ready(function() {
         );
       }
     }
-    $('#frm-save').on('click', function(e) {
+
+    function save() {
       var answerCount = 0;
       var resourceCount = 0;
-      e.preventDefault();
       var inputs = $('.frm-submit');
       $.each(inputs, function(key, input) {
         $input = $(input);
@@ -87,6 +87,11 @@ $(document).ready(function() {
         }
       });
       console.log(tree);
+    }
+
+    $('#frm-save').on('click', function(e) {
+      e.preventDefault();
+      save();
     });
     var buttons = $('.frm-btn');
     $.each(buttons, function(key, button) {
@@ -122,6 +127,11 @@ $(document).ready(function() {
         }
         render(tree);
       });
+    });
+    $('#add-question').on('click', function(e) {
+      e.preventDefault();
+      tree[index].answers.push({ answerTitle: '' });
+      render(tree);
     });
   }
 
