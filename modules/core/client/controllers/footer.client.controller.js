@@ -1,4 +1,3 @@
-
 'use strict';
 
 angular.module('core').controller('FooterController', ['$scope', 'Authentication',

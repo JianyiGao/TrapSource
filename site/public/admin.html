@@ -1,45 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Trap Source</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/admin.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <title>Trap Source</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="css/toastr.css">
+
 </head>
+
 <body>
 
-	<div id="wrap" class="page-wrap">
-		<header>
-			<a href="index"><img id="logo" src="images/logo.png" alt="Trap Source Logo"></a>
-			<nav>
-				<a href="index">Home</a>
-				<a href="tree">Tree</a>
-				<a id="current_page" href="">Admin</a>
-				<a href="about">About</a>
-			</nav>
-			<img id="hamburger" src="images/hamburger.svg" alt="Menu">
-		</header>
-		<div id="nav_line"></div>
-		<div id="header_title">
-			<h1>Admin Page</h1>
-			<p>Here you can change the JSON file the renders the decision Tree</p>
-		</div>
+  <div id="wrap" class="page-wrap">
+    <header>
+      <a href="index">
+        <img id="logo" src="images/logo.png" alt="Trap Source Logo">
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tree.html">Tree</a>
+        <a id="current_page" href="">Admin</a>
+        <a href="about.html">About</a>
+      </nav>
+      <img id="hamburger" src="images/hamburger.svg" alt="Menu">
+    </header>
+    <div id="nav_line"></div>
+    <div id="header_title">
+      <h1>Admin Page</h1>
 
-	<div id="jsoneditor""></div>
-	<div id="submit_button" class="noselect">Submit</div>
+    </div>
+    <!--
+  <div id="jsoneditor""></div>
+  <div id="submit_button" class="noselect">Submit</div>
+    -->
 
-	</div>
-		<div id="footer_line"></div>
-	<footer  class="site-footer">
-		<p>Copyright &copy; 2017 Trap Source</p>
-		<p id="developed_by">Developed with &#9829; by team 6A </p>
-	</footer>
+
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-1 ">
+        <div class="row">
+
+          <div class="col-xs-6 text-center">
+            <img id="up_reg" src="images/up_arrow.svg" alt="up_depressed">
+          </div>
+
+          <div class="col-xs-6 text-center">
+            <img id="down_reg" src="images/down_arrow.svg" alt="down_depressed">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="well">
+            <ul id="sidepanel" class="nav nav-pills nav-stacked">
+              <li class="active text-center">
+                <a data-toggle="pill" href="#needs-validatoin">Question 1</a>
+              </li>
+              <li id="addForm">
+                <button class="btn btn-primary btn-block" type="submit" id="addFormBtn">Add Form</button>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 well tab-content">
+        <form id="needs-validation" class="tab-pane fade in active" novalidate>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="Title"> Title </label>
+              <input type="text" class="form-control frm-submit" id="Title" placeholder="Title" required/>
+              <div class="invalid-feedback">
+                Please provide a valid Title.
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="Description"> Description </label>
+              <textarea class="form-control frm-submit" rows=3 id="Description" placeholder="Description" required></textarea>
+              <div class="invalid-feedback">
+                Please provide a valid Description.
+              </div>
+            </div>
+          </div>
+          <div id="container">
+
+            <div class="row">
+              <div class="col-sm-11 col-xs-10 form-group">
+                <label for="Answer"> Answer </label>
+                <input type="text" class="form-control" id="Answer" placeholder="Answer" required/>
+
+                <div class="invalid-feedback">
+                  Please provide a valid Answer.
+                </div>
+              </div>
+              <div class="col-sm-1 col-xs-2 form-group">
+                <label for "check" class="text-right"> Path </label>
+                <input type="checkbox" class="form-control" id="check" />
+
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-11 col-xs-10 form-group">
+                <label for="Answer"> Answer </label>
+                <input type="text" class="form-control" id="Answer" placeholder="Answer" required/>
+
+                <div class="invalid-feedback">
+                  Please provide a valid Answer.
+                </div>
+              </div>
+              <div class="col-sm-1 col-xs-2 form-group">
+                <label for "check" class="text-right"> Path </label>
+                <input type="checkbox" class="form-control" id="check" />
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="Resources"> Resource </label>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-11">
+                    <textarea class="form-control" rows=3 id="Resources" placeholder="Resource" required></textarea>
+                    <div class="invalid-feedback">Please provide a valid Resource.</div>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10 input-group-button">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                      <span style="font-size:1.5em;" class="glyphicon glyphicon-plus"></span> Add Resource</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-10 input-group-button">
+            <button id="add-question" class="btn btn-primary btn-lg" type="submit">
+              <span style="color: #ffffff !important;" class="glyphicon glyphicon-plus"></span> Add Question</button>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 col-xs-7"></div>
+            <div class="col-sm-4 col-xs-5 input-group-button">
+              <button id="frm-save" class="btn btn-primary">Save form</button>
+              <button class="btn btn-primary">Upload form</button>
+            </div>
+        </form>
+        <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+              var form = document.getElementById('needs-validation');
+              form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            }, false);
+          })();
+        </script>
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <div id="footer_line"></div>
+  <footer class="site-footer">
+    <p>Copyright &copy; 2017 Trap Source</p>
+    <p id="developed_by">Developed with &#9829; by team 6A </p>
+  </footer>
 
 </body>
+
 </html>
-<script src="js/jsoneditor.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIQQbQkegzVvTF4mh7zMqoBsD4x1HmUCw",
+    authDomain: "trapsource-c3482.firebaseapp.com",
+    databaseURL: "https://trapsource-c3482.firebaseio.com",
+    projectId: "trapsource-c3482",
+    storageBucket: "trapsource-c3482.appspot.com",
+    messagingSenderId: "1054890812044"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/toastr.min.js"></script>
 <script src="js/admin.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
