@@ -1,22 +1,49 @@
 // rules: all question titles must be unique, there can be only one answer leading to a new question
 
-$(document).ready(function() {
+$(document).ready(function () {
 	var database = firebase.database();
 	database.ref('tree').on("value", render)
 
-	$.getJSON("data.json", function(d) {
+	$.getJSON("data.json", function (d) {
 		renderClosure(d);
 	});
 
 	function render(snapshot) {
 		var tree = snapshot.val();
-		//console.log(tree);
-		for(var i in tree)
-		{
-			 var title = tree[i].questionTitle;
-			 var paragraph = tree[i].questionParagraph;
+		console.log(tree);
+		var i = 0;
+		while (i < tree.length) {
+			var $question = $("#question");
+			var $h2 = $question.find("h2");
+			var $p = $question.find("p");
+			var $buttons = $question.find("#buttons");
+
+			$h2.text(tree[i].questionTitle);
+			$p.text(tree[i].questionParagraph);
+			var props = [];
+
+			for (var j = 0; j < tree[i].answers.length; j++) {
+				props.push(tree[i].answers[j]);
+			}
+			console.log(props);
+			$buttons.empty();
+			for (var l = 0; l < props.length; l++) {
+				button =
+					"<div class='answer_button noselect'>" +
+					props[l].answerTitle +
+					"</div>";
+				$button = $(button);
+				$buttons.append($button);
+			}
+			for (var k = 0; k < props.length; k++) {
+				if (!props[k].nextBool) i++;
+			}
+			// if(!tree[i].answers.nextBool){
+			// 	i++;
+			// }
 		}
 	}
+});
 
 // 	function renderClosure(d) {
 // 		function renderResources(resource) {
