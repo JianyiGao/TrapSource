@@ -92,7 +92,8 @@ $('#register-btn').on('click', function(e) {
   var email = $('#email-register').val();
   var password = $('#password-register').val();
   var passwordRep = $('#password-register-rep').val();
-  if (password === passwordRep) {
+
+  if (password === passwordRep && validateEmail(email)) {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -102,7 +103,10 @@ $('#register-btn').on('click', function(e) {
         console.log(errorMessage);
         shakeModalRegister();
       });
-  } else {
+  } else if (!validateEmail(email)) {
+      shakeModalEmail();
+  }
+  else {
     shakeModalPass();
   }
 });
@@ -183,6 +187,22 @@ function shakeModalRegister() {
   $('.error')
     .addClass('alert alert-danger')
     .html('There was an error. This account may already be registered.');
+  $('input[type="password"]').val('');
+  setTimeout(function() {
+    $('#loginModal .modal-dialog').removeClass('shake');
+  }, 1000);
+}
+
+function validateEmail(email) {
+  var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+  return re.test(email);
+}
+
+function shakeModalEmail() {
+  $('#loginModal .modal-dialog').addClass('shake');
+  $('.error')
+    .addClass('alert alert-danger')
+    .html('You entered an invalid email.');
   $('input[type="password"]').val('');
   setTimeout(function() {
     $('#loginModal .modal-dialog').removeClass('shake');
