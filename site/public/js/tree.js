@@ -180,7 +180,7 @@ $(document).ready(function () {
 				if (props[l].nextBool == false) {
 					$button.on("click", render)
 				} 
-				
+
 				//if answer has resources, run renderResources function and pop ups
 				else {
 					$button.on("click", renderResources.bind(null, props[l]))
@@ -189,7 +189,7 @@ $(document).ready(function () {
 				//add buttons for each answer
 				$buttons.append($button);
 			}
-
+			
 			//create breadCrumbs trail
 			renderBreadCrumbs(tree[i].questionTitle);
 		}
