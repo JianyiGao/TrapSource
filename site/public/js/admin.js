@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // check if user is login
+  // check if user is login display the admin page if it is, or don't give permission if user isn't admin
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;
@@ -8,18 +8,20 @@ $(document).ready(function() {
       } else {
         name = u.email.substr(0, u.email.indexOf('@'));
       }
+
+      // edit header to have user name and admin if admin is logged in
       $('#login-head')
         .text(name)
         .css('font-weight', 'bold');
       if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
         $('#nav-head').append(
-          '<a class="current_page" id=\'admin-head\' href=\'admin.html\'>Admin</a>'
+          "<a class=\"current_page\" id='admin-head' href='admin.html'>Admin</a>"
         );
       } else {
-        $('body').html('You don\'t have permission to access this');
+        $('body').html("You don't have permission to access this");
       }
     } else {
-      $('body').html('You don\'t have permission to access this');
+      $('body').html("You don't have permission to access this");
     }
   });
 
@@ -31,8 +33,9 @@ $(document).ready(function() {
   var container = $('#container');
   var title = $('#Title');
   var description = $('#Description');
-
+  // render function to render admin page
   function render(tree) {
+    // removes any binding made by jquery on old elements
     $('.rm-li').each(function() {
       $(this).unbind();
     });
@@ -40,49 +43,56 @@ $(document).ready(function() {
     var resourceAnswers = [];
     var question = tree[index];
     container.html('');
+    // append the title and containers that will appear in every quetion
     container.append(
-      '<div class=\'row\'><div class=\'col-md-12 form-group\'><label for=\'Title\'> Title </label><input value="' +
+      "<div class='row'><div class='col-md-12 form-group'><label for='Title'> Title </label><input value=\"" +
         question.questionTitle +
-        '"type=\'text\' class=\'form-control frm-submit\' id=\'Title\' placeholder=\'Title\' required/><div class=\'invalid-feedback\'>Please fill in this section.</div>      </div>    </div>    <div class=\'row\'>      <div class=\'col-md-12 form-group\'>        <label for=\'Description\'> Description </label>        <textarea class=\'form-control frm-submit\' rows=3 id=\'Description\' placeholder=\'Description\' required>' +
+        "\"type='text' class='form-control frm-submit' id='Title' placeholder='Title' required/><div class='invalid-feedback'>Please fill in this section.</div>      </div>    </div>    <div class='row'>      <div class='col-md-12 form-group'>        <label for='Description'> Description </label>        <textarea class='form-control frm-submit' rows=3 id='Description' placeholder='Description' required>" +
         question.questionParagraph +
-        '</textarea>        <div class=\'invalid-feedback\'>          Please fill in this section.        </div>      </div>    </div>'
+        "</textarea>        <div class='invalid-feedback'>          Please fill in this section.        </div>      </div>    </div>"
     );
+    // render questions out
     for (var i = 0; i < question.answers.length; i++) {
       var answer = question.answers[i];
+      // if answer is a path question
       if (!answer.nextBool) {
         container.append(
-          '<div class="row"><div class=\'col-sm-11 col-xs-10 form-group\'> <label for=\'Answer\'> Answer </label> <input value="' +
+          "<div class=\"row\"><div class='col-sm-11 col-xs-10 form-group'> <label for='Answer'> Answer </label> <input value=\"" +
             answer.answerTitle +
-            '" type=\'text\' class=\'form-control frm-submit\' id=\'Answer\' placeholder=\'Answer\' required/> <div class=\'invalid-feedback\'> Please fill in this section. </div> </div> <div class=\'col-sm-1 col-xs-2 form-group\'> <label for \'check\' class=\'text-right\'> Path </label> <input checked type=\'checkbox\' class=\'form-control frm-check\' id=\'check\' /> </div></div>'
+            "\" type='text' class='form-control frm-submit' id='Answer' placeholder='Answer' required/> <div class='invalid-feedback'> Please fill in this section. </div> </div> <div class='col-sm-1 col-xs-2 form-group'> <label for 'check' class='text-right'> Path </label> <input checked type='checkbox' class='form-control frm-check' id='check' /> </div></div>"
         );
       } else {
+        // render resources if the question isn't path
         var resources = '';
         resourceAnswers.push(i);
         for (var j = 0; j < answer.resourceLinks.length; j++) {
           resources +=
-            '<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Link Name </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Link Name </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceLinks[j].linkName +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Name\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>			  </div>	<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Link </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "' class='form-control frm-submit resource' rows=3 id='Resource-Name' placeholder='Resource' required></input>				<div  style='margin-bottom:0.5rem' class='invalid-feedback'>Please fill in this section.</div>			  </div>	<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Link </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceLinks[j].url +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-URL\' placeholder=\'Resource\' required></input>				<div git class=\'invalid-feedback\'>Please fill in this section.</div><div class="div-line"></div></div>';
+            "' class='form-control frm-submit resource' rows=3 id='Resource-URL' placeholder='Resource' required></input>				<div git class='invalid-feedback'>Please fill in this section.</div><div class=\"div-line\"></div></div>";
         }
+        // add extra elements after resources
         container.append(
-          ' <div class=\'row\'>		  <div class=\'col-sm-11 col-xs-10 form-group\'>			<label for=\'Answer\'> Answer </label>			<input value="' +
+          " <div class='row'>		  <div class='col-sm-11 col-xs-10 form-group'>			<label for='Answer'> Answer </label>			<input value=\"" +
             answer.answerTitle +
-            '" type=\'text\' class=\'form-control frm-submit\' id=\'Answer\' placeholder=\'to\' required/>			<div class=\'invalid-feedback\'>			  Please fill in this section.			</div>		  </div>		  <div class=\'col-sm-1 col-xs-2 form-group\'>			<label for \'check\' class=\'text-right\'> Path </label>			<input type=\'checkbox\' class=\'form-control frm-check\' id=\'check\' />		  </div>		</div>		<div class=\'row\'>		  <div class=\'col-md-12 form-group\'>						<div class=\'row\'>		<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Title </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "\" type='text' class='form-control frm-submit' id='Answer' placeholder='to' required/>			<div class='invalid-feedback'>			  Please fill in this section.			</div>		  </div>		  <div class='col-sm-1 col-xs-2 form-group'>			<label for 'check' class='text-right'> Path </label>			<input type='checkbox' class='form-control frm-check' id='check' />		  </div>		</div>		<div class='row'>		  <div class='col-md-12 form-group'>						<div class='row'>		<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Box Title </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceTitle +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Title\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>			  </div> <label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Description </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<textarea  class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Paragraph\' placeholder=\'Resource\' required>' +
+            "' class='form-control frm-submit resource' rows=3 id='Resource-Title' placeholder='Resource' required></input>				<div  style='margin-bottom:0.5rem' class='invalid-feedback'>Please fill in this section.</div>			  </div> <label class='col-md-11 col-md-offset-1' for='Resources'> Resource Box Description </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<textarea  class='form-control frm-submit resource' rows=3 id='Resource-Paragraph' placeholder='Resource' required>" +
             answer.resourceParagraph +
             '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-bottom: 0.5rem; display: block">Links</b></div>' +
             resources +
-            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>	<button class=\'btn btn-danger btn-md frm-btn-rm\'>				   Remove Answer</button>				<button class=\'btn btn-primary btn-md frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
+            "			  </div>			  <div class='col-md-1'></div>			  <div class='col-md-10 input-group-button'>	<button class='btn btn-danger btn-md frm-btn-rm'>				   Remove Answer</button>				<button class='btn btn-primary btn-md frm-btn'>				  <span  style=\"color: #ffffff !important;\" style='font-size:1.5em;' class='glyphicon glyphicon-plus'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>"
         );
       }
     }
+    // add the add question button
     container.append(
-      '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
+      "<div class='div-line'></div>            <div class='col-md-10 input-group-button'>              <button id='add-question' class='btn btn-primary btn-lg'>                <span style='color: #ffffff !important;' class='glyphicon glyphicon-plus'></span> Add Answer</button>            </div>"
     );
 
+    // check if any of the values are empty, return false if they are and highlight them.
     function checkEmpty() {
       var inputs = $('.frm-submit');
       var validInputs = true;
@@ -104,11 +114,13 @@ $(document).ready(function() {
       });
       return validInputs;
     }
-
+    // save changes made by the user to local tree. Not uploaded to database yet
     function save() {
       var answerCount = 0;
       var resourceCount = 0;
       var inputs = $('.frm-submit');
+
+      // big logic statments that bases the render on the type of input.
       $.each(inputs, function(key, input) {
         $input = $(input);
         if (key === 0) {
@@ -146,7 +158,7 @@ $(document).ready(function() {
         }
       });
     }
-
+    // the botton handlers for add resource, add a new resource when clicked
     var buttons = $('.frm-btn');
     $.each(buttons, function(key, button) {
       save();
@@ -162,27 +174,31 @@ $(document).ready(function() {
       });
     });
 
+    // handles the remove buttons, removes a question when clicked
     var buttons = $('.frm-btn-rm');
     $.each(buttons, function(key, button) {
       save();
       $button = $(button);
       $button.on('click', function(e) {
         e.preventDefault();
-        tree[index].answers.splice(resourceAnswers[key], 1);
+        tree[index].answers.splice(<resourceAnswers key="" />, 1);
         render(tree);
       });
     });
 
+    // handles any changes to checkboxes and changes the question's resources accoringly
     var checkboxs = $('.frm-check');
     $.each(checkboxs, function(key, check) {
       $check = $(check);
       $check.change(function() {
         save();
+        // if checked then make it a path file and remove the resources
         if ($(this).is(':checked')) {
           tree[index].answers[key].nextBool = false;
           tree[index].answers[key].resourceLinks = undefined;
           tree[index].answers[key].resourceParagraph = undefined;
           tree[index].answers[key].resourceTitle = undefined;
+          // if not, add resources
         } else {
           tree[index].answers[key].nextBool = true;
           tree[index].answers[key].resourceLinks = [
@@ -194,10 +210,12 @@ $(document).ready(function() {
           tree[index].answers[key].resourceParagraph = '';
           tree[index].answers[key].resourceTitle = '';
         }
-
+        // render tree after changes are made
         render(tree);
       });
     });
+
+    // add question button handler
     $('#add-question').on('click', function(e) {
       save();
       e.preventDefault();
@@ -205,18 +223,21 @@ $(document).ready(function() {
 
       render(tree);
     });
+
+    // renders side panel by itterating through tree and appending qustions to sidepanel
     var sidepanel = $('#sidepanel');
     sidepanel.empty();
     for (var ind = 0; ind < tree.length; ind++) {
       sidepanel.append(
-        '<li class=\'active text-center frm-question\'><a data-toggle=\'pill\' href=\'#needs-validatoin\'>' +
+        "<li class='active text-center frm-question'><a data-toggle='pill' href='#needs-validatoin'>" +
           tree[ind].questionTitle +
           '</a></li>'
       );
     }
     sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-success btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
+      "<li id='addForm'><button class='btn btn-primary btn-block' id='addFormBtn'>Add Question</button></li>"
     );
+    // handles a click on a question on the sidepanel
     var questions = $('.frm-question');
     $(questions.get(index)).addClass('current-question');
     $.each(questions, function(key, question) {
@@ -230,7 +251,7 @@ $(document).ready(function() {
         }
       });
     });
-
+    // add a new question to the side panel on click - handler
     $('#addForm').on('click', function() {
       save();
 
@@ -246,7 +267,7 @@ $(document).ready(function() {
       index = tree.length - 1;
       render(tree);
     });
-
+    // move question up the tree on click - handler
     $('#up-arrow').on('click', function() {
       save();
 
@@ -259,6 +280,7 @@ $(document).ready(function() {
       }
     });
 
+    // reverts form to the database on click -handler
     $('#clear-changes').on('click', function() {
       database.ref('tree').once('value', function(snapshot) {
         index = 0;
@@ -266,7 +288,7 @@ $(document).ready(function() {
         toastr.success('Changes cleared');
       });
     });
-
+    // deletes a question on click - handler
     $('#delete-question').on('click', function() {
       tree.splice(index, 1);
       if (index >= tree.length) {
@@ -275,7 +297,7 @@ $(document).ready(function() {
       render(tree);
       toastr.success('Question deleted. Clear changes to recover');
     });
-
+    // handles uploading the form to the database
     $('#upload-form').on('click', function() {
       save();
       if (checkEmpty()) {
@@ -285,7 +307,7 @@ $(document).ready(function() {
         toastr.error('Please fill in this form before continuing');
       }
     });
-
+    // moves a question down the tree on click -handler
     $('#down-arrow').on('click', function() {
       save();
 
@@ -298,6 +320,7 @@ $(document).ready(function() {
       }
     });
   }
+  // gets tree from the database and renders it out when ready
   database.ref('tree').on('value', function(snapshot) {
     render(snapshot.val());
   });
