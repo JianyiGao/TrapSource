@@ -170,7 +170,7 @@ function shakeModalPass() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
     .addClass('alert alert-danger')
-    .html('Password is not repeated correctly');
+    .html('Confirmed password does not match password');
   $('input[type="password"]').val('');
   setTimeout(function() {
     $('#loginModal .modal-dialog').removeClass('shake');
