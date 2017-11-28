@@ -62,16 +62,24 @@ $(document).ready(function () {
 		
 		//create breadCrumbs array
 		var breadCrumbs = [];
+
+		//utility function for creating breadCrumbs
 		function renderBreadCrumbsUtil(breadCrumbs) {
+			//jquery stuff
 			$breadCrumbs = $("#bread_crumbs");
 			$breadCrumbs.empty();
 			//console.log(breadCrumbs);
+			//populate HTML with breadCrumbs
 			for (var i = 0; i < breadCrumbs.length; i++) {
 				var link =
 					"<div class='bread_crumb'>" +
 					breadCrumbs[i] +
 					"</div>";
 				var $link = $(link);
+				//breadCrumbs on click creates a function that find 
+				//the index of questionTitle in tree
+				//then pass the index of the question to render function
+				//to display on screen
 				$link.on("click", function(){
 					var bread = $(this).text();
 					//console.log(bread);
@@ -85,6 +93,7 @@ $(document).ready(function () {
 					//console.log(index);
 					render(index, true);
 				});
+				//append additional breadCrumbs to HTML
 				$breadCrumbs.append($link);
 				$breadCrumbs.append(
 					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
