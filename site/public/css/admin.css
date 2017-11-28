@@ -32,7 +32,19 @@
 .error {
     visibility: visible;
     color: #ff6363;
+}
+
+#clear-changes {
+    margin-left: 1rem;
+}
+
+.error-input {
     border-color: #ff6363;
+}
+
+#upload-form {
+    float: right;
+    margin-right: 1rem;
 }
 
 .invalid-feedback.error {
