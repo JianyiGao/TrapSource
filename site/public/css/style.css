@@ -23,6 +23,10 @@ header {
     margin-left: 2%;
 }
 
+.toast-message {
+  color: #ffffff !important;
+}
+
 nav {
     display: none;
 }
@@ -95,7 +99,7 @@ nav {
     background: #ffffff;
     color: #3D3D3D;
 }
-    
+
 
 #sign_in,
 #sign_out {
