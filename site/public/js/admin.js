@@ -181,7 +181,7 @@ $(document).ready(function() {
       $button = $(button);
       $button.on('click', function(e) {
         e.preventDefault();
-        tree[index].answers.splice(<resourceAnswers key="" />, 1);
+        tree[index].answers.splice(resourceAnswers[key], 1);
         render(tree);
       });
     });
@@ -320,7 +320,7 @@ $(document).ready(function() {
       }
     });
   }
-  // gets tree from the database and renders it out when ready
+  // gets tree from the database and renders it out when
   database.ref('tree').on('value', function(snapshot) {
     render(snapshot.val());
   });
