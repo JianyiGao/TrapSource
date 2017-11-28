@@ -48,47 +48,32 @@ $(document).ready(function () {
 	function closure(snapshot) {
 		var tree = snapshot.val();
 		console.log(tree);
+		var breadCrumbs = [];
 		function renderBreadCrumbsUtil(breadCrumbs) {
 			$breadCrumbs = $("#bread_crumbs");
 			$breadCrumbs.empty();
+			//console.log(breadCrumbs);
 			for (var i = 0; i < breadCrumbs.length; i++) {
 				var link =
 					"<div class='bread_crumb'>" +
-					breadCrumbs[i].questionTitle +
+					breadCrumbs[i] +
 					"</div>";
 				var $link = $(link);
-	
-				$link.on("click", render.bind(null, breadCrumbs[i]));
+				$link.on("click", function(){});
 				$breadCrumbs.append($link);
 				$breadCrumbs.append(
 					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
 				);
 			}
 		}
-		function renderBreadCrumbs(questionTitle, index) {
-			var breadCrumbs = [];
-			var itter = index;
-			while (true) {
-				if (tree[itter].questionTitle == questionTitle) {
-					breadCrumbs.push(tree[itter]);
-					break;
-				} else {
-					breadCrumbs.push(tree[itter]);
-					for (answer in tree[itter].answers) {
-						var a = answer;
-						if (tree[itter].answers[answer].question != null) {
-							tree[itter] = tree[itter].answers[answer].question;
-							break;
-						}
-					}
-				}
-			}
+		function renderBreadCrumbs(questionTitle) {
+			breadCrumbs.push(questionTitle);
 			renderBreadCrumbsUtil(breadCrumbs);
 		}
 		var i = -1;
 		function render() {
 			i++;
-			console.log(i);
+			//console.log(i);
 			var $question = $("#question");
 			var $h2 = $question.find("h2");
 			var $p = $question.find("p");
@@ -101,11 +86,11 @@ $(document).ready(function () {
 			for (var j = 0; j < tree[i].answers.length; j++) {
 				props.push(tree[i].answers[j]);
 			}
-			console.log(props);
+			//console.log(props);
 			$buttons.empty();
 			//debugger;
 			for (var l = 0; l < props.length; l++) {
-				console.log(props[l]);
+				//console.log(props[l]);
 				button =
 					"<div class='answer_button noselect'>" +
 					tree[i].answers[l].answerTitle +
@@ -118,7 +103,7 @@ $(document).ready(function () {
 				}
 				$buttons.append($button);
 			}
-			renderBreadCrumbs(tree[i].questionTitle, i);
+			renderBreadCrumbs(tree[i].questionTitle);
 		}
 		render();
 	}
