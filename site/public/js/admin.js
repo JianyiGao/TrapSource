@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var database = firebase.database();
 
- 
   var user;
   var index = 0;
 
@@ -227,12 +226,20 @@ $(document).ready(function() {
       }
     });
 
-    $("#clear-changes").on("click", function() {
+    $('#clear-changes').on('click', function() {
       database.ref('tree').once('value', function(snapshot) {
         render(snapshot.val());
-        toastr.success("Changes cleared")
+        toastr.success('Changes cleared');
       });
-    })
+    });
+
+    $('#delete-question').on('click', function() {
+      tree.splice(index, 1);
+      render(tree);
+      toastr.success('Question deleted. Clear changes to recover');
+    });
+
+    $('#upload-form').on;
 
     $('#down-arrow').on('click', function() {
       save();
