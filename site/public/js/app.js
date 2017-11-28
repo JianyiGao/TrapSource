@@ -1,49 +1,39 @@
 (function() {
-  //initialize firebase
-  var config = {
-    apiKey: "AIzaSyDIQQbQkegzVvTF4mh7zMqoBsD4x1HmUCw",
-    authDomain: "trapsource-c3482.firebaseapp.com",
-    databaseURL: "https://trapsource-c3482.firebaseio.com",
-    projectId: "trapsource-c3482",
-    storageBucket: "trapsource-c3482.appspot.com",
-    messagingSenderId: "1054890812044"
-  };
-  firebase.initializeApp(config);
+  var provider = new firebase.auth.GoogleAuthProvider();
+  var auth = firebase.auth();
 
   //get elements
-  const txtEmail = document.getElementById('email');
-  const txtPass = document.getElementById('password');
-  const btnLogin = document.getElementById('btnLogin');
-  const btnLogout = document.getElementById('btnLogout');
-  const btnSignup = document.getElementById('btnSignup');
+  var txtEmail = document.getElementById('email');
+  var txtPass = document.getElementById('password');
+  var btnLogin = document.getElementById('btnLogin');
+  var btnLogout = document.getElementById('btnLogout');
+  var btnSignup = document.getElementById('btnSignup');
 
   btnLogin.addEventListener('click', e => {
-    const email = txtEmail.value;
-    const pass = txtPass.value;
-    const auth = firebase.auth();
+    var email = txtEmail.value;
+    var pass = txtPass.value;
 
     //sign in
-    const promise = auth.signInWithEmailAndPassword(email, pass);
+    var promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
   });
 
-  btnLogout.addEventListener('click', e=>{
+  btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
   });
 
-  btnSignup.addEventListener('click', e=>{
-    const email = txtEmail.value;
-    const pass = txtPass.value;
-    const auth = firebase.auth();
+  btnSignup.addEventListener('click', e => {
+    var email = txtEmail.value;
+    var pass = txtPass.value;
+    var auth = firebase.auth();
 
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise
-      .catch(e=>console.log(e.message));
+    var promise = auth.createUserWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
   });
 
   // add a real time listen
   firebase.auth().onAuthStateChanged(firebaseUser => {
-    if(firebaseUser) {
+    if (firebaseUser) {
       console.log(firebaseUser);
       btnLogout.classList.remove('hide');
     } else {
@@ -51,5 +41,4 @@
       btnLogout.classList.add('hide');
     }
   });
-
 });

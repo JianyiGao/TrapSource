@@ -19,7 +19,7 @@ describe('User CRUD tests', function () {
 
   before(function (done) {
     // Get application
-    app = express.init(mongoose);
+    app = express.init(mongoose.connection.db);
     agent = request.agent(app);
 
     done();
@@ -96,7 +96,7 @@ describe('User CRUD tests', function () {
             }
 
             signoutRes.redirect.should.equal(true);
-
+            ///////differnt from master. semver.satisfies in if statement
             // NodeJS v4 changed the status code representation so we must check
             // before asserting, to be comptabile with all node versions.
             if (process.version.indexOf('v4') === 0) {
