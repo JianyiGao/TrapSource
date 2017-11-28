@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "tree" : [
   {
     "answers": [
@@ -1520,3 +1521,379 @@
     "questionTitle": "Business Insurance"
   }
 ] }
+=======
+[ {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba research and competitive analysis",
+      "url" : "https://www.sba.gov/business-guide/plan/market-research-competitive-analysis"
+    }, {
+      "linkName" : "sba local assistance",
+      "url" : "https://www.sba.gov/tools/local-assistance?from_mobile=true"
+    }, {
+      "linkName" : "sba analyze your business ",
+      "url" : "https://www.sba.gov/tools/sizeup?from_mobile=true"
+    } ],
+    "resourceParagraph" : "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+    "resourceTitle" : "Market research and competitive analysis"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba research and competitive analysis",
+      "url" : "https://www.sba.gov/business-guide/plan/market-research-competitive-analysis"
+    }, {
+      "linkName" : "sba local assistance",
+      "url" : "https://www.sba.gov/tools/local-assistance?from_mobile=true"
+    }, {
+      "linkName" : "sba analyze your business ",
+      "url" : "https://www.sba.gov/tools/sizeup?from_mobile=true"
+    } ],
+    "resourceParagraph" : "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+    "resourceTitle" : "Market research and competitive analysis"
+  } ],
+  "questionParagraph" : "Do you know what type of business you want to start?",
+  "questionTitle" : "Start a Business!"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba research and competitive analysis",
+      "url" : "https://www.sba.gov/business-guide/plan/market-research-competitive-analysis"
+    }, {
+      "linkName" : "sba local assistance",
+      "url" : "https://www.sba.gov/tools/local-assistance?from_mobile=true"
+    }, {
+      "linkName" : "sba analyze your business ",
+      "url" : "https://www.sba.gov/tools/sizeup?from_mobile=true"
+    } ],
+    "resourceParagraph" : "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+    "resourceTitle" : "Market research and competitive analysis"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba research and competitive analysis",
+      "url" : "https://www.sba.gov/business-guide/plan/market-research-competitive-analysis"
+    }, {
+      "linkName" : "sba local assistance",
+      "url" : "https://www.sba.gov/tools/local-assistance?from_mobile=true"
+    }, {
+      "linkName" : "sba analyze your business ",
+      "url" : "https://www.sba.gov/tools/sizeup?from_mobile=true"
+    } ],
+    "resourceParagraph" : "Market research helps you find customers for your business. Competitive analysis helps you make your business unique. Combine them to find a competitive advantage for your small business. These resources from the SBA will help you to: Use market research to find customers, Use competitive analysis to find a market advantage, Free small business data and trends.",
+    "resourceTitle" : "Market research and competitive analysis"
+  } ],
+  "questionParagraph" : "Do you know the market and competition for your business?",
+  "questionTitle" : "Market and Competition"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business plan guide",
+      "url" : "\"https://www.sba.gov/business-guide/plan/write-your-business-plan-template"
+    }, {
+      "linkName" : "sba business plan build ",
+      "url" : "https://strategyzer.com/canvas/business-model-canvas"
+    }, {
+      "linkName" : "strategyzer",
+      "url" : "https://www.sba.gov/tools/business-plan/1?from_mobile=true"
+    }, {
+      "linkName" : "sba consulting",
+      "url" : "https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20We%20Can%20Do%20It%20Consulting.doc"
+    }, {
+      "linkName" : "sba company",
+      "url" : "https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20Wooden%20Grain%20Toy%20Company.doc"
+    } ],
+    "resourceParagraph" : "Your business plan is the foundation of your business. Learn how to write a business plan quickly and efficiently with a business plan template. These resources from the SBA will help you learn how: Business plans help you run your business, Pick a business plan format that works for you. ",
+    "resourceTitle" : "Create a business plan"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business plan guide",
+      "url" : "\"https://www.sba.gov/business-guide/plan/write-your-business-plan-template"
+    }, {
+      "linkName" : "sba business plan build ",
+      "url" : "https://strategyzer.com/canvas/business-model-canvas"
+    }, {
+      "linkName" : "strategyzer",
+      "url" : "https://www.sba.gov/tools/business-plan/1?from_mobile=true"
+    }, {
+      "linkName" : "sba consulting",
+      "url" : "https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20We%20Can%20Do%20It%20Consulting.doc"
+    }, {
+      "linkName" : "sba company",
+      "url" : "https://www.sba.gov/sites/default/files/2017-09/Sample%20Business%20Plan%20-%20Wooden%20Grain%20Toy%20Company.doc"
+    } ],
+    "resourceParagraph" : "Your business plan is the foundation of your business. Learn how to write a business plan quickly and efficiently with a business plan template. These resources from the SBA will help you learn how: Business plans help you run your business, Pick a business plan format that works for you. ",
+    "resourceTitle" : "Create a business plan"
+  } ],
+  "questionParagraph" : " Do you have a business plan?",
+  "questionTitle" : "Business Plan"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba startup costs",
+      "url" : "https://www.sba.gov/business-guide/plan/calculate-startup-costs-small-business"
+    } ],
+    "resourceParagraph" : "How much money will it take to start your small business? Calculate the startup costs for your small business so you can request funding, attract investors, and estimate when you�ll turn a profit. These resources from the SBA will help:",
+    "resourceTitle" : "Calculate Startup costs"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba startup costs",
+      "url" : "https://www.sba.gov/business-guide/plan/calculate-startup-costs-small-business"
+    } ],
+    "resourceParagraph" : "How much money will it take to start your small business? Calculate the startup costs for your small business so you can request funding, attract investors, and estimate when you�ll turn a profit. These resources from the SBA will help:",
+    "resourceTitle" : "Calculate Startup costs"
+  } ],
+  "questionParagraph" : "Do you know your startup costs?",
+  "questionTitle" : "Startup Costs"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba fund your business",
+      "url" : "https://www.sba.gov/business-guide/plan/fund-your-business"
+    } ],
+    "resourceParagraph" : "It costs money to start a business. Funding your business is one of the first � and most important � financial choices most business owners make. How you choose to fund your business could affect how you structure and run your business. These resources from the SBA will help: ",
+    "resourceTitle" : "Fund your business"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba fund your business",
+      "url" : "https://www.sba.gov/business-guide/plan/fund-your-business"
+    } ],
+    "resourceParagraph" : "It costs money to start a business. Funding your business is one of the first � and most important � financial choices most business owners make. How you choose to fund your business could affect how you structure and run your business. These resources from the SBA will help: ",
+    "resourceTitle" : "Fund your business"
+  } ],
+  "questionParagraph" : "Do you know how you will fund your business?",
+  "questionTitle" : "Business Funding"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba buy existing franchise or business",
+      "url" : "https://www.sba.gov/business-guide/plan/buy-existing-business-franchise"
+    } ],
+    "resourceParagraph" : "It can be hard to start a business from scratch. Starting a business from scratch can be challenging. The good news? You don�t have to start from scratch to have your own business. Consider franchising or buying an existing business. This resource from the SBA will help you learn about buying an existing business or franchise. ",
+    "resourceTitle" : "Buy an existing business or franchise"
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba buy existing franchise or business",
+      "url" : "https://www.sba.gov/business-guide/plan/buy-existing-business-franchise"
+    } ],
+    "resourceParagraph" : "It can be hard to start a business from scratch. Starting a business from scratch can be challenging. The good news? You don�t have to start from scratch to have your own business. Consider franchising or buying an existing business. This resource from the SBA will help you learn about buying an existing business or franchise. ",
+    "resourceTitle" : "Buy an existing business or franchise"
+  } ],
+  "questionParagraph" : "If you don't want to start a business from scratch do you want to buy an existing business or franchise?",
+  "questionTitle" : "Buy business or franchise"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba pick location",
+      "url" : ""
+    } ],
+    "resourceParagraph" : "Your business location determines the taxes, zoning laws, and regulations your business will be subject to. You'll need to make a strategic decision about which state, city, and neighborhood you choose to start your business in. This resource from the SBA will help: Research the best place to locate your business ",
+    "resourceTitle" : "Choose your business location"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba pick location",
+      "url" : ""
+    } ],
+    "resourceParagraph" : "Your business location determines the taxes, zoning laws, and regulations your business will be subject to. You'll need to make a strategic decision about which state, city, and neighborhood you choose to start your business in. This resource from the SBA will help: Research the best place to locate your business ",
+    "resourceTitle" : "Choose your business location"
+  } ],
+  "questionParagraph" : "Do you know where will your business be located?",
+  "questionTitle" : "Business location"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba pick name",
+      "url" : "https://www.sba.gov/business-guide/launch/choose-your-business-name-register"
+    } ],
+    "resourceParagraph" : "You can find the right business name with creativity and market research. Once you�ve picked your name, you should protect it by registering it with the right agencies. This resource from the SBA will help you: Register your business name to protect it",
+    "resourceTitle" : "Choose your business name"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba pick name",
+      "url" : "https://www.sba.gov/business-guide/launch/choose-your-business-name-register"
+    } ],
+    "resourceParagraph" : "You can find the right business name with creativity and market research. Once you�ve picked your name, you should protect it by registering it with the right agencies. This resource from the SBA will help you: Register your business name to protect it",
+    "resourceTitle" : "Choose your business name"
+  } ],
+  "questionParagraph" : "Do you have a business name?",
+  "questionTitle" : "Business name"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba register business",
+      "url" : "https://www.sba.gov/business-guide/launch/register-your-business-federal-state-agency"
+    } ],
+    "resourceParagraph" : "Register your business to make it a distinct legal entity. How and where you need to register depends on your business structure and business location. This resource from the SBA will help you: ",
+    "resourceTitle" : "Register your business"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba register business",
+      "url" : "https://www.sba.gov/business-guide/launch/register-your-business-federal-state-agency"
+    } ],
+    "resourceParagraph" : "Register your business to make it a distinct legal entity. How and where you need to register depends on your business structure and business location. This resource from the SBA will help you: ",
+    "resourceTitle" : "Register your business"
+  } ],
+  "questionParagraph" : "Have you registered your business?",
+  "questionTitle" : "Business Registration"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba tax info",
+      "url" : "https://www.sba.gov/business-guide/launch/get-federal-state-tax-id-number-ein"
+    } ],
+    "resourceParagraph" : "Your Employer Identification Number (EIN) is your federal tax ID. You need it to pay federal taxes, hire employees, open a bank account, and apply for business licenses and permits. It's free to apply for an EIN, and you should do it right after you register your business.",
+    "resourceTitle" : "Get Federal and State Tax Id numbers"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba tax info",
+      "url" : "https://www.sba.gov/business-guide/launch/get-federal-state-tax-id-number-ein"
+    } ],
+    "resourceParagraph" : "Your Employer Identification Number (EIN) is your federal tax ID. You need it to pay federal taxes, hire employees, open a bank account, and apply for business licenses and permits. It's free to apply for an EIN, and you should do it right after you register your business.",
+    "resourceTitle" : "Get Federal and State Tax Id numbers"
+  } ],
+  "questionParagraph" : "Do you have federal and state tax Id numbers?",
+  "questionTitle" : "Federal and State tax ID's"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba licenses and permits",
+      "url" : "https://www.sba.gov/business-guide/launch/apply-for-licenses-permits-federal-state"
+    } ],
+    "resourceParagraph" : "Most small businesses need a combination of licenses and permits from both federal and state agencies. The requirements � and fees � vary based on your business activities, location, and government rules.",
+    "resourceTitle" : "Apply for licenses and permits"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba licenses and permits",
+      "url" : "https://www.sba.gov/business-guide/launch/apply-for-licenses-permits-federal-state"
+    } ],
+    "resourceParagraph" : "Most small businesses need a combination of licenses and permits from both federal and state agencies. The requirements � and fees � vary based on your business activities, location, and government rules.",
+    "resourceTitle" : "Apply for licenses and permits"
+  } ],
+  "questionParagraph" : "Have you applied for licenses and permits?",
+  "questionTitle" : "Licenses and Permits"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business bank account",
+      "url" : "https://www.sba.gov/business-guide/launch/open-business-bank-account-fees-benefits"
+    } ],
+    "resourceParagraph" : "Open a business account when you're ready to start accepting or spending money as your business. A business bank account helps you stay legally compliant and protected. It also provides benefits to your customers and employees.",
+    "resourceTitle" : "Open a business bank account"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business bank account",
+      "url" : "https://www.sba.gov/business-guide/launch/open-business-bank-account-fees-benefits"
+    } ],
+    "resourceParagraph" : "Open a business account when you're ready to start accepting or spending money as your business. A business bank account helps you stay legally compliant and protected. It also provides benefits to your customers and employees.",
+    "resourceTitle" : "Open a business bank account"
+  } ],
+  "questionParagraph" : "Do you have a business bank account?",
+  "questionTitle" : "Bank Account"
+}, {
+  "answers" : [ {
+    "answerTitle" : "yes",
+    "nextBool" : false
+  }, {
+    "answerTitle" : "no",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business insurance",
+      "url" : "https://www.sba.gov/business-guide/launch/get-business-insurance-assets-liability"
+    } ],
+    "resourceParagraph" : "Business insurance protects you from the unexpected costs of running a business. Accidents, natural disasters, and lawsuits could run you out of business if you�re not protected with the right insurance.",
+    "resourceTitle" : "Get Business Insurance"
+  }, {
+    "answerTitle" : "unsure",
+    "nextBool" : true,
+    "resourceLinks" : [ {
+      "linkName" : "sba business insurance",
+      "url" : "https://www.sba.gov/business-guide/launch/get-business-insurance-assets-liability"
+    } ],
+    "resourceParagraph" : "Business insurance protects you from the unexpected costs of running a business. Accidents, natural disasters, and lawsuits could run you out of business if you�re not protected with the right insurance.",
+    "resourceTitle" : "Get Business Insurance"
+  } ],
+  "questionParagraph" : "Do you have business insurance?",
+  "questionTitle" : "Business Insurance"
+} ]
+>>>>>>> origin/Sprint3_Tree

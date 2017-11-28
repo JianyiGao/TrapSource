@@ -32,7 +32,7 @@
 			<div id="bread_crumbs"></div>
 			<div id="question">
 				<div style="height: 2rem"></div>
-				<h2>Loading...</h2>
+				<h2>Loading</h2>
 				<div style="height: 2rem"></div>
 				<p>Loading</p>
 				<div style="height: 4rem"></div>
@@ -50,5 +50,18 @@
 
 </html>
 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyDIQQbQkegzVvTF4mh7zMqoBsD4x1HmUCw",
+		authDomain: "trapsource-c3482.firebaseapp.com",
+		databaseURL: "https://trapsource-c3482.firebaseio.com",
+		projectId: "trapsource-c3482",
+		storageBucket: "trapsource-c3482.appspot.com",
+		messagingSenderId: "1054890812044"
+	};
+	firebase.initializeApp(config);
+</script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/tree.js"></script>
