@@ -70,12 +70,14 @@ $(document).ready(function () {
 			$breadCrumbs.empty();
 			//console.log(breadCrumbs);
 			//populate HTML with breadCrumbs
+			console.log(breadCrumbs.length);
 			for (var i = 0; i < breadCrumbs.length; i++) {
 				var link =
 					"<div class='bread_crumb'>" +
 					breadCrumbs[i] +
 					"</div>";
 				var $link = $(link);
+
 				//breadCrumbs on click creates a function that find 
 				//the index of questionTitle in tree
 				//then pass the index of the question to render function
