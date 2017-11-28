@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
@@ -18,16 +19,15 @@
 			<a href="tree">Tree</a>
 			<a href="admin">Admin</a>
 			<a href="about">About</a>
-			<a id="current_page" href="login">Login</a>
-			<a href="signup">Sign Up</a>
+			<a id="current_page" href="login">Log In</a>
 		</nav>
 
+<!--
     <div ng-controller="AuthenticationController">
-  <h3 class="col-md-12 text-center">Or with your account</h3>
+  <h3 class="col-md-12 text-center">Sign in with your account or create an account</h3>
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
-        <!--
         <div class="form-group" show-errors>
           <label for="username">Username</label>
           <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
@@ -35,7 +35,6 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
-      -->
       <div class="form-group" show-errors>
         <label for="email">Email</label>
         <input type="text" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
@@ -50,11 +49,14 @@
             <p class="help-block error-text" ng-message="required">Password is required.</p>
           </div>
         </div>
+
         <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" id="btnLogin" class="btn btn-action">Sign in</button>
           &nbsp; or&nbsp;
-          <a ui-sref="authentication.signup">Sign up</a>
+          <button id="btnSignup" class="btn btn-secondary">Sign up</button>
+          <button id="btnLogout" class="btn btn-action hide">Log out</button>
         </div>
+
         <div class="text-center forgot-password">
           <a ui-sref="password.forgot">Forgot your password?</a>
         </div>
@@ -63,6 +65,22 @@
         </alert>
       </fieldset>
     </form>
+  -->
+  <h2 align="center">Sign in or create an account</h2>
+  <h4 align="center">or sign in with your Google account</h4>
+<form>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Enter Password">
+  </div>
+  <button id="btnLogin" class="btn btn-action">Log in</button>
+  <button id="btnSignup" class="btn btn-secondary">Sign up</button>
+  <button id="btnLogout" class="btn btn-action hide">Log out</button>
+</form>
   </div>
 </div>
 
@@ -87,6 +105,7 @@
   };
   firebase.initializeApp(config);
 </script>
+<script src="app.js"></script>
 
 </body>
 </html>
