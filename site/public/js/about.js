@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
-  window.qtest.render = render;
-  window.qtest.admin = admin;
-  window.qtest.regular = regular;
+ 
 
 
 
