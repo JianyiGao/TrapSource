@@ -21,8 +21,8 @@ $(document).ready(function adminWrapper() {
     adminOn = false;
     console.log('switching to regular');
     var index = snapshot.val();
-    $('#body').replaceWith(
-      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a><a href="login.html">Log In</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\'>' +
+    $('#containerInject').replaceWith(
+      '<div id="containerInject"><div id=\'jumbotron\'> <h1 id=\'jmbTitle\'>' +
         index.jmbTitle +
         '</h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\'>' +
         index.jmbDescription +
@@ -38,7 +38,7 @@ $(document).ready(function adminWrapper() {
         index.mainTitle3 +
         '</h2> </div> <div id=\'mainPar3\'>' +
         index.mainPar3 +
-        '</div> </article class=\'text_column\'> </div> <div id=\'footer_line\'></div> <footer> <p>Copyright © 2017 Trap Source</p> <p id=\'developed_by\'>Developed with ♥ by team 6A </p> </footer> </div >'
+        '</div> </article class=\'text_column\'></div> '
     );
 
     $('#sign_in').on('click', function signInHandler() {
@@ -65,8 +65,8 @@ $(document).ready(function adminWrapper() {
     }
     console.log('switching to admin');
     var index = snapshot.val();
-    $('#body').replaceWith(
-      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a><a href="login.html">Log In</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
+    $('#containerInject').replaceWith(
+      '<div id="containerInject"> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
         index.jmbTitle +
         ' </h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\' contenteditable=\'true\'>' +
         index.jmbDescription +
@@ -82,7 +82,7 @@ $(document).ready(function adminWrapper() {
         index.mainTitle3 +
         '</h2> </div> <div id=\'mainPar3\' contenteditable=\'true\'>' +
         index.mainPar3 +
-        '</div> </article class=\'text_column\'> </div> <div class=\'row\'> <div class=\'col-xs-12 text-center\'> <a id=\'submit_changes\'>Save Changes</a> </div> </div> <div id=\'footer_line\'></div> <footer> <p>Copyright © 2017 Trap Source</p> <p id=\'developed_by\'>Developed with ♥ by team 6A </p> </footer> </div>'
+        '</div> </article class=\'text_column\'> </div> <div class=\'row\'> <div class=\'col-xs-12 text-center\'> <a id=\'submit_changes\'>Save Changes</a> </div> </div> </div>'
     );
     $('#submit_changes').on('click', function indexSubmitHandler() {
       var jmbTitle = $('#jmbTitle').html();
@@ -137,6 +137,20 @@ $(document).ready(function adminWrapper() {
   }
 
   firebase.auth().onAuthStateChanged(function(u) {
+    if (u) {
+      var name;
+      if (u.displayName) {
+        name = u.displayName;
+      } else {
+        name = u.email.substr(0, u.email.indexOf('@'));
+      }
+      $('#login-head')
+        .text(name)
+        .css('font-weight', 'bold');
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
+      }
+    }
     user = u;
     render();
   });
