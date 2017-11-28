@@ -299,6 +299,10 @@ html {
     color: #ffffff;
 }
 
+#google_login {
+    cursor: pointer;
+}
+
 .big-register {
     background-color: transparent;
     color: #00bbff;

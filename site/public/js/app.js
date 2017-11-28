@@ -2,14 +2,29 @@ $(document).ready(function() {
   openLoginModal();
 });
 
-/*
- *
- * login-register modal
- * Autor: Creative Tim
- * Web-autor: creative.tim
- * Web script: http://creative-tim.com
- * 
- */
+$('#google_login').on('click', function() {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(function(result) {
+      var token = result.credential.accessToken;
+      user = result.user;
+      console.log(user);
+      hideLoginModal();
+    })
+    .catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log('error loging in', errorCode, errorMessage);
+    });
+});
+
+$('#email-login').on('click', function(e) {
+  e.preventDefault();
+  console.log('click');
+});
+
 function showRegisterForm() {
   $('.loginBox').fadeOut('fast', function() {
     $('.registerBox').fadeIn('fast');
@@ -34,6 +49,12 @@ function showLoginForm() {
   $('.error')
     .removeClass('alert alert-danger')
     .html('');
+}
+
+function hideLoginModal() {
+  setTimeout(function() {
+    $('#loginModal').modal('hide');
+  }, 230);
 }
 
 function openLoginModal() {
