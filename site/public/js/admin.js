@@ -62,18 +62,15 @@ $(document).ready(function() {
     function checkEmpty() {
       var inputs = $('.frm-submit');
       var validInputs = true;
-      console.log(inputs);
       $.each(inputs, function(key, input) {
         $input = $(input);
         if ($input.val() === '') {
-          console.log('empty input', input);
           var prev = $input.prev();
           var next = $input.next();
           prev.addClass('error');
           next.addClass('error');
           $input.addClass('error-input');
           $input.change(function() {
-            console.log('change');
             prev.removeClass('error');
             next.removeClass('error');
             $(this).removeClass('error-input');
@@ -239,7 +236,15 @@ $(document).ready(function() {
       toastr.success('Question deleted. Clear changes to recover');
     });
 
-    $('#upload-form').on;
+    $('#upload-form').on('click', function() {
+      save();
+      if (checkEmpty()) {
+        database.ref('tree').set(tree);
+        toastr.success('Changes uploaded successfully');
+      } else {
+        toastr.error('Please fill in this form before continuing');
+      }
+    });
 
     $('#down-arrow').on('click', function() {
       save();
