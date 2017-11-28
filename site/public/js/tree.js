@@ -49,34 +49,37 @@ $(document).ready(function () {
 		var tree = snapshot.val();
 		console.log(tree);
 		var i = 0;
-		var $question = $("#question");
-		var $h2 = $question.find("h2");
-		var $p = $question.find("p");
-		var $buttons = $question.find("#buttons");
+		while (i < tree.length) {
+			var $question = $("#question");
+			var $h2 = $question.find("h2");
+			var $p = $question.find("p");
+			var $buttons = $question.find("#buttons");
 
-		$h2.text(tree[i].questionTitle);
-		$p.text(tree[i].questionParagraph);
-		var props = [];
+			$h2.text(tree[i].questionTitle);
+			$p.text(tree[i].questionParagraph);
+			var props = [];
 
-		for (var j = 0; j < tree[i].answers.length; j++) {
-			props.push(tree[i].answers[j]);
-		}
-		console.log(props);
-		$buttons.empty();
-		//debugger;
-		for (var l = 0; l < props.length; l++) {
-			console.log(props[l]);
-			button =
-				"<div class='answer_button noselect'>" +
-				tree[i].answers[l].answerTitle +
-				"</div>";
-			$button = $(button);
-			if (props[l].nextBool == false) {
-				$buttons.on("click", render())
-			} else {
-				$button.on("click", renderResources.bind(null, props[l]))
+			for (var j = 0; j < tree[i].answers.length; j++) {
+				props.push(tree[i].answers[j]);
 			}
-			$buttons.append($button);
+			console.log(props);
+			$buttons.empty();
+			//debugger;
+			for (var l = 0; l < props.length; l++) {
+				console.log(props[l]);
+				button =
+					"<div class='answer_button noselect'>" +
+					tree[i].answers[l].answerTitle +
+					"</div>";
+				$button = $(button);
+				if (props[l].nextBool == false) {
+					$buttons.on("click", function () { i++; })
+				} else {
+					$button.on("click", renderResources.bind(null, props[l]))
+				}
+				$buttons.append($button);
+			}
+			i++;
 		}
 	}
 });
