@@ -51,6 +51,7 @@ $(document).ready(function () {
 		var i = -1;
 		function render(){
 			i++;
+			console.log(i);
 			var $question = $("#question");
 			var $h2 = $question.find("h2");
 			var $p = $question.find("p");
@@ -74,7 +75,7 @@ $(document).ready(function () {
 					"</div>";
 				$button = $(button);
 				if (props[l].nextBool == false) {
-					$buttons.on("click", render)
+					$button.on("click", render)
 				} else {
 					$button.on("click", renderResources.bind(null, props[l]))
 				}
