@@ -4,6 +4,8 @@ $(document).ready(function() {
   var snapshot;
   var adminOn = false;
   toastr.options.closeButton = true;
+
+  // render function that renders the about whether in admin or in regular user
   function render() {
     if (snapshot && user && user.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
       admin(snapshot);
@@ -11,11 +13,12 @@ $(document).ready(function() {
       regular(snapshot);
     }
   }
-
+  // get the values for this page from the database
   database.ref('about').on('value', function(s) {
     snapshot = s;
     render();
   });
+  // if a user logins change the header
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;
@@ -35,6 +38,7 @@ $(document).ready(function() {
     render();
   });
 
+  // render the regular version of this page
   function regular(snapshot) {
     adminOn = false;
     about = snapshot.val();
@@ -49,6 +53,7 @@ $(document).ready(function() {
     );
   }
 
+  // render the admin version of about
   function admin(snapshot) {
     if (adminOn === false) {
       adminOn = true;
