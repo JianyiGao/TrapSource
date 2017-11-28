@@ -10,7 +10,10 @@ $(document).ready(function() {
     }
   });
 
+  //snapshot is now global
   var snapshot;
+
+  //user priviledges
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;
@@ -39,8 +42,9 @@ $(document).ready(function() {
     }
   });
 
+  //advanced tree render
   function advanced() {
-    console.log('Advance');
+    //console.log('Advance');
     container = $('#container');
     container.empty();
     tree = snapshot.val();
