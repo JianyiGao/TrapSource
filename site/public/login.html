@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/toastr.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
@@ -62,7 +63,7 @@
                 </div>
                 <div class="error"></div>
                 <div class="form loginBox">
-                  <form type="post" accept-charset="UTF-8">
+                  <form accept-charset="UTF-8">
                     <input id="email-login" class="form-control" type="text" placeholder="Email" name="email">
                     <input id="password-login" class="form-control" type="password" placeholder="Password" name="password">
                     <input id="login-btn" class="btn btn-default btn-login" type="button" value="Login">
@@ -73,11 +74,11 @@
             <div class="box">
               <div class="content registerBox" style="display:none;">
                 <div class="form">
-                  <form type="post">
-                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                    <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                    <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                  <form>
+                    <input id="email-register" class="form-control" type="text" placeholder="Email" name="email">
+                    <input id="password-register" class="form-control" type="password" placeholder="Password" name="password">
+                    <input id="password-register-rep" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                    <input id="register-btn" class="btn btn-default btn-register" type="button" value="Create account" name="commit">
                   </form>
                 </div>
               </div>
@@ -125,5 +126,6 @@
 </script>
 
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/toastr.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/app.js"></script>

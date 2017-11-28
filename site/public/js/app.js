@@ -1,5 +1,8 @@
-$(document).ready(function() {
-  openLoginModal();
+firebase.auth().onAuthStateChanged(function(u) {
+  hideLoginModal();
+  if (u) {
+    toastr.success('login successful');
+  }
 });
 
 $('#google_login').on('click', function() {
@@ -11,7 +14,6 @@ $('#google_login').on('click', function() {
       var token = result.credential.accessToken;
       user = result.user;
       console.log(user);
-      hideLoginModal();
     })
     .catch(function(error) {
       var errorCode = error.code;
@@ -22,7 +24,6 @@ $('#google_login').on('click', function() {
 
 $('#login-btn').on('click', function(e) {
   e.preventDefault();
-  console.log('click');
   var email = $('#email-login').val();
   var password = $('#password-login').val();
   firebase
@@ -34,6 +35,27 @@ $('#login-btn').on('click', function(e) {
       console.log(errorMessage);
       shakeModal();
     });
+});
+
+$('#register-btn').on('click', function(e) {
+  e.preventDefault();
+  console.log('click');
+  var email = $('#email-register').val();
+  var password = $('#password-register').val();
+  var passwordRep = $('#password-register-rep').val();
+  if (password === passwordRep) {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+        shakeModalRegister();
+      });
+  } else {
+    shakeModalPass();
+  }
 });
 
 function showRegisterForm() {
@@ -90,6 +112,28 @@ function shakeModal() {
   $('.error')
     .addClass('alert alert-danger')
     .html('Invalid email/password combination');
+  $('input[type="password"]').val('');
+  setTimeout(function() {
+    $('#loginModal .modal-dialog').removeClass('shake');
+  }, 1000);
+}
+
+function shakeModalPass() {
+  $('#loginModal .modal-dialog').addClass('shake');
+  $('.error')
+    .addClass('alert alert-danger')
+    .html('Password is not repeated correctly');
+  $('input[type="password"]').val('');
+  setTimeout(function() {
+    $('#loginModal .modal-dialog').removeClass('shake');
+  }, 1000);
+}
+
+function shakeModalRegister() {
+  $('#loginModal .modal-dialog').addClass('shake');
+  $('.error')
+    .addClass('alert alert-danger')
+    .html('There was an error. This account may already be registered.');
   $('input[type="password"]').val('');
   setTimeout(function() {
     $('#loginModal .modal-dialog').removeClass('shake');
