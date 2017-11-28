@@ -1,16 +1,6 @@
 html {
     font-size: 100% !important;
 }
-
-/*
- *
- * login-register modal
- * Autor: Creative Tim
- * Web-autor: creative.tim
- * Web script: http://creative-tim.com
- * 
- */
-/*  Shake animation  */
 .animated {
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
