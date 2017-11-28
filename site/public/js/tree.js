@@ -93,6 +93,7 @@ $(document).ready(function () {
 							break;
 						}
 					}
+					
 					//popping all breadCrumbs up to current
 					//allow browser to delete redundent stuff
 					var popVal = breadCrumbs.length - index;
