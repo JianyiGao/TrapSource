@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 	var database = firebase.database();
-	database.ref('tree').on("value", render)
+	database.ref('tree').on("value", closure)
 
 	$.getJSON("data.json", function (d) {
 		renderClosure(d);
@@ -45,11 +45,12 @@ $(document).ready(function () {
 		$popup.find("#close_btn").on("click", removePopup);
 		$("body").append($popup);
 	}
-	function render(snapshot) {
+	function closure(snapshot){
 		var tree = snapshot.val();
 		console.log(tree);
-		var i = 0;
-		while (i < tree.length) {
+		var i = -1;
+		function render(){
+			i++;
 			var $question = $("#question");
 			var $h2 = $question.find("h2");
 			var $p = $question.find("p");
@@ -57,8 +58,8 @@ $(document).ready(function () {
 
 			$h2.text(tree[i].questionTitle);
 			$p.text(tree[i].questionParagraph);
-			var props = [];
 
+			var props = [];
 			for (var j = 0; j < tree[i].answers.length; j++) {
 				props.push(tree[i].answers[j]);
 			}
@@ -73,14 +74,14 @@ $(document).ready(function () {
 					"</div>";
 				$button = $(button);
 				if (props[l].nextBool == false) {
-					$buttons.on("click", function () { i++; })
+					$buttons.on("click", render)
 				} else {
 					$button.on("click", renderResources.bind(null, props[l]))
 				}
 				$buttons.append($button);
 			}
-			i++;
 		}
+		render();
 	}
 });
 
