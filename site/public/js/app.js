@@ -12,6 +12,20 @@ $(document).ready(function() {
       $('#login-head')
         .text(name)
         .css('font-weight', 'bold');
+      var img;
+      if (u.photoURL) {
+        img = u.photoURL;
+      } else {
+        img = 'images/default-user.png';
+      }
+      $('#user-buttons').empty();
+      $('#user-profile').append(
+        '<img src="' +
+          img +
+          '"><p id=\'user-name\'>' +
+          name +
+          '</p><a id="sign-out" class="btn btn-default">Sign out</a>'
+      );
       toastr.success('login successful');
     }
   });

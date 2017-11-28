@@ -299,10 +299,6 @@ html {
     color: #ffffff;
 }
 
-#google_login {
-    cursor: pointer;
-}
-
 .big-register {
     background-color: transparent;
     color: #00bbff;
@@ -312,4 +308,33 @@ html {
 .big-register:hover {
     border-color: #00a4e4;
     color: #00a4e4;
+}
+
+#google_login {
+    cursor: pointer;
+}
+
+#user-profile {
+    width: 8rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#user-profile img {
+    border-radius: 100%;
+    border: 2px solid #00a4e4;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
+    box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
+}
+
+#user-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: -100%;
+    margin-right: -100%;
+    text-align: center;
+    margin-top: 0.5rem;
 }
