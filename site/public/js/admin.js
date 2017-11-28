@@ -215,7 +215,7 @@ $(document).ready(function() {
       );
     }
     sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-primary btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
+      '<li id=\'addForm\'><button class=\'btn btn-success btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
     );
     var questions = $('.frm-question');
     $(questions.get(index)).addClass('current-question');
