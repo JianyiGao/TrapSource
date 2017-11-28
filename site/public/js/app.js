@@ -18,14 +18,30 @@ $(document).ready(function() {
       } else {
         img = 'images/default-user.png';
       }
-      $('#user-buttons').empty();
-      $('#user-profile').append(
+      var userButtons = $('#user-buttons');
+      userButtons.empty();
+      var userProfile = $('#user-profile');
+      userProfile.append(
         '<img src="' +
           img +
           '"><p id=\'user-name\'>' +
           name +
           '</p><a id="sign-out" class="btn btn-default">Sign out</a>'
       );
+      $('#sign-out').on('click', function() {
+        firebase
+          .auth()
+          .signOut()
+          .then(function() {
+            userProfile.empty();
+            userButtons.append(
+              '<a class=\'btn big-login\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openLoginModal();\'>Log in</a><a class=\'btn big-register\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openRegisterModal();\'>Register</a>'
+            );
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      });
       toastr.success('login successful');
     }
   });

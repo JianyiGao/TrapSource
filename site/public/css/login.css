@@ -360,3 +360,7 @@ body {
 .footer:after {
     clear:both;
 }
+
+header a {
+    color: #3d3d3d;
+}
