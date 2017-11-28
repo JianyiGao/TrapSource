@@ -232,6 +232,9 @@ $(document).ready(function() {
 
     $('#delete-question').on('click', function() {
       tree.splice(index, 1);
+      if (index >= tree.length) {
+        index = tree.length - 1;
+      }
       render(tree);
       toastr.success('Question deleted. Clear changes to recover');
     });
