@@ -70,10 +70,10 @@ $(document).ready(function () {
 			$breadCrumbs.empty();
 			//console.log(breadCrumbs);
 			//populate HTML with breadCrumbs
-			console.log(breadCrumbs.length);
+			//console.log(breadCrumbs);
 			for (var i = 0; i < breadCrumbs.length; i++) {
 				var link =
-					"<div class='bread_crumb'>" +
+					"<div class='bread_crumb'id = " + i + ">" +
 					breadCrumbs[i] +
 					"</div>";
 				var $link = $(link);
@@ -84,6 +84,7 @@ $(document).ready(function () {
 				//to display on screen
 				$link.on("click", function(){
 					var bread = $(this).text();
+					// console.log($(this).attr("id"));
 					//console.log(bread);
 					var index =0
 					for(var o = 0; o < tree.length; o++){
@@ -91,6 +92,15 @@ $(document).ready(function () {
 							index = o;
 							break;
 						}
+					}
+					//popping all breadCrumbs up to current
+					//allow browser to delete redundent stuff
+					var popVal = breadCrumbs.length - index;
+					// console.log(breadCrumbs.length);
+					// console.log(index);
+					// console.log(popVal);
+					for(var m = 0; m < popVal; m++){
+						breadCrumbs.pop();
 					}
 					//console.log(index);
 					render(index, true);
