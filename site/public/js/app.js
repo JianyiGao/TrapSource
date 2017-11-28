@@ -19,6 +19,9 @@ $(document).ready(function() {
       } else {
         img = 'images/default-user.png';
       }
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
+      }
       var userButtons = $('#user-buttons');
       userButtons.empty();
       var userProfile = $('#user-profile');
