@@ -45,11 +45,48 @@ $(document).ready(function () {
 		$popup.find("#close_btn").on("click", removePopup);
 		$("body").append($popup);
 	}
-	function closure(snapshot){
+	function closure(snapshot) {
 		var tree = snapshot.val();
 		console.log(tree);
+		function renderBreadCrumbsUtil(breadCrumbs) {
+			$breadCrumbs = $("#bread_crumbs");
+			$breadCrumbs.empty();
+			for (var i = 0; i < breadCrumbs.length; i++) {
+				var link =
+					"<div class='bread_crumb'>" +
+					breadCrumbs[i].questionTitle +
+					"</div>";
+				var $link = $(link);
+	
+				$link.on("click", render.bind(null, breadCrumbs[i]));
+				$breadCrumbs.append($link);
+				$breadCrumbs.append(
+					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
+				);
+			}
+		}
+		function renderBreadCrumbs(questionTitle, index) {
+			var breadCrumbs = [];
+			var itter = index;
+			while (true) {
+				if (tree[itter].questionTitle == questionTitle) {
+					breadCrumbs.push(tree[itter]);
+					break;
+				} else {
+					breadCrumbs.push(tree[itter]);
+					for (answer in tree[itter].answers) {
+						var a = answer;
+						if (tree[itter].answers[answer].question != null) {
+							tree[itter] = tree[itter].answers[answer].question;
+							break;
+						}
+					}
+				}
+			}
+			renderBreadCrumbsUtil(breadCrumbs);
+		}
 		var i = -1;
-		function render(){
+		function render() {
 			i++;
 			console.log(i);
 			var $question = $("#question");
@@ -81,6 +118,7 @@ $(document).ready(function () {
 				}
 				$buttons.append($button);
 			}
+			renderBreadCrumbs(tree[i].questionTitle, i);
 		}
 		render();
 	}
