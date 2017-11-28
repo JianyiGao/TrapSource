@@ -29,6 +29,16 @@
     margin-bottom: 0rem !important;
 }
 
+.error {
+    visibility: visible;
+    color: #ff6363;
+    border-color: #ff6363;
+}
+
+.invalid-feedback.error {
+    margin-bottom: 1rem !important;
+}
+
 #header_title p {
     text-align: center;
     margin-top: 0.5rem;

@@ -58,68 +58,68 @@ $(document).ready(function() {
       '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
     );
 
-    function checkEmpty(inputs) {
+    function checkEmpty() {
+      var inputs = $('.frm-submit');
+      var validInputs = true;
+      console.log(inputs);
       $.each(inputs, function(key, input) {
         $input = $(input);
         if ($input.val() === '') {
           console.log('empty input', input);
-          console.log($input.prev());
-          return false;
+          $input.prev().addClass('error');
+          $input.addClass('error');
+          $input.next().addClass('error');
+          validInputs = false;
         }
       });
-      return true;
+      return validInputs;
     }
 
     function save() {
       var answerCount = 0;
       var resourceCount = 0;
       var inputs = $('.frm-submit');
-      if (checkEmpty(inputs)) {
-        $.each(inputs, function(key, input) {
-          $input = $(input);
-          if (key === 0) {
-            tree[index].questionTitle = $input.val();
-          } else if (key === 1) {
-            tree[index].questionParagraph = $input.val();
-          } else if ($input.attr('id') === 'Answer') {
-            if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
-              tree[index].answers[answerCount].answerTitle = $input.val();
-              answerCount++;
-            } else {
-              tree[index].answers[answerCount].answerTitle = $input.val();
-            }
-          } else if ($input.attr('id') === 'Resource-Title') {
-            tree[index].answers[answerCount].resourceTitle = $input.val();
-          } else if ($input.attr('id') === 'Resource-Paragraph') {
-            tree[index].answers[answerCount].resourceParagraph = $input.val();
-          } else if ($input.attr('id') === 'Resource-Name') {
+      $.each(inputs, function(key, input) {
+        $input = $(input);
+        if (key === 0) {
+          tree[index].questionTitle = $input.val();
+        } else if (key === 1) {
+          tree[index].questionParagraph = $input.val();
+        } else if ($input.attr('id') === 'Answer') {
+          if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
+            tree[index].answers[answerCount].answerTitle = $input.val();
+            answerCount++;
+          } else {
+            tree[index].answers[answerCount].answerTitle = $input.val();
+          }
+        } else if ($input.attr('id') === 'Resource-Title') {
+          tree[index].answers[answerCount].resourceTitle = $input.val();
+        } else if ($input.attr('id') === 'Resource-Paragraph') {
+          tree[index].answers[answerCount].resourceParagraph = $input.val();
+        } else if ($input.attr('id') === 'Resource-Name') {
+          tree[index].answers[answerCount].resourceLinks[
+            resourceCount
+          ].linkName = $input.val();
+        } else if ($input.attr('id') === 'Resource-URL') {
+          if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
             tree[index].answers[answerCount].resourceLinks[
               resourceCount
-            ].linkName = $input.val();
-          } else if ($input.attr('id') === 'Resource-URL') {
-            if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
-              tree[index].answers[answerCount].resourceLinks[
-                resourceCount
-              ].url = $input.val();
-              answerCount++;
-              resourceCount = 0;
-            } else {
-              tree[index].answers[answerCount].resourceLinks[
-                resourceCount
-              ].url = $input.val();
-              resourceCount++;
-            }
+            ].url = $input.val();
+            answerCount++;
+            resourceCount = 0;
+          } else {
+            tree[index].answers[answerCount].resourceLinks[
+              resourceCount
+            ].url = $input.val();
+            resourceCount++;
           }
-        });
-      }
+        }
+      });
     }
 
-    $('#frm-save').on('click', function(e) {
-      e.preventDefault();
-      save();
-    });
     var buttons = $('.frm-btn');
     $.each(buttons, function(key, button) {
+      save();
       $button = $(button);
       $button.on('click', function(e) {
         e.preventDefault();
@@ -135,6 +135,7 @@ $(document).ready(function() {
     $.each(checkboxs, function(key, check) {
       $check = $(check);
       $check.change(function() {
+        save();
         if ($(this).is(':checked')) {
           tree[index].answers[key].nextBool = undefined;
           tree[index].answers[key].resourceLinks = undefined;
@@ -156,8 +157,10 @@ $(document).ready(function() {
       });
     });
     $('#add-question').on('click', function(e) {
+      save();
       e.preventDefault();
       tree[index].answers.push({ answerTitle: '' });
+      index = tree.length -1 ;
 
       render(tree);
     });
@@ -177,13 +180,19 @@ $(document).ready(function() {
     $(questions.get(index)).addClass('current-question');
     $.each(questions, function(key, question) {
       $(question).on('click', function() {
-        index = key;
-
-        render(tree);
+        save();
+        if (checkEmpty()) {
+          index = key;
+          render(tree);
+        } else {
+          toastr.error('Please correct this form before continuing');
+        }
       });
     });
 
     $('#addForm').on('click', function() {
+      save();
+
       tree.push({
         questionParagraph: '',
         questionTitle: 'New Question',
@@ -198,6 +207,8 @@ $(document).ready(function() {
     });
 
     $('#up-arrow').on('click', function() {
+      save();
+
       if (index !== 0) {
         var temp = tree[index - 1];
         tree[index - 1] = tree[index];
@@ -208,6 +219,8 @@ $(document).ready(function() {
     });
 
     $('#down-arrow').on('click', function() {
+      save();
+
       if (index !== tree.length - 1) {
         var temp = tree[index + 1];
         tree[index + 1] = tree[index];
