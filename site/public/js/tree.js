@@ -100,31 +100,43 @@ $(document).ready(function () {
 				);
 			}
 		}
+
+		//populate breadCrumbs array with questionTitle
 		function renderBreadCrumbs(questionTitle) {
 			breadCrumbs.push(questionTitle);
 			renderBreadCrumbsUtil(breadCrumbs);
 		}
+
+		//where the magic happens
 		var i = -1;
 		function render(index, isBreadCrumbs) {
 			i++;
+			//this is for breadCrumbs, only take in parameters if breadCrumbs is clicked
+			//stupid JS asynchronous
 			if (isBreadCrumbs == true){
 				i = index;
 			}
 			//console.log(i);
+			
+			//instantiate variables
 			var $question = $("#question");
 			var $h2 = $question.find("h2");
 			var $p = $question.find("p");
 			var $buttons = $question.find("#buttons");
 
+			//display questions and descriptions on page
 			$h2.text(tree[i].questionTitle);
 			$p.text(tree[i].questionParagraph);
 
+			//create an array for answers
 			var props = [];
 			for (var j = 0; j < tree[i].answers.length; j++) {
 				props.push(tree[i].answers[j]);
 			}
 			//console.log(props);
 			$buttons.empty();
+
+			//create buttons using answers array
 			for (var l = 0; l < props.length; l++) {
 				//console.log(props[l]);
 				button =
@@ -132,15 +144,26 @@ $(document).ready(function () {
 					tree[i].answers[l].answerTitle +
 					"</div>";
 				$button = $(button);
+				
+				//if answer leads to next question, recursively call render
+				//iterate through each questions
 				if (props[l].nextBool == false) {
 					$button.on("click", render)
-				} else {
+				} 
+				//if answer has resources, run renderResources function and pop ups
+				else {
 					$button.on("click", renderResources.bind(null, props[l]))
 				}
+
+				//add buttons for each answer
 				$buttons.append($button);
 			}
+
+			//create breadCrumbs trail
 			renderBreadCrumbs(tree[i].questionTitle);
 		}
+
+		//first time calling function to start at question 0
 		render();
 	}
 });
