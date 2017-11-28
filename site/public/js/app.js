@@ -1,8 +1,20 @@
-firebase.auth().onAuthStateChanged(function(u) {
-  hideLoginModal();
-  if (u) {
-    toastr.success('login successful');
-  }
+$(document).ready(function() {
+  firebase.auth().onAuthStateChanged(function(u) {
+    hideLoginModal();
+    if (u) {
+      console.log(u);
+      var name;
+      if (u.displayName) {
+        name = u.displayName;
+      } else {
+        name = u.email.substr(0, u.email.indexOf('@'));
+      }
+      $('#login-head')
+        .text(name)
+        .css('font-weight', 'bold');
+      toastr.success('login successful');
+    }
+  });
 });
 
 $('#google_login').on('click', function() {
