@@ -300,7 +300,6 @@ html {
     color: #00a4e4;
 }
 
-<<<<<<< HEAD
 #google_login {
     cursor: pointer;
 }
@@ -328,19 +327,20 @@ html {
     margin-right: -100%;
     text-align: center;
     margin-top: 0.5rem;
-=======
-html, body {
-  height: 100%;
-  margin: 0;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 .wrapper {
-  min-height: 100%;
+    min-height: 100%;
 
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -70px;
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -70px;
 }
-.footer, .push {
-  height: 70px;
->>>>>>> c20d6b746b1c679f5a67c81013cd4f175194a57b
+.footer,
+.push {
+    height: 70px;
 }
