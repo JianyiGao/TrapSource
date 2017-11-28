@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;
@@ -74,7 +75,7 @@ $(document).ready(function() {
             answer.resourceParagraph +
             '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-bottom: 0.5rem; display: block">Links</b></div>' +
             resources +
-            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>				<button class=\'btn btn-primary btn-md frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
+            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>	<button class=\'btn btn-danger btn-md frm-btn-rm\'>				   Remove Answer</button>				<button class=\'btn btn-primary btn-md frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
         );
       }
     }
@@ -160,13 +161,25 @@ $(document).ready(function() {
         render(tree);
       });
     });
+
+    var buttons = $('.frm-btn-rm');
+    $.each(buttons, function(key, button) {
+      save();
+      $button = $(button);
+      $button.on('click', function(e) {
+        e.preventDefault();
+        tree[index].answers.splice(resourceAnswers[key], 1);
+        render(tree);
+      });
+    });
+
     var checkboxs = $('.frm-check');
     $.each(checkboxs, function(key, check) {
       $check = $(check);
       $check.change(function() {
         save();
         if ($(this).is(':checked')) {
-          tree[index].answers[key].nextBool = undefined;
+          tree[index].answers[key].nextBool = false;
           tree[index].answers[key].resourceLinks = undefined;
           tree[index].answers[key].resourceParagraph = undefined;
           tree[index].answers[key].resourceTitle = undefined;

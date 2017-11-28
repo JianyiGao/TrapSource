@@ -59,6 +59,7 @@ $(document).ready(function() {
       adminOn = true;
     }
     about = snapshot.val();
+    // replace the wrapper for the page with the contents of admin page, including the a save changes button
     $('#aboutWrapper').replaceWith(
       '<div id="aboutWrapper"> <div id=\'about\'> <h1 contenteditable="true" id=\'abtTitle\'>' +
         about.abtTitle +
@@ -68,6 +69,7 @@ $(document).ready(function() {
         about.abtPar +
         '</div> </div> <div class="text-center"> <a id="submit_changes">Save Changes</a></div>'
     );
+    //  submit changes on click handler for admin mode
     $('#submit_changes').on('click', function() {
       database.ref('about').set({
         abtTitle: $('#abtTitle').html(),
