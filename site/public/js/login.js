@@ -54,11 +54,12 @@ $(document).ready(function() {
   });
 });
 
-$('#google_login').on('click', function() {
+/* callback function for Google authentication login */
+$('#google_login').on('click', function() { //called when google button is clicked
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase
     .auth()
-    .signInWithPopup(provider)
+    .signInWithPopup(provider) // Google popup
     .then(function(result) {
       var token = result.credential.accessToken;
       user = result.user;
@@ -71,13 +72,14 @@ $('#google_login').on('click', function() {
     });
 });
 
-$('#login-btn').on('click', function(e) {
+/* callback function for login with email and password */
+$('#login-btn').on('click', function(e) { //called when login button is clicked
   e.preventDefault();
-  var email = $('#email-login').val();
-  var password = $('#password-login').val();
+  var email = $('#email-login').val(); // get email from html form
+  var password = $('#password-login').val(); // get password from html form
   firebase
     .auth()
-    .signInWithEmailAndPassword(email, password)
+    .signInWithEmailAndPassword(email, password) // call sign in function
     .catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -86,7 +88,8 @@ $('#login-btn').on('click', function(e) {
     });
 });
 
-$('#register-btn').on('click', function(e) {
+/* callback function to register as new user */
+$('#register-btn').on('click', function(e) { //called when register button is clicked
   e.preventDefault();
   console.log('click');
   var email = $('#email-register').val();
