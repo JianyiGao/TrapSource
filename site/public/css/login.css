@@ -183,16 +183,16 @@ html {
 .login .social .circle .fa {
     font-size: 16px;
 }
-
+/*
 .login .social .facebook {
     background-color: #455ca8;
     color: #ffffff;
 }
-
+*/
 .login .social .google {
     background-color: #f74933;
 }
-
+/*
 .login .social .github {
     background-color: #403a3a;
 }
@@ -200,15 +200,15 @@ html {
 .login .facebook:hover {
     background-color: #6e83cd;
 }
-
+*/
 .login .google:hover {
     background-color: #ff7566;
 }
-
+/*
 .login .github:hover {
     background-color: #4d4d4d;
 }
-
+*/
 .login .forgot {
     color: #797979;
     margin-left: 0;
@@ -302,4 +302,19 @@ html {
 .big-register:hover {
     border-color: #00a4e4;
     color: #00a4e4;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -70px;
+}
+.footer, .push {
+  height: 70px;
 }

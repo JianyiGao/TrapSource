@@ -198,7 +198,7 @@ footer p {
         color: #00c6ff;
     }
 
-    #current_page {
+    .current_page {
         padding-bottom: 0.1rem;
         border-bottom: 1.5px solid #00c6ff;
     }
