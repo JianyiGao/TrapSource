@@ -1,5 +1,3 @@
-// rules: all question titles must be unique, there can be only one answer leading to a new question
-
 $(document).ready(function() {
   var treeType = $('#tree-type');
   treeType.on('change', function() {
