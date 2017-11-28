@@ -1,6 +1,7 @@
 html {
     font-size: 100% !important;
 }
+
 .animated {
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
@@ -328,6 +329,7 @@ html {
     text-align: center;
     margin-top: 0.5rem;
 }
+/*
 html,
 body {
     height: 100%;
@@ -338,9 +340,23 @@ body {
 
     /* Equal to height of footer */
     /* But also accounting for potential margin-bottom of last child */
-    margin-bottom: -70px;
+    /*
+    margin-bottom: -80px;
 }
 .footer,
 .push {
-    height: 70px;
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    left:0;
+}*/
+.footer:before,
+.footer:after {
+    content:"";
+    display:table;
+    line-height:0;
+}
+.footer:after {
+    clear:both;
 }
