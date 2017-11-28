@@ -10,16 +10,10 @@
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
   <script src="https://code.jquery.com/qunit/qunit-2.4.1.js"></script>
-  <script src="../js/about.js"></script>
-  <script>
-    QUnit.test("admin or regular user", function(render){
-      var userid = 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1';
-      render.equal(userid, 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1', "this is an admin user");
-      render.equal(userid, 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1', "this is a regular user");
-    });
-  </script>
-  <script src="about.admin.test.js"></script>
+  <script src="about.test.js"></script>
+
   <script src="index.test.js"></script>
-  <script src="index.admin.test.js"></script>
+  <script src="admin.test.js"></script>
+  <script src="tree.test.js"></script>
 </body>
 </html>
