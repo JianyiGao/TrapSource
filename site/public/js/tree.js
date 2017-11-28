@@ -1,200 +1,209 @@
 // rules: all question titles must be unique, there can be only one answer leading to a new question
 
-$(document).ready(function () {
-	
-	//load tree json from database
-	var database = firebase.database();
-	database.ref('tree').on("value", closure)
+$(document).ready(function() {
+  firebase.auth().onAuthStateChanged(function(u) {
+    if (u) {
+      var name;
+      if (u.displayName) {
+        name = u.displayName;
+      } else {
+        name = u.email.substr(0, u.email.indexOf('@'));
+      }
+      $('#login-head')
+        .text(name)
+        .css('font-weight', 'bold');
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
+      }
+    }
+  });
 
-	//get json
-	// $.getJSON("data.json", function (d) {
-	// 	renderClosure(d);
-	// });
-	
-	//displays resources as pop up
-	function renderResources(resource) {
-		var popup =
-			"<div id='popup'>" +
-			"<h2>" +
-			resource.resourceTitle +
-			"</h2>" +
-			"<p>" +
-			resource.resourceParagraph +
-			"</p><h3>Resources</h3>";
+  //load tree json from database
+  var database = firebase.database();
+  database.ref('tree').on('value', closure);
 
-		//iterates through all links and add them to HTML
-		for (var i = 0; i < resource.resourceLinks.length; i++) {
-			popup +=
-				"<a target='_blank' href='" +
-				resource.resourceLinks[i].url +
-				"'>" +
-				resource.resourceLinks[i].linkName +
-				"</a>";
-		}
+  //get json
+  // $.getJSON("data.json", function (d) {
+  // 	renderClosure(d);
+  // });
 
-		popup +=
-			"<div id='close_btn' class='close_button noselect'>Close</div></div>";
-		var $popup = $(popup);
-		var $wrapper = $("#wrap");
-		var $footerLine = $("#footer_line");
-		var $footer = $("footer");
+  //displays resources as pop up
+  function renderResources(resource) {
+    var popup =
+      '<div id=\'popup\'>' +
+      '<h2>' +
+      resource.resourceTitle +
+      '</h2>' +
+      '<p>' +
+      resource.resourceParagraph +
+      '</p><h3>Resources</h3>';
 
-		$wrapper.css({ filter: "blur(3px)" });
-		$footerLine.css({ filter: "blur(3px)" });
-		$footer.css({ filter: "blur(3px)" });
-		$popup.css({ filter: "blur(0px)" });
+    //iterates through all links and add them to HTML
+    for (var i = 0; i < resource.resourceLinks.length; i++) {
+      popup +=
+        '<a target=\'_blank\' href=\'' +
+        resource.resourceLinks[i].url +
+        '\'>' +
+        resource.resourceLinks[i].linkName +
+        '</a>';
+    }
 
-		//function for closing pop up
-		var removePopup = function () {
-			$popup.remove();
-			$footerLine.css({ filter: "blur(0px)" });
-			$footer.css({ filter: "blur(0px)" });
-			$wrapper.css({ filter: "blur(0px)" });
-		};
+    popup +=
+      '<div id=\'close_btn\' class=\'close_button noselect\'>Close</div></div>';
+    var $popup = $(popup);
+    var $wrapper = $('#wrap');
+    var $footerLine = $('#footer_line');
+    var $footer = $('footer');
 
-		$popup.find("#close_btn").on("click", removePopup);
-		$("body").append($popup);
-	}
+    $wrapper.css({ filter: 'blur(3px)' });
+    $footerLine.css({ filter: 'blur(3px)' });
+    $footer.css({ filter: 'blur(3px)' });
+    $popup.css({ filter: 'blur(0px)' });
 
-	//the beginning of everything
-	function closure(snapshot) {
+    //function for closing pop up
+    var removePopup = function() {
+      $popup.remove();
+      $footerLine.css({ filter: 'blur(0px)' });
+      $footer.css({ filter: 'blur(0px)' });
+      $wrapper.css({ filter: 'blur(0px)' });
+    };
 
-		//instantiate tree
-		var tree = snapshot.val();
-		//console.log(tree);
-		
-		//create breadCrumbs array
-		var breadCrumbs = [];
+    $popup.find('#close_btn').on('click', removePopup);
+    $('body').append($popup);
+  }
 
-		//utility function for creating breadCrumbs
-		function renderBreadCrumbsUtil(breadCrumbs) {
+  //the beginning of everything
+  function closure(snapshot) {
+    //instantiate tree
+    var tree = snapshot.val();
+    //console.log(tree);
 
-			//jquery stuff
-			$breadCrumbs = $("#bread_crumbs");
-			$breadCrumbs.empty();
+    //create breadCrumbs array
+    var breadCrumbs = [];
 
-			//console.log(breadCrumbs);
+    //utility function for creating breadCrumbs
+    function renderBreadCrumbsUtil(breadCrumbs) {
+      //jquery stuff
+      $breadCrumbs = $('#bread_crumbs');
+      $breadCrumbs.empty();
 
-			//populate HTML with breadCrumbs
-			for (var i = 0; i < breadCrumbs.length; i++) {
-				var link =
-					"<div class='bread_crumb'id = " + i + ">" +
-					breadCrumbs[i] +
-					"</div>";
-				var $link = $(link);
+      //console.log(breadCrumbs);
 
-				//breadCrumbs on click creates a function that find 
-				//the index of questionTitle in tree
-				//then pass the index of the question to render function
-				//to display on screen
-				$link.on("click", function(){
-					var bread = $(this).text();
-					// console.log($(this).attr("id"));
-					//console.log(bread);
-					var index =0
-					for(var o = 0; o < tree.length; o++){
-						if(tree[o].questionTitle == bread){
-							index = o;
-							break;
-						}
-					}
-					
-					//popping all breadCrumbs up to current
-					//allow browser to delete redundent stuff
+      //populate HTML with breadCrumbs
+      for (var i = 0; i < breadCrumbs.length; i++) {
+        var link =
+          '<div class=\'bread_crumb\'id = ' + i + '>' + breadCrumbs[i] + '</div>';
+        var $link = $(link);
 
-					var popVal = breadCrumbs.length - index;
+        //breadCrumbs on click creates a function that find
+        //the index of questionTitle in tree
+        //then pass the index of the question to render function
+        //to display on screen
+        $link.on('click', function() {
+          var bread = $(this).text();
+          // console.log($(this).attr("id"));
+          //console.log(bread);
+          var index = 0;
+          for (var o = 0; o < tree.length; o++) {
+            if (tree[o].questionTitle == bread) {
+              index = o;
+              break;
+            }
+          }
 
-					// console.log(breadCrumbs.length);
-					// console.log(index);
-					// console.log(popVal);
+          //popping all breadCrumbs up to current
+          //allow browser to delete redundent stuff
 
-					for(var m = 0; m < popVal; m++){
-						breadCrumbs.pop();
-					}
+          var popVal = breadCrumbs.length - index;
 
-					//console.log(index);
+          // console.log(breadCrumbs.length);
+          // console.log(index);
+          // console.log(popVal);
 
-					render(index, true);
-				});
+          for (var m = 0; m < popVal; m++) {
+            breadCrumbs.pop();
+          }
 
-				//append additional breadCrumbs to HTML
-				$breadCrumbs.append($link);
-				$breadCrumbs.append(
-					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
-				);
-			}
-		}
+          //console.log(index);
 
-		//populate breadCrumbs array with questionTitle
-		function renderBreadCrumbs(questionTitle) {
-			breadCrumbs.push(questionTitle);
-			renderBreadCrumbsUtil(breadCrumbs);
-		}
+          render(index, true);
+        });
 
-		//where the magic happens
-		var i = -1;
-		function render(index, isBreadCrumbs) {
-			i++;
+        //append additional breadCrumbs to HTML
+        $breadCrumbs.append($link);
+        $breadCrumbs.append(
+          $('<p style=\'display: inline-block\'> &nbsp; >> &nbsp;</p>')
+        );
+      }
+    }
 
-			//this is for breadCrumbs, only take in parameters if breadCrumbs is clicked
-			//stupid JS asynchronous
-			if (isBreadCrumbs == true){
-				i = index;
-			}
+    //populate breadCrumbs array with questionTitle
+    function renderBreadCrumbs(questionTitle) {
+      breadCrumbs.push(questionTitle);
+      renderBreadCrumbsUtil(breadCrumbs);
+    }
 
-			//console.log(i);
-			
-			//instantiate variables
-			var $question = $("#question");
-			var $h2 = $question.find("h2");
-			var $p = $question.find("p");
-			var $buttons = $question.find("#buttons");
+    //where the magic happens
+    var i = -1;
+    function render(index, isBreadCrumbs) {
+      i++;
 
-			//display questions and descriptions on page
-			$h2.text(tree[i].questionTitle);
-			$p.text(tree[i].questionParagraph);
+      //this is for breadCrumbs, only take in parameters if breadCrumbs is clicked
+      //stupid JS asynchronous
+      if (isBreadCrumbs == true) {
+        i = index;
+      }
 
-			//create an array for answers
-			var props = [];
-			for (var j = 0; j < tree[i].answers.length; j++) {
-				props.push(tree[i].answers[j]);
-			}
+      //console.log(i);
 
-			//console.log(props);
+      //instantiate variables
+      var $question = $('#question');
+      var $h2 = $question.find('h2');
+      var $p = $question.find('p');
+      var $buttons = $question.find('#buttons');
 
-			$buttons.empty();
+      //display questions and descriptions on page
+      $h2.text(tree[i].questionTitle);
+      $p.text(tree[i].questionParagraph);
 
-			//create buttons using answers array
-			for (var l = 0; l < props.length; l++) {
+      //create an array for answers
+      var props = [];
+      for (var j = 0; j < tree[i].answers.length; j++) {
+        props.push(tree[i].answers[j]);
+      }
 
-				//console.log(props[l]);
+      //console.log(props);
 
-				button =
-					"<div class='answer_button noselect'>" +
-					tree[i].answers[l].answerTitle +
-					"</div>";
-				$button = $(button);
-				
-				//if answer leads to next question, recursively call render
-				//iterate through each questions
-				if (props[l].nextBool == false) {
-					$button.on("click", render)
-				} 
+      $buttons.empty();
 
-				//if answer has resources, run renderResources function and pop ups
-				else {
-					$button.on("click", renderResources.bind(null, props[l]))
-				}
+      //create buttons using answers array
+      for (var l = 0; l < props.length; l++) {
+        //console.log(props[l]);
 
-				//add buttons for each answer
-				$buttons.append($button);
-			}
-			
-			//create breadCrumbs trail
-			renderBreadCrumbs(tree[i].questionTitle);
-		}
+        button =
+          '<div class=\'answer_button noselect\'>' +
+          tree[i].answers[l].answerTitle +
+          '</div>';
+        $button = $(button);
 
-		//first time calling function to start at question 0
-		render();
-	}
+        //if answer leads to next question, recursively call render
+        //iterate through each questions
+        if (props[l].nextBool == false) {
+          $button.on('click', render);
+        } else {
+          //if answer has resources, run renderResources function and pop ups
+          $button.on('click', renderResources.bind(null, props[l]));
+        }
+
+        //add buttons for each answer
+        $buttons.append($button);
+      }
+
+      //create breadCrumbs trail
+      renderBreadCrumbs(tree[i].questionTitle);
+    }
+
+    //first time calling function to start at question 0
+    render();
+  }
 });
