@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  toastr.options.closeButton = true;
   firebase.auth().onAuthStateChanged(function(u) {
     hideLoginModal();
     if (u) {
