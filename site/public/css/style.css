@@ -91,7 +91,9 @@ nav {
 }
 
 #learn_more:hover {
-    transform: scale(1.2);
+    border: 1px solid #3D3D3D;
+    background: #ffffff;
+    color: #3D3D3D;
 }
     
 
