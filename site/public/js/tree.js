@@ -7,48 +7,76 @@ $(document).ready(function () {
 	$.getJSON("data.json", function (d) {
 		renderClosure(d);
 	});
+	function renderResources(resource) {
+		var popup =
+			"<div id='popup'>" +
+			"<h2>" +
+			resource.resourceTitle +
+			"</h2>" +
+			"<p>" +
+			resource.resourceParagraph +
+			"</p><h3>Resources</h3>";
+		for (var i = 0; i < resource.resourceLinks.length; i++) {
+			popup +=
+				"<a target='_blank' href='" +
+				resource.resourceLinks[i].url +
+				"'>" +
+				resource.resourceLinks[i].linkName +
+				"</a>";
+		}
+		popup +=
+			"<div id='close_btn' class='close_button noselect'>Close</div></div>";
+		var $popup = $(popup);
+		var $wrapper = $("#wrap");
+		var $footerLine = $("#footer_line");
+		var $footer = $("footer");
+		$wrapper.css({ filter: "blur(3px)" });
+		$footerLine.css({ filter: "blur(3px)" });
+		$footer.css({ filter: "blur(3px)" });
+		$popup.css({ filter: "blur(0px)" });
 
+		var removePopup = function () {
+			$popup.remove();
+			$footerLine.css({ filter: "blur(0px)" });
+			$footer.css({ filter: "blur(0px)" });
+			$wrapper.css({ filter: "blur(0px)" });
+		};
+
+		$popup.find("#close_btn").on("click", removePopup);
+		$("body").append($popup);
+	}
 	function render(snapshot) {
 		var tree = snapshot.val();
 		console.log(tree);
 		var i = 0;
-		while (i < tree.length) {
-			var $question = $("#question");
-			var $h2 = $question.find("h2");
-			var $p = $question.find("p");
-			var $buttons = $question.find("#buttons");
+		var $question = $("#question");
+		var $h2 = $question.find("h2");
+		var $p = $question.find("p");
+		var $buttons = $question.find("#buttons");
 
-			$h2.text(tree[i].questionTitle);
-			$p.text(tree[i].questionParagraph + !(!tree[i].answers[0].nextBool));
-			var props = [];
+		$h2.text(tree[i].questionTitle);
+		$p.text(tree[i].questionParagraph);
+		var props = [];
 
-			for (var j = 0; j < tree[i].answers.length; j++) {
-				props.push(tree[i].answers[j]);
+		for (var j = 0; j < tree[i].answers.length; j++) {
+			props.push(tree[i].answers[j]);
+		}
+		console.log(props);
+		$buttons.empty();
+		//debugger;
+		for (var l = 0; l < props.length; l++) {
+			console.log(props[l]);
+			button =
+				"<div class='answer_button noselect'>" +
+				tree[i].answers[l].answerTitle +
+				"</div>";
+			$button = $(button);
+			if (props[l].nextBool == false) {
+				$buttons.on("click", render())
+			} else {
+				$button.on("click", renderResources.bind(null, props[l]))
 			}
-			console.log(tree[i].answers);
-			$buttons.empty();
-			for (var l = 0; l < tree[i].answers.length; l++) {
-				button =
-					"<div class='answer_button noselect'>" +
-					tree[i].answers[l].answerTitle +
-					"</div>";
-				$button = $(button);
-				$button.on("click", function(){
-					if (!(!tree[i].answers[l].nextBool)){
-						$h2.text(tree[i].answers[l].resourceTitle);
-					}
-					else {
-						i++;
-					}
-				})
-				$buttons.append($button);
-			}
-			for (var k = 0; k < props.length; k++) {
-				if (!props[k].nextBool) i++;
-			}
-			// if(!tree[i].answers.nextBool){
-			// 	i++;
-			// }
+			$buttons.append($button);
 		}
 	}
 });
