@@ -11,7 +11,9 @@ $(document).ready(function() {
         .text(name)
         .css('font-weight', 'bold');
       if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
-        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
+        $('#nav-head').append(
+          '<a class="current_page" id=\'admin-head\' href=\'admin.html\'>Admin</a>'
+        );
       }
     }
   });

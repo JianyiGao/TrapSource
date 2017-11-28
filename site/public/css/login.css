@@ -344,3 +344,7 @@ body {
 .content {
   flex: 1 0 auto;
 }
+
+#user-buttons {
+    text-align: center;
+}
