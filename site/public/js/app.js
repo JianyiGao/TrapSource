@@ -20,9 +20,20 @@ $('#google_login').on('click', function() {
     });
 });
 
-$('#email-login').on('click', function(e) {
+$('#login-btn').on('click', function(e) {
   e.preventDefault();
   console.log('click');
+  var email = $('#email-login').val();
+  var password = $('#password-login').val();
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      shakeModal();
+    });
 });
 
 function showRegisterForm() {
