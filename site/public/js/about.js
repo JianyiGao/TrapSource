@@ -51,7 +51,6 @@ $(document).ready(function() {
 
   function admin(snapshot) {
     if (adminOn === false) {
-      toastr.success('Switching to admin');
       adminOn = true;
     }
     about = snapshot.val();

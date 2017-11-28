@@ -60,7 +60,6 @@ $(document).ready(function adminWrapper() {
 
   function admin(snapshot) {
     if (adminOn === false) {
-      toastr.success('Switched to admin mode');
       adminOn = true;
     }
     console.log('switching to admin');
