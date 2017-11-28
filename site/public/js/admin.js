@@ -14,7 +14,11 @@ $(document).ready(function() {
         $('#nav-head').append(
           '<a class="current_page" id=\'admin-head\' href=\'admin.html\'>Admin</a>'
         );
+      } else {
+        $('body').html('You don\'t have permission to access this');
       }
+    } else {
+      $('body').html('You don\'t have permission to access this');
     }
   });
 
@@ -244,6 +248,7 @@ $(document).ready(function() {
 
     $('#clear-changes').on('click', function() {
       database.ref('tree').once('value', function(snapshot) {
+        index = 0;
         render(snapshot.val());
         toastr.success('Changes cleared');
       });
