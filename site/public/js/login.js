@@ -47,6 +47,8 @@ $(document).ready(function() {
           });
       });
       toastr.success('login successful');
+    } else {
+      $('#admin-head').remove();
     }
   });
 });
