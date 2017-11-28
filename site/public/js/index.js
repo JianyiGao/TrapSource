@@ -22,7 +22,7 @@ $(document).ready(function adminWrapper() {
     console.log('switching to regular');
     var index = snapshot.val();
     $('#body').replaceWith(
-      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\'>' +
+      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a><a href="login.html">Log In</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\'>' +
         index.jmbTitle +
         '</h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\'>' +
         index.jmbDescription +
@@ -66,7 +66,7 @@ $(document).ready(function adminWrapper() {
     console.log('switching to admin');
     var index = snapshot.val();
     $('#body').replaceWith(
-      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
+      '<div id=\'body\'> <header> <a href=\'index\'> <img id=\'logo\' src=\'images/logo.png\' alt=\'Trap Source Logo\'> </a> <nav> <a id=\'current_page\' href=\'index.html\'>Home</a> <a href=\'tree.html\'>Tree</a> <a href=\'admin.html\'>Admin</a> <a href=\'about.html\'>About</a><a href="login.html">Log In</a> </nav> <img id=\'hamburger\' src=\'images/hamburger.svg\' alt=\'Menu\'> </header> <div id=\'nav_line\'></div> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
         index.jmbTitle +
         ' </h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\' contenteditable=\'true\'>' +
         index.jmbDescription +

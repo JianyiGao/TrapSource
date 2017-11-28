@@ -1,44 +1,65 @@
-(function() {
-  var provider = new firebase.auth.GoogleAuthProvider();
-  var auth = firebase.auth();
-
-  //get elements
-  var txtEmail = document.getElementById('email');
-  var txtPass = document.getElementById('password');
-  var btnLogin = document.getElementById('btnLogin');
-  var btnLogout = document.getElementById('btnLogout');
-  var btnSignup = document.getElementById('btnSignup');
-
-  btnLogin.addEventListener('click', e => {
-    var email = txtEmail.value;
-    var pass = txtPass.value;
-
-    //sign in
-    var promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-  });
-
-  btnLogout.addEventListener('click', e => {
-    firebase.auth().signOut();
-  });
-
-  btnSignup.addEventListener('click', e => {
-    var email = txtEmail.value;
-    var pass = txtPass.value;
-    var auth = firebase.auth();
-
-    var promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-  });
-
-  // add a real time listen
-  firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-      console.log(firebaseUser);
-      btnLogout.classList.remove('hide');
-    } else {
-      console.log('not logged in');
-      btnLogout.classList.add('hide');
-    }
-  });
+$(document).ready(function() {
+  openLoginModal();
 });
+
+/*
+ *
+ * login-register modal
+ * Autor: Creative Tim
+ * Web-autor: creative.tim
+ * Web script: http://creative-tim.com
+ * 
+ */
+function showRegisterForm() {
+  $('.loginBox').fadeOut('fast', function() {
+    $('.registerBox').fadeIn('fast');
+    $('.login-footer').fadeOut('fast', function() {
+      $('.register-footer').fadeIn('fast');
+    });
+    $('.modal-title').html('Register with');
+  });
+  $('.error')
+    .removeClass('alert alert-danger')
+    .html('');
+}
+function showLoginForm() {
+  $('#loginModal .registerBox').fadeOut('fast', function() {
+    $('.loginBox').fadeIn('fast');
+    $('.register-footer').fadeOut('fast', function() {
+      $('.login-footer').fadeIn('fast');
+    });
+
+    $('.modal-title').html('Login with');
+  });
+  $('.error')
+    .removeClass('alert alert-danger')
+    .html('');
+}
+
+function openLoginModal() {
+  showLoginForm();
+  setTimeout(function() {
+    $('#loginModal').modal('show');
+  }, 230);
+}
+function openRegisterModal() {
+  showRegisterForm();
+  setTimeout(function() {
+    $('#loginModal').modal('show');
+  }, 230);
+}
+
+function loginAjax() {
+  shakeModal();
+}
+
+function shakeModal() {
+  $('#loginModal .modal-dialog').addClass('shake');
+  $('.error')
+    .addClass('alert alert-danger')
+    .html('Invalid email/password combination');
+  $('input[type="password"]').val('');
+  setTimeout(function() {
+    $('#loginModal .modal-dialog').removeClass('shake');
+  }, 1000);
+}
