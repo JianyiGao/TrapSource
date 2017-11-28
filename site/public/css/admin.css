@@ -66,7 +66,7 @@ body {
 .page-wrap {
     min-height: 100%;
     /* equal to footer height */
-    margin-bottom: -2rem;
+    margin-bottom: -70px;
 }
 .page-wrap:after {
     content: "";
@@ -74,7 +74,7 @@ body {
 }
 .site-footer,
 .page-wrap:after {
-    height: 2rem;
+    height: 70px;
 }
 
 #jsoneditor {
