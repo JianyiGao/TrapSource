@@ -15,7 +15,7 @@
 <body>
 	<div id="wrap" class="page-wrap">
 		<header>
-			<a href="index">
+			<a href="index.html">
 				<img id="logo" src="images/logo.png" alt="Trap Source Logo">
 			</a>
 			<nav id="nav-head">
@@ -29,15 +29,24 @@
 		<div id="nav_line"></div>
 		<div id="tree">
 			<h1>Decision Tree</h1>
-			<div id="bread_crumbs"></div>
-			<div id="question">
-				<div style="height: 2rem"></div>
-				<h2>Loading</h2>
-				<div style="height: 2rem"></div>
-				<p>Loading</p>
-				<div style="height: 4rem"></div>
-				<div id="buttons"></div>
-				<div style="height: 2rem"></div>
+			<div id="tree-type-container">
+				<select name="tree-type" id="tree-type">
+					<option value="Novice">Novice</option>
+					<option value="Advanced">Advance</option>
+				</select>
+			</div>
+			<div id="container">
+				<div id="bread_crumbs"></div>
+				<div id="question">
+					<div style="height: 2rem"></div>
+					<h2>Loading</h2>
+					<div style="height: 2rem"></div>
+					<p>Loading</p>
+					<div style="height: 4rem"></div>
+					<div id="buttons"></div>
+					<div style="height: 2rem"></div>
+				</div>
+
 			</div>
 		</div>
 	</div>

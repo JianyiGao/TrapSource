@@ -1,6 +1,16 @@
 // rules: all question titles must be unique, there can be only one answer leading to a new question
 
 $(document).ready(function() {
+  var treeType = $('#tree-type');
+  treeType.on('change', function() {
+    if ($(this).val() === 'Novice') {
+      closure();
+    } else {
+      advanced();
+    }
+  });
+
+  var snapshot;
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;
@@ -20,7 +30,41 @@ $(document).ready(function() {
 
   //load tree json from database
   var database = firebase.database();
-  database.ref('tree').on('value', closure);
+  database.ref('tree').on('value', function(s) {
+    snapshot = s;
+    if (treeType.val() === 'Novice') {
+      closure();
+    } else {
+      advanced();
+    }
+  });
+
+  function advanced() {
+    console.log('Advance');
+    container = $('#container');
+    container.empty();
+    tree = snapshot.val();
+    for (var i = 0; i < tree.length; i++) {
+      if (i === tree.length - 1) {
+        var advancedQuestion = $(
+          '<div class="advanced-question-container"><div class=\'advance-question\'><h2>' +
+            tree[i].questionTitle +
+            '</h2><p>' +
+            tree[i].questionParagraph +
+            '</p></div></div>'
+        );
+      } else {
+        var advancedQuestion = $(
+          '<div class="advanced-question-container"><div class=\'advance-question\'><h2>' +
+            tree[i].questionTitle +
+            '</h2><p>' +
+            tree[i].questionParagraph +
+            '</p></div><img src="images/arrow.svg" alt="arrow"/></div>'
+        );
+      }
+      container.append(advancedQuestion);
+    }
+  }
 
   //get json
   // $.getJSON("data.json", function (d) {
@@ -73,7 +117,11 @@ $(document).ready(function() {
   }
 
   //the beginning of everything
-  function closure(snapshot) {
+  function closure() {
+    $('#container').replaceWith(
+      '<div id="container"><div id=\'bread_crumbs\'></div><div id=\'question\'><div style=\'height: 2rem\'></div><h2>Loading</h2><div style=\'height: 2rem\'></div><p>Loading</p><div style=\'height: 4rem\'></div><div id=\'buttons\'></div><div style=\'height: 2rem\'></div></div>\'</div>'
+    );
+
     //instantiate tree
     var tree = snapshot.val();
     //console.log(tree);
