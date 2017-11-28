@@ -47,7 +47,7 @@ $(document).ready(function () {
 	}
 	function closure(snapshot) {
 		var tree = snapshot.val();
-		console.log(tree);
+		//console.log(tree);
 		var breadCrumbs = [];
 		function renderBreadCrumbsUtil(breadCrumbs) {
 			$breadCrumbs = $("#bread_crumbs");
@@ -59,7 +59,19 @@ $(document).ready(function () {
 					breadCrumbs[i] +
 					"</div>";
 				var $link = $(link);
-				$link.on("click", function(){});
+				$link.on("click", function(){
+					var bread = $(this).text();
+					//console.log(bread);
+					var index =0
+					for(var o = 0; o < tree.length; o++){
+						if(tree[o].questionTitle == bread){
+							index = o;
+							break;
+						}
+					}
+					//console.log(index);
+					render(index, true);
+				});
 				$breadCrumbs.append($link);
 				$breadCrumbs.append(
 					$("<p style='display: inline-block'> &nbsp; >> &nbsp;</p>")
@@ -71,8 +83,12 @@ $(document).ready(function () {
 			renderBreadCrumbsUtil(breadCrumbs);
 		}
 		var i = -1;
-		function render() {
+		function render(index, isBreadCrumbs) {
 			i++;
+			if (isBreadCrumbs == true){
+				i = index;
+			}
+			//console.log(i);
 			//console.log(i);
 			var $question = $("#question");
 			var $h2 = $question.find("h2");
