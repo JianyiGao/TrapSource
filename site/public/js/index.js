@@ -1,4 +1,6 @@
 $(document).ready(function adminWrapper() {
+
+  //connects to database at firebase
   var database = firebase.database();
   var provider = new firebase.auth.GoogleAuthProvider();
   var user;
@@ -17,10 +19,13 @@ $(document).ready(function adminWrapper() {
     render();
   });
 
+  //regular user priviledeges
   function regular(snapshot) {
     adminOn = false;
     console.log('switching to regular');
     var index = snapshot.val();
+
+    //injecting HTML text to show regular user
     $('#containerInject').replaceWith(
       '<div id="containerInject"><div id=\'jumbotron\'> <h1 id=\'jmbTitle\'>' +
         index.jmbTitle +
@@ -41,6 +46,7 @@ $(document).ready(function adminWrapper() {
         '</div> </article class=\'text_column\'></div> '
     );
 
+    //sign in using firebase authentication
     $('#sign_in').on('click', function signInHandler() {
       firebase
         .auth()
@@ -58,12 +64,15 @@ $(document).ready(function adminWrapper() {
     });
   }
 
+  //setting admin priviledge
   function admin(snapshot) {
     if (adminOn === false) {
       adminOn = true;
     }
     console.log('switching to admin');
     var index = snapshot.val();
+
+    //injecting HTML to give admin priviledge
     $('#containerInject').replaceWith(
       '<div id="containerInject"> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
         index.jmbTitle +
@@ -83,6 +92,8 @@ $(document).ready(function adminWrapper() {
         index.mainPar3 +
         '</div> </article class=\'text_column\'> </div> <div class=\'row\'> <div class=\'col-xs-12 text-center\'> <a id=\'submit_changes\'>Save Changes</a> </div> </div> </div>'
     );
+
+    //allow admin to change HTML 
     $('#submit_changes').on('click', function indexSubmitHandler() {
       var jmbTitle = $('#jmbTitle').html();
       var jmbDescription = $('#jmbDescription').html();
@@ -93,6 +104,7 @@ $(document).ready(function adminWrapper() {
       var mainPar2 = $('#mainPar2').html();
       var mainPar3 = $('#mainPar3').html();
 
+      //writes to database on firebase
       database
         .ref('index')
         .set({
@@ -105,6 +117,8 @@ $(document).ready(function adminWrapper() {
           mainPar2: mainPar2,
           mainPar3: mainPar3
         })
+
+        //notify success
         .then(function() {
           toastr.success('Changes saved');
         });
@@ -121,6 +135,8 @@ $(document).ready(function adminWrapper() {
     });
   }
 
+  //user authentication using firebase
+  //only admin if the user ID is correct
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
       var name;

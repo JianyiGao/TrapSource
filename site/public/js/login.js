@@ -1,6 +1,6 @@
 $(document).ready(function() {
   toastr.options.closeButton = true;
-  firebase.auth().onAuthStateChanged(function(u) {
+  firebase.auth().onAuthStateChanged(function(u) { //check if user is logged in
     hideLoginModal();
     if (u) {
       console.log(u);
@@ -15,12 +15,12 @@ $(document).ready(function() {
         .css('font-weight', 'bold');
       var img;
       if (u.photoURL) {
-        img = u.photoURL;
+        img = u.photoURL; // showing profile photo
       } else {
         img = 'images/default-user.png';
       }
-      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
-        toastr.success('Switching to admin mode');
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') { // check if logged in user is the admin account
+        toastr.success('Switching to admin mode'); // if admin, switch to admin mode
         $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
       }
       var userButtons = $('#user-buttons');
@@ -54,11 +54,12 @@ $(document).ready(function() {
   });
 });
 
-$('#google_login').on('click', function() {
+/* callback function for Google authentication login */
+$('#google_login').on('click', function() { //called when google button is clicked
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase
     .auth()
-    .signInWithPopup(provider)
+    .signInWithPopup(provider) // Google popup
     .then(function(result) {
       var token = result.credential.accessToken;
       user = result.user;
@@ -71,13 +72,14 @@ $('#google_login').on('click', function() {
     });
 });
 
-$('#login-btn').on('click', function(e) {
+/* callback function for login with email and password */
+$('#login-btn').on('click', function(e) { //called when login button is clicked
   e.preventDefault();
-  var email = $('#email-login').val();
-  var password = $('#password-login').val();
+  var email = $('#email-login').val(); // get email from html form
+  var password = $('#password-login').val(); // get password from html form
   firebase
     .auth()
-    .signInWithEmailAndPassword(email, password)
+    .signInWithEmailAndPassword(email, password) // call sign in function
     .catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -86,14 +88,16 @@ $('#login-btn').on('click', function(e) {
     });
 });
 
-$('#register-btn').on('click', function(e) {
+/* callback function to register as new user */
+$('#register-btn').on('click', function(e) { //called when register button is clicked
   e.preventDefault();
   console.log('click');
+  // get email and passwords to use
   var email = $('#email-register').val();
   var password = $('#password-register').val();
   var passwordRep = $('#password-register-rep').val();
 
-  if (password === passwordRep && validateEmail(email)) {
+  if (password === passwordRep && validateEmail(email)) { //check if passwords match and email is valid format
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -101,16 +105,17 @@ $('#register-btn').on('click', function(e) {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorMessage);
-        shakeModalRegister();
+        shakeModalRegister(); //error message if account exists
       });
-  } else if (!validateEmail(email)) {
+  } else if (!validateEmail(email)) { //check if email is valid with function
       shakeModalEmail();
   }
-  else {
+  else { //display error message if passwords dont match
     shakeModalPass();
   }
 });
 
+/* function to show the form to register */
 function showRegisterForm() {
   $('.loginBox').fadeOut('fast', function() {
     $('.registerBox').fadeIn('fast');
@@ -123,6 +128,7 @@ function showRegisterForm() {
     .removeClass('alert alert-danger')
     .html('');
 }
+/* function to show the form to log in */
 function showLoginForm() {
   $('#loginModal .registerBox').fadeOut('fast', function() {
     $('.loginBox').fadeIn('fast');
@@ -137,18 +143,22 @@ function showLoginForm() {
     .html('');
 }
 
+/* function to hide the login modal */
 function hideLoginModal() {
   setTimeout(function() {
     $('#loginModal').modal('hide');
   }, 230);
 }
 
+/* function to open the login modal */
 function openLoginModal() {
   showLoginForm();
   setTimeout(function() {
     $('#loginModal').modal('show');
   }, 230);
 }
+
+/* function to switch to/open the register modal */
 function openRegisterModal() {
   showRegisterForm();
   setTimeout(function() {
@@ -160,6 +170,11 @@ function loginAjax() {
   shakeModal();
 }
 
+/* ===========================================================
+ * functions to shake dialog box and display error messages
+ * =========================================================== */
+
+ /* function error message if email/password combo does not exist as user */
 function shakeModal() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
@@ -171,6 +186,7 @@ function shakeModal() {
   }, 1000);
 }
 
+/* function error message if password and confirmed password do not match */
 function shakeModalPass() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
@@ -182,6 +198,7 @@ function shakeModalPass() {
   }, 1000);
 }
 
+/* function error message if user tries to register with existing email */
 function shakeModalRegister() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
@@ -193,11 +210,13 @@ function shakeModalRegister() {
   }, 1000);
 }
 
+/* function to check if entered email is in valid email format */
 function validateEmail(email) {
   var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
   return re.test(email);
 }
 
+/* function error message if user enters email that is not valid format */
 function shakeModalEmail() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
