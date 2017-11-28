@@ -26,7 +26,7 @@ $(document).ready(function adminWrapper() {
         index.jmbTitle +
         '</h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\'>' +
         index.jmbDescription +
-        '</div> </div> <div class=\'jmb_btn\' id=\'sign_in\'>Sign in</div> <a class=\'jmb_btn\' id=\'learn_more\' href=\'about\'>Learn more</a> </div> <div id=\'text_column_wrapper\'> <article class=\'text_column\'> <div> <img src=\'images/icon1.svg\' alt=\'icon\'> <h2 id=\'mainTitle1\'>' +
+        '</div> </div> <a class=\'jmb_btn\' id=\'learn_more\' href=\'about.html\'>Learn more</a> </div> <div id=\'text_column_wrapper\'> <article class=\'text_column\'> <div> <img src=\'images/icon1.svg\' alt=\'icon\'> <h2 id=\'mainTitle1\'>' +
         index.mainTitle1 +
         '</h2> </div> <div id=\'mainPar1\'>' +
         index.mainPar1 +
@@ -70,7 +70,7 @@ $(document).ready(function adminWrapper() {
         index.jmbTitle +
         ' </h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\' contenteditable=\'true\'>' +
         index.jmbDescription +
-        '</div> </div> <div class="jmb_btn" id="sign_out">Sign out</div> <a id=\'learn_more\' href=\'about\'>Learn more</a> </div> <div id=\'text_column_wrapper\'> <article class=\'text_column\'> <div> <img src=\'images/icon1.svg\' alt=\'icon\'> <h2 id=\'mainTitle1\' contenteditable=\'true\'>' +
+        '</div> </div> <a id=\'learn_more\' href=\'about.html\'>Learn more</a> </div> <div id=\'text_column_wrapper\'> <article class=\'text_column\'> <div> <img src=\'images/icon1.svg\' alt=\'icon\'> <h2 id=\'mainTitle1\' contenteditable=\'true\'>' +
         index.mainTitle1 +
         '</h2> </div> <div id=\'mainPar1\' contenteditable=\'true\'>' +
         index.mainPar1 +
@@ -111,20 +111,6 @@ $(document).ready(function adminWrapper() {
         });
     });
 
-    $('#sign_out').on('click', function() {
-      firebase
-        .auth()
-        .signOut()
-        .then(
-          function() {
-            console.log('Signed Out');
-            toastr.success('Signed out');
-          },
-          function(error) {
-            console.error('Sign Out Error', error);
-          }
-        );
-    });
     $('div[contenteditable]').keydown(function(e) {
       // trap the return key being pressed
       if (e.keyCode === 13) {

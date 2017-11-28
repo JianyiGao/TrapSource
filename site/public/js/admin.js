@@ -1,4 +1,21 @@
 $(document).ready(function() {
+  firebase.auth().onAuthStateChanged(function(u) {
+    if (u) {
+      var name;
+      if (u.displayName) {
+        name = u.displayName;
+      } else {
+        name = u.email.substr(0, u.email.indexOf('@'));
+      }
+      $('#login-head')
+        .text(name)
+        .css('font-weight', 'bold');
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
+      }
+    }
+  });
+
   var database = firebase.database();
 
   var user;
