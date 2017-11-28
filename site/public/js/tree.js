@@ -1,12 +1,17 @@
 // rules: all question titles must be unique, there can be only one answer leading to a new question
 
 $(document).ready(function () {
+	
+	//load tree json from database
 	var database = firebase.database();
 	database.ref('tree').on("value", closure)
 
-	$.getJSON("data.json", function (d) {
-		renderClosure(d);
-	});
+	//get json
+	// $.getJSON("data.json", function (d) {
+	// 	renderClosure(d);
+	// });
+	
+	//displays resources as pop up
 	function renderResources(resource) {
 		var popup =
 			"<div id='popup'>" +
@@ -16,6 +21,7 @@ $(document).ready(function () {
 			"<p>" +
 			resource.resourceParagraph +
 			"</p><h3>Resources</h3>";
+		//iterates through all links and add them to HTML
 		for (var i = 0; i < resource.resourceLinks.length; i++) {
 			popup +=
 				"<a target='_blank' href='" +
@@ -35,6 +41,7 @@ $(document).ready(function () {
 		$footer.css({ filter: "blur(3px)" });
 		$popup.css({ filter: "blur(0px)" });
 
+		//function for closing pop up
 		var removePopup = function () {
 			$popup.remove();
 			$footerLine.css({ filter: "blur(0px)" });
@@ -45,9 +52,15 @@ $(document).ready(function () {
 		$popup.find("#close_btn").on("click", removePopup);
 		$("body").append($popup);
 	}
+
+	//the beginning of everything
 	function closure(snapshot) {
+
+		//instantiate tree
 		var tree = snapshot.val();
 		//console.log(tree);
+		
+		//create breadCrumbs array
 		var breadCrumbs = [];
 		function renderBreadCrumbsUtil(breadCrumbs) {
 			$breadCrumbs = $("#bread_crumbs");
