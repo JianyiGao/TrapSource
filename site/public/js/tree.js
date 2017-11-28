@@ -21,6 +21,7 @@ $(document).ready(function () {
 			"<p>" +
 			resource.resourceParagraph +
 			"</p><h3>Resources</h3>";
+
 		//iterates through all links and add them to HTML
 		for (var i = 0; i < resource.resourceLinks.length; i++) {
 			popup +=
@@ -30,12 +31,14 @@ $(document).ready(function () {
 				resource.resourceLinks[i].linkName +
 				"</a>";
 		}
+
 		popup +=
 			"<div id='close_btn' class='close_button noselect'>Close</div></div>";
 		var $popup = $(popup);
 		var $wrapper = $("#wrap");
 		var $footerLine = $("#footer_line");
 		var $footer = $("footer");
+
 		$wrapper.css({ filter: "blur(3px)" });
 		$footerLine.css({ filter: "blur(3px)" });
 		$footer.css({ filter: "blur(3px)" });
@@ -65,12 +68,14 @@ $(document).ready(function () {
 
 		//utility function for creating breadCrumbs
 		function renderBreadCrumbsUtil(breadCrumbs) {
+
 			//jquery stuff
 			$breadCrumbs = $("#bread_crumbs");
 			$breadCrumbs.empty();
+
 			//console.log(breadCrumbs);
+
 			//populate HTML with breadCrumbs
-			//console.log(breadCrumbs);
 			for (var i = 0; i < breadCrumbs.length; i++) {
 				var link =
 					"<div class='bread_crumb'id = " + i + ">" +
@@ -96,16 +101,22 @@ $(document).ready(function () {
 					
 					//popping all breadCrumbs up to current
 					//allow browser to delete redundent stuff
+
 					var popVal = breadCrumbs.length - index;
+
 					// console.log(breadCrumbs.length);
 					// console.log(index);
 					// console.log(popVal);
+
 					for(var m = 0; m < popVal; m++){
 						breadCrumbs.pop();
 					}
+
 					//console.log(index);
+
 					render(index, true);
 				});
+
 				//append additional breadCrumbs to HTML
 				$breadCrumbs.append($link);
 				$breadCrumbs.append(
@@ -124,11 +135,13 @@ $(document).ready(function () {
 		var i = -1;
 		function render(index, isBreadCrumbs) {
 			i++;
+
 			//this is for breadCrumbs, only take in parameters if breadCrumbs is clicked
 			//stupid JS asynchronous
 			if (isBreadCrumbs == true){
 				i = index;
 			}
+
 			//console.log(i);
 			
 			//instantiate variables
@@ -146,12 +159,16 @@ $(document).ready(function () {
 			for (var j = 0; j < tree[i].answers.length; j++) {
 				props.push(tree[i].answers[j]);
 			}
+
 			//console.log(props);
+
 			$buttons.empty();
 
 			//create buttons using answers array
 			for (var l = 0; l < props.length; l++) {
+
 				//console.log(props[l]);
+
 				button =
 					"<div class='answer_button noselect'>" +
 					tree[i].answers[l].answerTitle +
@@ -163,6 +180,7 @@ $(document).ready(function () {
 				if (props[l].nextBool == false) {
 					$button.on("click", render)
 				} 
+				
 				//if answer has resources, run renderResources function and pop ups
 				else {
 					$button.on("click", renderResources.bind(null, props[l]))
