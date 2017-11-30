@@ -2,6 +2,7 @@ $(document).ready(function() {
   window.trapsourceTest = {};
   window.trapsourceTest.firebaseInit = firebaseInit;
   window.trapsourceTest.admin = admin;
+  window.trapsourceTest.regular = regular;
 
   var database = firebase.database();
   var user;
