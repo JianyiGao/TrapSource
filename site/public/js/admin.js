@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+  window.trapsourceTest = {};
+  window.trapsourceTest.render = render;
+  window.trapsourceTest.sidePanelRender = sidePanelRender;
+
+
   // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
     if (u) {
@@ -31,6 +37,101 @@ $(document).ready(function() {
   var container = $('#container');
   var title = $('#Title');
   var description = $('#Description');
+
+
+  function sidePanelRender(tree) {
+    var sidepanel = $('#sidepanel');
+    sidepanel.empty();
+    for (var ind = 0; ind < tree.length; ind++) {
+      sidepanel.append(
+        '<li class=\'active text-center frm-question\'><a data-toggle=\'pill\' href=\'#needs-validatoin\'>' +
+          tree[ind].questionTitle +
+          '</a></li>'
+      );
+    }
+    sidepanel.append(
+      '<li id=\'addForm\'><button class=\'btn btn-success btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
+    );
+    var questions = $('.frm-question');
+    $(questions.get(index)).addClass('current-question');
+    $.each(questions, function(key, question) {
+      $(question).on('click', function() {
+        save(tree);
+        if (checkEmpty()) {
+          index = key;
+          render(tree);
+        } else {
+          toastr.error('Please fill in this form before continuing');
+        }
+      });
+    });
+  }
+
+
+  function save(tree) {
+    var answerCount = 0;
+    var resourceCount = 0;
+    var inputs = $('.frm-submit');
+    $.each(inputs, function(key, input) {
+      $input = $(input);
+      if (key === 0) {
+        tree[index].questionTitle = $input.val();
+      } else if (key === 1) {
+        tree[index].questionParagraph = $input.val();
+      } else if ($input.attr('id') === 'Answer') {
+        if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
+          tree[index].answers[answerCount].answerTitle = $input.val();
+          answerCount++;
+        } else {
+          tree[index].answers[answerCount].answerTitle = $input.val();
+        }
+      } else if ($input.attr('id') === 'Resource-Title') {
+        tree[index].answers[answerCount].resourceTitle = $input.val();
+      } else if ($input.attr('id') === 'Resource-Paragraph') {
+        tree[index].answers[answerCount].resourceParagraph = $input.val();
+      } else if ($input.attr('id') === 'Resource-Name') {
+        tree[index].answers[answerCount].resourceLinks[
+          resourceCount
+        ].linkName = $input.val();
+      } else if ($input.attr('id') === 'Resource-URL') {
+        if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
+          tree[index].answers[answerCount].resourceLinks[
+            resourceCount
+          ].url = $input.val();
+          answerCount++;
+          resourceCount = 0;
+        } else {
+          tree[index].answers[answerCount].resourceLinks[
+            resourceCount
+          ].url = $input.val();
+          resourceCount++;
+        }
+      }
+    });
+  }
+
+  function checkEmpty() {
+    var inputs = $('.frm-submit');
+    var validInputs = true;
+    $.each(inputs, function(key, input) {
+      $input = $(input);
+      if ($input.val() === '') {
+        var prev = $input.prev();
+        var next = $input.next();
+        prev.addClass('error');
+        next.addClass('error');
+        $input.addClass('error-input');
+        $input.change(function() {
+          prev.removeClass('error');
+          next.removeClass('error');
+          $(this).removeClass('error-input');
+        });
+        validInputs = false;
+      }
+    });
+    return validInputs;
+  }
+
 
   function render(tree) {
     $('.rm-li').each(function() {
@@ -83,73 +184,11 @@ $(document).ready(function() {
       '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
     );
 
-    function checkEmpty() {
-      var inputs = $('.frm-submit');
-      var validInputs = true;
-      $.each(inputs, function(key, input) {
-        $input = $(input);
-        if ($input.val() === '') {
-          var prev = $input.prev();
-          var next = $input.next();
-          prev.addClass('error');
-          next.addClass('error');
-          $input.addClass('error-input');
-          $input.change(function() {
-            prev.removeClass('error');
-            next.removeClass('error');
-            $(this).removeClass('error-input');
-          });
-          validInputs = false;
-        }
-      });
-      return validInputs;
-    }
 
-    function save() {
-      var answerCount = 0;
-      var resourceCount = 0;
-      var inputs = $('.frm-submit');
-      $.each(inputs, function(key, input) {
-        $input = $(input);
-        if (key === 0) {
-          tree[index].questionTitle = $input.val();
-        } else if (key === 1) {
-          tree[index].questionParagraph = $input.val();
-        } else if ($input.attr('id') === 'Answer') {
-          if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
-            tree[index].answers[answerCount].answerTitle = $input.val();
-            answerCount++;
-          } else {
-            tree[index].answers[answerCount].answerTitle = $input.val();
-          }
-        } else if ($input.attr('id') === 'Resource-Title') {
-          tree[index].answers[answerCount].resourceTitle = $input.val();
-        } else if ($input.attr('id') === 'Resource-Paragraph') {
-          tree[index].answers[answerCount].resourceParagraph = $input.val();
-        } else if ($input.attr('id') === 'Resource-Name') {
-          tree[index].answers[answerCount].resourceLinks[
-            resourceCount
-          ].linkName = $input.val();
-        } else if ($input.attr('id') === 'Resource-URL') {
-          if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
-            tree[index].answers[answerCount].resourceLinks[
-              resourceCount
-            ].url = $input.val();
-            answerCount++;
-            resourceCount = 0;
-          } else {
-            tree[index].answers[answerCount].resourceLinks[
-              resourceCount
-            ].url = $input.val();
-            resourceCount++;
-          }
-        }
-      });
-    }
 
     var buttons = $('.frm-btn');
     $.each(buttons, function(key, button) {
-      save();
+      save(tree);
       $button = $(button);
       $button.on('click', function(e) {
         e.preventDefault();
@@ -164,7 +203,7 @@ $(document).ready(function() {
 
     var buttons = $('.frm-btn-rm');
     $.each(buttons, function(key, button) {
-      save();
+      save(tree);
       $button = $(button);
       $button.on('click', function(e) {
         e.preventDefault();
@@ -177,7 +216,7 @@ $(document).ready(function() {
     $.each(checkboxs, function(key, check) {
       $check = $(check);
       $check.change(function() {
-        save();
+        save(tree);
         if ($(this).is(':checked')) {
           tree[index].answers[key].nextBool = false;
           tree[index].answers[key].resourceLinks = undefined;
@@ -199,40 +238,19 @@ $(document).ready(function() {
       });
     });
     $('#add-question').on('click', function(e) {
-      save();
+      save(tree);
       e.preventDefault();
       tree[index].answers.push({ answerTitle: '' });
 
       render(tree);
     });
-    var sidepanel = $('#sidepanel');
-    sidepanel.empty();
-    for (var ind = 0; ind < tree.length; ind++) {
-      sidepanel.append(
-        '<li class=\'active text-center frm-question\'><a data-toggle=\'pill\' href=\'#needs-validatoin\'>' +
-          tree[ind].questionTitle +
-          '</a></li>'
-      );
-    }
-    sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-success btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
-    );
-    var questions = $('.frm-question');
-    $(questions.get(index)).addClass('current-question');
-    $.each(questions, function(key, question) {
-      $(question).on('click', function() {
-        save();
-        if (checkEmpty()) {
-          index = key;
-          render(tree);
-        } else {
-          toastr.error('Please fill in this form before continuing');
-        }
-      });
-    });
+
+    sidePanelRender(tree);
+
+    
 
     $('#addForm').on('click', function() {
-      save();
+      save(tree);
 
       tree.push({
         questionParagraph: '',
@@ -248,7 +266,7 @@ $(document).ready(function() {
     });
 
     $('#up-arrow').on('click', function() {
-      save();
+      save(tree);
 
       if (index !== 0) {
         var temp = tree[index - 1];
@@ -277,7 +295,7 @@ $(document).ready(function() {
     });
 
     $('#upload-form').on('click', function() {
-      save();
+      save(tree);
       if (checkEmpty()) {
         database.ref('tree').set(tree);
         toastr.success('Changes uploaded successfully');
@@ -287,7 +305,7 @@ $(document).ready(function() {
     });
 
     $('#down-arrow').on('click', function() {
-      save();
+      save(tree);
 
       if (index !== tree.length - 1) {
         var temp = tree[index + 1];
