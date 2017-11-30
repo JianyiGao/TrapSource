@@ -1,9 +1,7 @@
 $(document).ready(function() {
-
   window.trapsourceTest = {};
   window.trapsourceTest.render = render;
   window.trapsourceTest.sidePanelRender = sidePanelRender;
-
 
   // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
@@ -12,20 +10,20 @@ $(document).ready(function() {
       if (u.displayName) {
         name = u.displayName;
       } else {
-        name = u.email.substr(0, u.email.indexOf('@'));
+        name = u.email.substr(0, u.email.indexOf("@"));
       }
-      $('#login-head')
+      $("#login-head")
         .text(name)
-        .css('font-weight', 'bold');
-      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
-        $('#nav-head').append(
-          '<a class="current_page" id=\'admin-head\' href=\'admin.html\'>Admin</a>'
+        .css("font-weight", "bold");
+      if (u.uid === "DaQoaYhJ7KW8ep4m4P0YLZUfcTk1") {
+        $("#nav-head").append(
+          "<a class=\"current_page\" id='admin-head' href='admin.html'>Admin</a>"
         );
       } else {
-        $('body').html('You don\'t have permission to access this');
+        $("body").html("You don't have permission to access this");
       }
     } else {
-      $('body').html('You don\'t have permission to access this');
+      $("body").html("You don't have permission to access this");
     }
   });
 
@@ -34,67 +32,65 @@ $(document).ready(function() {
   var user;
   var index = 0;
 
-  var container = $('#container');
-  var title = $('#Title');
-  var description = $('#Description');
-
+  var container = $("#container");
+  var title = $("#Title");
+  var description = $("#Description");
 
   function sidePanelRender(tree) {
-    var sidepanel = $('#sidepanel');
+    var sidepanel = $("#sidepanel");
     sidepanel.empty();
     for (var ind = 0; ind < tree.length; ind++) {
       sidepanel.append(
-        '<li class=\'active text-center frm-question\'><a data-toggle=\'pill\' href=\'#needs-validatoin\'>' +
+        "<li class='active text-center frm-question'><a data-toggle='pill' href='#needs-validatoin'>" +
           tree[ind].questionTitle +
-          '</a></li>'
+          "</a></li>"
       );
     }
     sidepanel.append(
-      '<li id=\'addForm\'><button class=\'btn btn-success btn-block\' id=\'addFormBtn\'>Add Question</button></li>'
+      "<li id='addForm'><button class='btn btn-success btn-block' id='addFormBtn'>Add Question</button></li>"
     );
-    var questions = $('.frm-question');
-    $(questions.get(index)).addClass('current-question');
+    var questions = $(".frm-question");
+    $(questions.get(index)).addClass("current-question");
     $.each(questions, function(key, question) {
-      $(question).on('click', function() {
+      $(question).on("click", function() {
         save(tree);
         if (checkEmpty()) {
           index = key;
           render(tree);
         } else {
-          toastr.error('Please fill in this form before continuing');
+          toastr.error("Please fill in this form before continuing");
         }
       });
     });
   }
 
-
   function save(tree) {
     var answerCount = 0;
     var resourceCount = 0;
-    var inputs = $('.frm-submit');
+    var inputs = $(".frm-submit");
     $.each(inputs, function(key, input) {
       $input = $(input);
       if (key === 0) {
         tree[index].questionTitle = $input.val();
       } else if (key === 1) {
         tree[index].questionParagraph = $input.val();
-      } else if ($input.attr('id') === 'Answer') {
-        if ($(inputs.get(key + 1)).attr('id') === 'Answer') {
+      } else if ($input.attr("id") === "Answer") {
+        if ($(inputs.get(key + 1)).attr("id") === "Answer") {
           tree[index].answers[answerCount].answerTitle = $input.val();
           answerCount++;
         } else {
           tree[index].answers[answerCount].answerTitle = $input.val();
         }
-      } else if ($input.attr('id') === 'Resource-Title') {
+      } else if ($input.attr("id") === "Resource-Title") {
         tree[index].answers[answerCount].resourceTitle = $input.val();
-      } else if ($input.attr('id') === 'Resource-Paragraph') {
+      } else if ($input.attr("id") === "Resource-Paragraph") {
         tree[index].answers[answerCount].resourceParagraph = $input.val();
-      } else if ($input.attr('id') === 'Resource-Name') {
+      } else if ($input.attr("id") === "Resource-Name") {
         tree[index].answers[answerCount].resourceLinks[
           resourceCount
         ].linkName = $input.val();
-      } else if ($input.attr('id') === 'Resource-URL') {
-        if ($(inputs.get(key + 1)).attr('id') !== 'Resource-Name') {
+      } else if ($input.attr("id") === "Resource-URL") {
+        if ($(inputs.get(key + 1)).attr("id") !== "Resource-Name") {
           tree[index].answers[answerCount].resourceLinks[
             resourceCount
           ].url = $input.val();
@@ -111,20 +107,20 @@ $(document).ready(function() {
   }
 
   function checkEmpty() {
-    var inputs = $('.frm-submit');
+    var inputs = $(".frm-submit");
     var validInputs = true;
     $.each(inputs, function(key, input) {
       $input = $(input);
-      if ($input.val() === '') {
+      if ($input.val() === "") {
         var prev = $input.prev();
         var next = $input.next();
-        prev.addClass('error');
-        next.addClass('error');
-        $input.addClass('error-input');
+        prev.addClass("error");
+        next.addClass("error");
+        $input.addClass("error-input");
         $input.change(function() {
-          prev.removeClass('error');
-          next.removeClass('error');
-          $(this).removeClass('error-input');
+          prev.removeClass("error");
+          next.removeClass("error");
+          $(this).removeClass("error-input");
         });
         validInputs = false;
       }
@@ -132,92 +128,89 @@ $(document).ready(function() {
     return validInputs;
   }
 
-
   function render(tree) {
-    $('.rm-li').each(function() {
+    $(".rm-li").each(function() {
       $(this).unbind();
     });
-    console.log('render');
+    console.log("render");
     var resourceAnswers = [];
     var question = tree[index];
-    container.html('');
+    container.html("");
     container.append(
-      '<div class=\'row\'><div class=\'col-md-12 form-group\'><label for=\'Title\'> Title </label><input value="' +
+      "<div class='row'><div class='col-md-12 form-group'><label for='Title'> Title </label><input value=\"" +
         question.questionTitle +
-        '"type=\'text\' class=\'form-control frm-submit\' id=\'Title\' placeholder=\'Title\' required/><div class=\'invalid-feedback\'>Please fill in this section.</div>      </div>    </div>    <div class=\'row\'>      <div class=\'col-md-12 form-group\'>        <label for=\'Description\'> Description </label>        <textarea class=\'form-control frm-submit\' rows=3 id=\'Description\' placeholder=\'Description\' required>' +
+        "\"type='text' class='form-control frm-submit' id='Title' placeholder='Title' required/><div class='invalid-feedback'>Please fill in this section.</div>      </div>    </div>    <div class='row'>      <div class='col-md-12 form-group'>        <label for='Description'> Description </label>        <textarea class='form-control frm-submit' rows=3 id='Description' placeholder='Description' required>" +
         question.questionParagraph +
-        '</textarea>        <div class=\'invalid-feedback\'>          Please fill in this section.        </div>      </div>    </div>'
+        "</textarea>        <div class='invalid-feedback'>          Please fill in this section.        </div>      </div>    </div>"
     );
     for (var i = 0; i < question.answers.length; i++) {
       var answer = question.answers[i];
       if (!answer.nextBool) {
         container.append(
-          '<div class="row"><div class=\'col-sm-11 col-xs-10 form-group\'> <label for=\'Answer\'> Answer </label> <input value="' +
+          "<div class=\"row\"><div class='col-sm-11 col-xs-10 form-group'> <label for='Answer'> Answer </label> <input value=\"" +
             answer.answerTitle +
-            '" type=\'text\' class=\'form-control frm-submit\' id=\'Answer\' placeholder=\'Answer\' required/> <div class=\'invalid-feedback\'> Please fill in this section. </div> </div> <div class=\'col-sm-1 col-xs-2 form-group\'> <label for \'check\' class=\'text-right\'> Path </label> <input checked type=\'checkbox\' class=\'form-control frm-check\' id=\'check\' /> </div></div>'
+            "\" type='text' class='form-control frm-submit' id='Answer' placeholder='Answer' required/> <div class='invalid-feedback'> Please fill in this section. </div> </div> <div class='col-sm-1 col-xs-2 form-group'> <label for 'check' class='text-right'> Path </label> <input checked type='checkbox' class='form-control frm-check' id='check' /> </div></div>"
         );
       } else {
-        var resources = '';
+        var resources = "";
         resourceAnswers.push(i);
         for (var j = 0; j < answer.resourceLinks.length; j++) {
           resources +=
-            '<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Link Name </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Link Name </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceLinks[j].linkName +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Name\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>			  </div>	<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Link </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "' class='form-control frm-submit resource' rows=3 id='Resource-Name' placeholder='Resource' required></input>				<div  style='margin-bottom:0.5rem' class='invalid-feedback'>Please fill in this section.</div>			  </div>	<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Link </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceLinks[j].url +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-URL\' placeholder=\'Resource\' required></input>				<div git class=\'invalid-feedback\'>Please fill in this section.</div><div class="div-line"></div></div>';
+            "' class='form-control frm-submit resource' rows=3 id='Resource-URL' placeholder='Resource' required></input>				<div git class='invalid-feedback'>Please fill in this section.</div><div class=\"div-line\"></div></div>";
         }
         container.append(
-          ' <div class=\'row\'>		  <div class=\'col-sm-11 col-xs-10 form-group\'>			<label for=\'Answer\'> Answer </label>			<input value="' +
+          " <div class='row'>		  <div class='col-sm-11 col-xs-10 form-group'>			<label for='Answer'> Answer </label>			<input value=\"" +
             answer.answerTitle +
-            '" type=\'text\' class=\'form-control frm-submit\' id=\'Answer\' placeholder=\'to\' required/>			<div class=\'invalid-feedback\'>			  Please fill in this section.			</div>		  </div>		  <div class=\'col-sm-1 col-xs-2 form-group\'>			<label for \'check\' class=\'text-right\'> Path </label>			<input type=\'checkbox\' class=\'form-control frm-check\' id=\'check\' />		  </div>		</div>		<div class=\'row\'>		  <div class=\'col-md-12 form-group\'>						<div class=\'row\'>		<label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Title </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<input value=\'' +
+            "\" type='text' class='form-control frm-submit' id='Answer' placeholder='to' required/>			<div class='invalid-feedback'>			  Please fill in this section.			</div>		  </div>		  <div class='col-sm-1 col-xs-2 form-group'>			<label for 'check' class='text-right'> Path </label>			<input type='checkbox' class='form-control frm-check' id='check' />		  </div>		</div>		<div class='row'>		  <div class='col-md-12 form-group'>						<div class='row'>		<label class='col-md-11 col-md-offset-1' for='Resources'> Resource Box Title </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<input value='" +
             answer.resourceTitle +
-            '\' class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Title\' placeholder=\'Resource\' required></input>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>			  </div> <label class=\'col-md-11 col-md-offset-1\' for=\'Resources\'> Resource Box Description </label>  <div class=\'col-md-1\'></div>			  <div class=\'col-md-11\'>				<textarea  class=\'form-control frm-submit resource\' rows=3 id=\'Resource-Paragraph\' placeholder=\'Resource\' required>' +
+            "' class='form-control frm-submit resource' rows=3 id='Resource-Title' placeholder='Resource' required></input>				<div  style='margin-bottom:0.5rem' class='invalid-feedback'>Please fill in this section.</div>			  </div> <label class='col-md-11 col-md-offset-1' for='Resources'> Resource Box Description </label>  <div class='col-md-1'></div>			  <div class='col-md-11'>				<textarea  class='form-control frm-submit resource' rows=3 id='Resource-Paragraph' placeholder='Resource' required>" +
             answer.resourceParagraph +
-            '</textarea>				<div  style=\'margin-bottom:0.5rem\' class=\'invalid-feedback\'>Please fill in this section.</div>	<div class="div-line"></div>		  <b style=" font-weight: bold; margin-bottom: 0.5rem; display: block">Links</b></div>' +
+            "</textarea>				<div  style='margin-bottom:0.5rem' class='invalid-feedback'>Please fill in this section.</div>	<div class=\"div-line\"></div>		  <b style=\" font-weight: bold; margin-bottom: 0.5rem; display: block\">Links</b></div>" +
             resources +
-            '			  </div>			  <div class=\'col-md-1\'></div>			  <div class=\'col-md-10 input-group-button\'>	<button class=\'btn btn-danger btn-md frm-btn-rm\'>				   Remove Answer</button>				<button class=\'btn btn-primary btn-md frm-btn\'>				  <span  style="color: #ffffff !important;" style=\'font-size:1.5em;\' class=\'glyphicon glyphicon-plus\'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>'
+            "			  </div>			  <div class='col-md-1'></div>			  <div class='col-md-10 input-group-button'>	<button class='btn btn-danger btn-md frm-btn-rm'>				   Remove Answer</button>				<button class='btn btn-primary btn-md frm-btn'>				  <span  style=\"color: #ffffff !important;\" style='font-size:1.5em;' class='glyphicon glyphicon-plus'></span> Add Resource</button>			  </div>			</div>		  </div>		</div>"
         );
       }
     }
     container.append(
-      '<div class=\'div-line\'></div>            <div class=\'col-md-10 input-group-button\'>              <button id=\'add-question\' class=\'btn btn-primary btn-lg\'>                <span style=\'color: #ffffff !important;\' class=\'glyphicon glyphicon-plus\'></span> Add Answer</button>            </div>'
+      "<div class='div-line'></div>            <div class='col-md-10 input-group-button'>              <button id='add-question' class='btn btn-primary btn-lg'>                <span style='color: #ffffff !important;' class='glyphicon glyphicon-plus'></span> Add Answer</button>            </div>"
     );
 
-
-
-    var buttons = $('.frm-btn');
+    var buttons = $(".frm-btn");
     $.each(buttons, function(key, button) {
-      save(tree);
       $button = $(button);
-      $button.on('click', function(e) {
+      $button.on("click", function(e) {
+        save(tree);
         e.preventDefault();
         tree[index].answers[resourceAnswers[key]].resourceLinks.push({
-          linkName: '',
-          url: ''
+          linkName: "",
+          url: ""
         });
 
         render(tree);
       });
     });
 
-    var buttons = $('.frm-btn-rm');
+    var buttons = $(".frm-btn-rm");
     $.each(buttons, function(key, button) {
       save(tree);
       $button = $(button);
-      $button.on('click', function(e) {
+      $button.on("click", function(e) {
         e.preventDefault();
         tree[index].answers.splice(resourceAnswers[key], 1);
         render(tree);
       });
     });
 
-    var checkboxs = $('.frm-check');
+    var checkboxs = $(".frm-check");
     $.each(checkboxs, function(key, check) {
       $check = $(check);
       $check.change(function() {
         save(tree);
-        if ($(this).is(':checked')) {
+        if ($(this).is(":checked")) {
           tree[index].answers[key].nextBool = false;
           tree[index].answers[key].resourceLinks = undefined;
           tree[index].answers[key].resourceParagraph = undefined;
@@ -226,38 +219,36 @@ $(document).ready(function() {
           tree[index].answers[key].nextBool = true;
           tree[index].answers[key].resourceLinks = [
             {
-              linkName: '',
-              url: ''
+              linkName: "",
+              url: ""
             }
           ];
-          tree[index].answers[key].resourceParagraph = '';
-          tree[index].answers[key].resourceTitle = '';
+          tree[index].answers[key].resourceParagraph = "";
+          tree[index].answers[key].resourceTitle = "";
         }
 
         render(tree);
       });
     });
-    $('#add-question').on('click', function(e) {
+    $("#add-question").on("click", function(e) {
       save(tree);
       e.preventDefault();
-      tree[index].answers.push({ answerTitle: '' });
+      tree[index].answers.push({ answerTitle: "" });
 
       render(tree);
     });
 
     sidePanelRender(tree);
 
-    
-
-    $('#addForm').on('click', function() {
+    $("#addForm").on("click", function() {
       save(tree);
 
       tree.push({
-        questionParagraph: '',
-        questionTitle: 'New Question',
+        questionParagraph: "",
+        questionTitle: "New Question",
         answers: [
           {
-            answerTitle: ''
+            answerTitle: ""
           }
         ]
       });
@@ -265,7 +256,7 @@ $(document).ready(function() {
       render(tree);
     });
 
-    $('#up-arrow').on('click', function() {
+    $("#up-arrow").on("click", function() {
       save(tree);
 
       if (index !== 0) {
@@ -277,34 +268,34 @@ $(document).ready(function() {
       }
     });
 
-    $('#clear-changes').on('click', function() {
-      database.ref('tree').once('value', function(snapshot) {
+    $("#clear-changes").on("click", function() {
+      database.ref("tree").once("value", function(snapshot) {
         index = 0;
         render(snapshot.val());
-        toastr.success('Changes cleared');
+        toastr.success("Changes cleared");
       });
     });
 
-    $('#delete-question').on('click', function() {
+    $("#delete-question").on("click", function() {
       tree.splice(index, 1);
       if (index >= tree.length) {
         index = tree.length - 1;
       }
       render(tree);
-      toastr.success('Question deleted. Clear changes to recover');
+      toastr.success("Question deleted. Clear changes to recover");
     });
 
-    $('#upload-form').on('click', function() {
+    $("#upload-form").on("click", function() {
       save(tree);
       if (checkEmpty()) {
-        database.ref('tree').set(tree);
-        toastr.success('Changes uploaded successfully');
+        database.ref("tree").set(tree);
+        toastr.success("Changes uploaded successfully");
       } else {
-        toastr.error('Please fill in this form before continuing');
+        toastr.error("Please fill in this form before continuing");
       }
     });
 
-    $('#down-arrow').on('click', function() {
+    $("#down-arrow").on("click", function() {
       save(tree);
 
       if (index !== tree.length - 1) {
@@ -316,7 +307,7 @@ $(document).ready(function() {
       }
     });
   }
-  database.ref('tree').on('value', function(snapshot) {
+  database.ref("tree").on("value", function(snapshot) {
     render(snapshot.val());
   });
 });
