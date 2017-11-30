@@ -83,7 +83,7 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
   });
 });
 
-QUnit.test("Test Firebase Submit works correctly", function(assert) {
+QUnit.test("Test Firebase Submit Works Correctly", function(assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
