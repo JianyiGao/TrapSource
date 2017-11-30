@@ -2,6 +2,7 @@ $(document).ready(function() {
   window.trapsourceTest = {};
   window.trapsourceTest.render = render;
   window.trapsourceTest.sidePanelRender = sidePanelRender;
+  window.trapsourceTest.save = save;
 
   // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
@@ -37,6 +38,7 @@ $(document).ready(function() {
   var description = $("#Description");
 
   function sidePanelRender(tree) {
+    console.log("render sidepanel");
     var sidepanel = $("#sidepanel");
     sidepanel.empty();
     for (var ind = 0; ind < tree.length; ind++) {
