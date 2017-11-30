@@ -74,7 +74,7 @@ $(document).ready(function adminWrapper() {
     $("#containerInject").replaceWith(
       "<div id=\"containerInject\"> <div id='jumbotron'> <h1 id='jmbTitle' contenteditable='true'>" +
         index.jmbTitle +
-        " </h1> <div class='jmb_ttl'> <div id='jmbDescription' contenteditable='true'>" +
+        "</h1> <div class='jmb_ttl'> <div id='jmbDescription' contenteditable='true'>" +
         index.jmbDescription +
         "</div> </div> <a id='learn_more' href='about.html'>Learn more</a> </div> <div id='text_column_wrapper'> <article class='text_column'> <div> <img src='images/icon1.svg' alt='icon'> <h2 id='mainTitle1' contenteditable='true'>" +
         index.mainTitle1 +
