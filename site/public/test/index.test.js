@@ -184,42 +184,13 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
   });
 });
 
-QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
-  var done = assert.async();
-  var database = firebase.database();
-  var data = {};
-  database.ref("test/index/index").once("value", function(snapshot) {
-    data = snapshot.val();
-    window.trapsourceTest.admin(snapshot);
-    var abtTitle = $("#abtTitle");
-    var abtDescription = $("#abtDescription");
-    var abtPar = $("#abtPar");
-    assert.equal(
-      abtTitle.attr("contentEditable"),
-      "true",
-      "Admin title is correctly editable"
-    );
-    assert.equal(
-      abtDescription.attr("contentEditable"),
-      "true",
-      "Admin description is correctly editable"
-    );
-    assert.equal(
-      abtPar.attr("contentEditable"),
-      "true",
-      "Admin paragraph is correctly editable"
-    );
-    done();
-  });
-});
-
 QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
   database.ref("test/index/index").once("value", function(snapshot) {
     data = snapshot.val();
-    window.trapsourceTest.admin(snapshot);
+    window.trapsourceTest.regular(snapshot);
     var jmbTitle = $("#jmbTitle");
     var jmbDescription = $("#jmbDescription");
     var mainPar1 = $("#mainPar1");
