@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  setTimeout(function() {
+    console.log($("#admin-head").attr("href", "admin.test.html"));
+  }, 100);
+});
+
+$(document).ready(function() {
   QUnit.test("Test That Sidepanel Correctly Renders", function(assert) {
     var done = assert.async();
     var database = firebase.database();

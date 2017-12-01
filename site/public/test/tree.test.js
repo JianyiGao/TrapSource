@@ -1,3 +1,9 @@
+$(document).ready(function() {
+  setTimeout(function() {
+    console.log($("#admin-head").attr("href", "admin.test.html"));
+  }, 100);
+});
+
 //tree.test.js
 QUnit.test("Test User Restrictions", function(assert) {
   var adminTab = $("#admin-head");
