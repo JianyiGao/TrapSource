@@ -4,6 +4,7 @@ $(document).ready(function() {
   window.trapsourceTest.showLoginForm = showLoginForm;
   window.trapsourceTest.showRegisterForm = showRegisterForm;
   window.trapsourceTest.shakeModalPass = shakeModalPass;
+  window.trapsourceTest.shakeModalRegister = shakeModalRegister;
 
   toastr.options.closeButton = true;
   firebase.auth().onAuthStateChanged(function(u) {

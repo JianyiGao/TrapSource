@@ -25,3 +25,14 @@ QUnit.test("Testing shake modal password function", function(assert) {
     "Warning message rendered correctly: Confirmed password does not match"
   );
 });
+
+QUnit.test("Testing shake modal register function", function(assert) {
+  window.trapsourceTest.showRegisterForm();
+  window.trapsourceTest.shakeModalRegister();
+  var alert = $($(".error.alert.alert-danger").get(0));
+  assert.equal(
+    alert.text(),
+    "There was an error. This account may already be registered.",
+    "Warning message rendered correctly: Registered account already exists"
+  );
+});
