@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  window.trapsourceTest = {};
   var treeType = $('#tree-type');
   treeType.on('change', function() {
     if ($(this).val() === 'Novice') {
