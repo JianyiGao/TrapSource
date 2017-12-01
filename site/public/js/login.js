@@ -45,7 +45,11 @@ $(document).ready(function() {
           .then(function() {
             userProfile.empty();
             userButtons.append(
+<<<<<<< HEAD
               "<h2>Login to Trapsource</h2><a class='btn big-primary' data-toggle='modal' href='javascript:void(0)' onclick='openLoginModal();'>Log in</a><a class='btn big-default' data-toggle='modal' href='javascript:void(0)' onclick='openRegisterModal();'>Register</a>"
+=======
+              "<h2>Login to Trapsource</h2><a style='margin-right: 0.3rem;' class='btn btn-primary' data-toggle='modal' href='javascript:void(0)' onclick='openLoginModal();'>Log in</a><a class='btn btn-default' data-toggle='modal' href='javascript:void(0)' onclick='openRegisterModal();'>Register</a>"
+>>>>>>> 973912ba4d68b5b4b43d0ded0d19fc91ee9bbf8e
             );
           })
           .catch(function(error) {
