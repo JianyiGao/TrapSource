@@ -3,7 +3,7 @@ $(document).ready(function() {
     var done = assert.async();
     var database = firebase.database();
     var data = {};
-    database.ref("test/tree").once("value", function(snapshot) {
+    database.ref("tree").once("value", function(snapshot) {
       data = snapshot.val();
       window.trapsourceTest.sidePanelRender(snapshot.val());
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
   });
 
   var database = firebase.database();
-  database.ref("test/tree").once("value", function(snapshot) {
+  database.ref("tree").once("value", function(snapshot) {
     var data = snapshot.val();
     testRenderCorrecty(data);
   });
@@ -132,7 +132,7 @@ $(document).ready(function() {
             window.trapsourceTest.render(data, ++i, test);
           } else {
             var database = firebase.database();
-            database.ref("test/tree").once("value", function(snapshot) {
+            database.ref("tree").once("value", function(snapshot) {
               var data = snapshot.val();
               testNotEmpty(data);
             });
