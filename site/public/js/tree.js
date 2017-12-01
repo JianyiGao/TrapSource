@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  window.trapsourceTest = {};
   var treeType = $('#tree-type');
   treeType.on('change', function() {
     if ($(this).val() === 'Novice') {
@@ -13,6 +14,10 @@ $(document).ready(function() {
 
   //user priviledges
   firebase.auth().onAuthStateChanged(function(u) {
+      window.trapsourceTest.giveMeUser = giveMeUser;
+      function giveMeUser() {
+          return u;
+      }
     if (u) {
       var name;
       if (u.displayName) {
