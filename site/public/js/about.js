@@ -28,6 +28,10 @@ $(document).ready(function() {
 
   // if a user logins change the header
   firebase.auth().onAuthStateChanged(function(u) {
+      window.trapsourceTest.giveMeUser = giveMeUser;
+      function giveMeUser() {
+          return u;
+      }
     if (u) {
       var name;
       if (u.displayName) {

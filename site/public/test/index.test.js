@@ -263,8 +263,6 @@ QUnit.test("Test User Restrictions", function(assert){
             $("#login-head")
                 .text(name)
                 .css("font-weight", "bold");
-            var userName = $("login-head");
-            assert.equal(userName.html(), name, "Correct Username is displayed");
             if (u.uid === "DaQoaYhJ7KW8ep4m4P0YLZUfcTk1") {
                 assert.equal(adminTab.html(), "Admin", "Admin User: Admin tab correctly displayed");
             } else {
