@@ -6,10 +6,10 @@ $(document).ready(function() {
 
   // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
-      window.trapsourceTest.giveMeUser = giveMeUser;
-      function giveMeUser() {
-          return u;
-      }
+    window.trapsourceTest.giveMeUser = giveMeUser;
+    function giveMeUser() {
+      return u;
+    }
     if (u) {
       var name;
       if (u.displayName) {
@@ -134,7 +134,10 @@ $(document).ready(function() {
     return validInputs;
   }
 
-  function render(tree) {
+  function render(tree, newIndex, test) {
+    if (newIndex) {
+      index = newIndex;
+    }
     $(".rm-li").each(function() {
       $(this).unbind();
     });
@@ -312,6 +315,9 @@ $(document).ready(function() {
         render(tree);
       }
     });
+    if (test) {
+      test();
+    }
   }
   database.ref("tree").on("value", function(snapshot) {
     render(snapshot.val());
