@@ -11,6 +11,17 @@ QUnit.test("Testing shake modal function", function(assert) {
   assert.equal(
     alert.text(),
     "Invalid email/password combination",
-    "Warning message rendered correctly"
+    "Warning message rendered correctly: Invalid email/password"
+  );
+});
+
+QUnit.test("Testing shake modal password function", function(assert) {
+  window.trapsourceTest.showRegisterForm();
+  window.trapsourceTest.shakeModalPass();
+  var alert = $($(".error.alert.alert-danger").get(0));
+  assert.equal(
+    alert.text(),
+    "Confirmed password does not match password",
+    "Warning message rendered correctly: Confirmed password does not match"
   );
 });
