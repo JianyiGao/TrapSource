@@ -36,3 +36,14 @@ QUnit.test("Testing shake modal register function", function(assert) {
     "Warning message rendered correctly: Registered account already exists"
   );
 });
+
+QUnit.test("Testing shake modal email function", function(assert) {
+  window.trapsourceTest.showRegisterForm();
+  window.trapsourceTest.shakeModalEmail();
+  var alert = $($(".error.alert.alert-danger").get(0));
+  assert.equal(
+    alert.text(),
+    "You entered an invalid email.",
+    "Warning message rendered correctly: Invalid email entered"
+  );
+});
