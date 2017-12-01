@@ -44,24 +44,26 @@ QUnit.test("Test Advanced Tree Has Correct Data From Database", function (assert
             window.trapsourceTest.advanced();
              var h2 = {};
              var p = {};
-
+                /*
              $("#container").each(function(index){
                  h2=$(this).find("h2").text();
                  console.log(index+": "+h2);
                 p=$(this).find("p").text();
                  console.log(p);
             });
-
+            */
              $(".advanced-question-container").each(function(index){
                  h2=$(this).find("h2").text();
-                 console.log(index+": "+h2);
+               //  console.log(index+": "+h2);
                 assert.equal(h2, data.tree[index].questionTitle, "Question Title Loaded correctly")
-                console.log ((index+": "+data.tree[index].questionTitle));
+                //console.log ((index+": "+data.tree[index].questionTitle));
                 p=$(this).find("p").text();
-                 console.log(index+": "+p);
+                // console.log(index+": "+p);
                  assert.equal(p, data.tree[index].questionParagraph, "Question Paragraph Loaded correctly")
+                // console.log ((index+": "+data.tree[index].questionParagraph));
             });
              done();
        });
 
 });
+
