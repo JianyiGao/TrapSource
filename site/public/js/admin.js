@@ -60,17 +60,16 @@ $(document).ready(function() {
     $.each(questions, function(key, question) {
       $(question).on('click', function() {
         save(tree);
-        if (checkEmpty()) {
+        if (checkEmpty() && checkPathExists(tree, index)) {
           index = key;
           render(tree);
-        } else {
-          toastr.error('Please fill in this form before continuing');
         }
       });
     });
   }
 
   function save(tree) {
+    console.log('save');
     var answerCount = 0;
     var resourceCount = 0;
     var inputs = $('.frm-submit');
@@ -131,7 +130,24 @@ $(document).ready(function() {
         validInputs = false;
       }
     });
+    if (!validInputs) {
+      toastr.error('Please fill in this form before continuing');
+    }
     return validInputs;
+  }
+
+  function checkPathExists(tree, index) {
+    if (index + 1 === tree.length) {
+      return true;
+    }
+
+    for (var i = 0; i < tree[index].answers.length; i++) {
+      if (tree[index].answers[i].nextBool === false) {
+        return true;
+      }
+    }
+    toastr.error('There must exist at least one answer that is a path');
+    return false;
   }
 
   function render(tree, newIndex, test) {
@@ -231,7 +247,6 @@ $(document).ready(function() {
           });
         }
       }
-      console.log(arr);
       return arr;
     }
 
@@ -341,11 +356,9 @@ $(document).ready(function() {
 
     $('#upload-form').on('click', function() {
       save(tree);
-      if (checkEmpty()) {
+      if (checkEmpty() && checkPathExists(tree, index)) {
         database.ref('tree').set(tree);
         toastr.success('Changes uploaded successfully');
-      } else {
-        toastr.error('Please fill in this form before continuing');
       }
     });
 

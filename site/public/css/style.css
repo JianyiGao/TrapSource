@@ -91,11 +91,10 @@ nav {
 }
 
 #learn_more:hover {
-    border: 1px solid #3D3D3D;
+    border: 1px solid #3d3d3d;
     background: #ffffff;
-    color: #3D3D3D;
+    color: #3d3d3d;
 }
-    
 
 #sign_in,
 #sign_out {
@@ -275,6 +274,10 @@ footer p {
 .text-center {
     margin-top: 1rem;
     text-align: center;
+}
+
+.toast-message {
+    color: #ffffff !important;
 }
 
 /*spinner*/
