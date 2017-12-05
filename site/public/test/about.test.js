@@ -1,46 +1,56 @@
-$(document).ready(function() {
-  setTimeout(function() {
+/*
+******This tests the About Page using QUnit tests******
+*/
+$(document).ready(function () {
+  setTimeout(function () {
     console.log($("#admin-head").attr("href", "admin.test.html"));
   }, 100);
 });
 
-QUnit.test("Test Firebase Initial Data Injection", function(assert) {
+//Test if data from database was injected correctly onto html page
+QUnit.test("Test Firebase Initial Data Injection", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/about").once("value", function(snapshot) {
+  database.ref("test/about").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.firebaseInit(snapshot);
     var abtTitle = $("#abtTitle");
     var abtDescription = $("#abtDescription");
     var abtPar = $("#abtPar");
+    //test title
     assert.equal(abtTitle.html(), data.abtTitle, "Title injected correctly");
+    //test description
     assert.equal(
       abtDescription.html(),
       data.abtDescription,
       "Description injected correctly"
     );
+    //test paragraph
     assert.equal(abtPar.html(), data.abtPar, "Paragraph injected correctly");
     done();
   });
 });
 
-QUnit.test("Test Admin Mode Injected Correctly", function(assert) {
+//Test if Admin functionality and data was injected properly from database
+QUnit.test("Test Admin Mode Injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/about").once("value", function(snapshot) {
+  database.ref("test/about").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.admin(snapshot);
     var abtTitle = $("#abtTitle");
     var abtDescription = $("#abtDescription");
     var abtPar = $("#abtPar");
     var submit_changes = $("#submit_changes");
+    //test admin title
     assert.equal(
       abtTitle.html(),
       data.abtTitle,
       "Admin title injected correctly"
     );
+    //test description of admin
     assert.equal(
       abtDescription.html(),
       data.abtDescription,
@@ -51,6 +61,7 @@ QUnit.test("Test Admin Mode Injected Correctly", function(assert) {
       data.abtTitle,
       "Admin title injected correctly"
     );
+    //test admin button
     assert.notEqual(
       submit_changes.html(),
       undefined,
@@ -60,26 +71,30 @@ QUnit.test("Test Admin Mode Injected Correctly", function(assert) {
   });
 });
 
-QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
+//test if page texts are editable when on admin mode
+QUnit.test("Test Admin Mode Is Correctly Editable", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/about").once("value", function(snapshot) {
+  database.ref("test/about").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.admin(snapshot);
     var abtTitle = $("#abtTitle");
     var abtDescription = $("#abtDescription");
     var abtPar = $("#abtPar");
+    //test if title is editable
     assert.equal(
       abtTitle.attr("contentEditable"),
       "true",
       "Admin title is correctly editable"
     );
+    //test if description is editable
     assert.equal(
       abtDescription.attr("contentEditable"),
       "true",
       "Admin description is correctly editable"
     );
+    //test if paragraph is editable
     assert.equal(
       abtPar.attr("contentEditable"),
       "true",
@@ -89,22 +104,25 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
   });
 });
 
-QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
+//test regular user functionalities
+QUnit.test("Test Regular Mode Re-injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/about").once("value", function(snapshot) {
+  database.ref("test/about").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.regular(snapshot);
     var abtTitle = $("#abtTitle");
     var abtDescription = $("#abtDescription");
     var abtPar = $("#abtPar");
     var submit_changes = $("#submit_changes");
+    //test if title is re-injected properly
     assert.equal(
       abtTitle.html(),
       data.abtTitle,
       "Regular title injected correctly"
     );
+    //test if description is re-injected properly
     assert.equal(
       abtDescription.html(),
       data.abtDescription,
@@ -115,6 +133,7 @@ QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
       data.abtTitle,
       "Regular title injected correctly"
     );
+    //test if to see if admin button appears in regular user
     assert.equal(
       submit_changes.html(),
       undefined,
@@ -124,7 +143,7 @@ QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
   });
 });
 
-QUnit.test("Test User Restrictions", function(assert) {
+QUnit.test("Test User Restrictions", function (assert) {
   var adminTab = $("#admin-head");
   var u = window.trapsourceTest.giveMeUser();
   if (u) {
