@@ -7,6 +7,12 @@ $(document).ready(function() {
   window.trapsourceTest.shakeModalRegister = shakeModalRegister;
   window.trapsourceTest.validateEmail = validateEmail;
   window.trapsourceTest.shakeModalEmail = shakeModalEmail;
+  window.trapsourceTest.validateEmail = validateEmail;
+  window.trapsourceTest.showLoginForm = showLoginForm;
+  window.trapsourceTest.showRegisterForm = showRegisterForm;
+  window.trapsourceTest.openLoginModal = openLoginModal;
+  window.trapsourceTest.openRegisterModal = openRegisterModal;
+  window.trapsourceTest.hideLoginModal = hideLoginModal;
 
   toastr.options.closeButton = true;
   firebase.auth().onAuthStateChanged(function(u) {
