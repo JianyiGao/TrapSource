@@ -48,16 +48,6 @@ QUnit.test("Testing shake modal email function", function(assert) {
   );
 });
 
-QUnit.test("Testing login modal closes correctly", function(assert) {
-  var done = assert.async();
-  window.trapsourceTest.hideLoginModal();
-  setTimeout(function() {
-    var display = $("#loginModal").css("display");
-    assert.equal(display, "none", "Login modal closes correctly");
-    done();
-  }, 500);
-});
-
 QUnit.test("Testing login modal opens correctly", function(assert) {
   var done = assert.async();
   window.trapsourceTest.openLoginModal();
@@ -74,6 +64,16 @@ QUnit.test("Testing register modal opens correctly", function(assert) {
   setTimeout(function() {
     var display = $("#loginModal").css("display");
     assert.equal(display, "block", "Register modal opens correctly");
+    done();
+  }, 500);
+});
+
+QUnit.test("Testing login modal closes correctly", function(assert) {
+  var done = assert.async();
+  window.trapsourceTest.hideLoginModal();
+  setTimeout(function() {
+    var display = $("#loginModal").css("display");
+    assert.equal(display, "none", "Login modal closes correctly");
     done();
   }, 500);
 });
