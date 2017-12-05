@@ -80,6 +80,9 @@ $(document).ready(function() {
           .delete()
           .then(function() {
             signOut();
+            $('#login-head')
+              .text('Log In')
+              .css('font-weight', 'normal');
             toastr.success('Account deleted sucessfully');
           })
           .catch(function(error) {
