@@ -334,17 +334,22 @@ header a {
     color: #3d3d3d;
 }
 
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
 body {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .content {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 #user-buttons {
     text-align: center;
+}
+
+#delete-account {
+    margin-top: 2rem;
 }
