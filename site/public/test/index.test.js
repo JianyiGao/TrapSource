@@ -152,6 +152,7 @@ QUnit.test("Test Admin Mode Injected Correctly", function (assert) {
   });
 });
 
+//Test if Admin Mode actually let edit
 QUnit.test("Test Admin Mode Is Correctly Editable", function (assert) {
   var done = assert.async();
   var database = firebase.database();
@@ -167,41 +168,49 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function (assert) {
     var mainTitle1 = $("#mainTitle1");
     var mainTitle2 = $("#mainTitle2");
     var mainTitle3 = $("#mainTitle3");
+    //test if jumbotron title is editable
     assert.equal(
       jmbTitle.attr("contentEditable"),
       "true",
       "Jumbotron title is correctly editable"
     );
+    //test if jumbotron description is editable
     assert.equal(
       jmbDescription.attr("contentEditable"),
       "true",
       "Jumbotron description is correctly editable"
     );
+    //test if column 1 is editable
     assert.equal(
       mainTitle1.attr("contentEditable"),
       "true",
       "Column title 1 is correctly editable"
     );
+    //test if column 2 is editable
     assert.equal(
       mainTitle2.attr("contentEditable"),
       "true",
       "Column title 2 is correctly editable"
     );
+    //test if column 3 is editable
     assert.equal(
       mainTitle3.attr("contentEditable"),
       "true",
       "Column title 3 is correctly editable"
     );
+    //test if column descriptions are editable
     assert.equal(
       mainPar1.attr("contentEditable"),
       "true",
       "Paragragh column 1 is correctly editable"
     );
+    //test if column descriptions are editable
     assert.equal(
       mainPar2.attr("contentEditable"),
       "true",
       "Paragragh column 2 is correctly editable"
     );
+    //test if column descriptions are editable
     assert.equal(
       mainPar3.attr("contentEditable"),
       "true",
@@ -212,6 +221,7 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function (assert) {
   });
 });
 
+//Test to see if data re-inject properly when log into regular user
 QUnit.test("Test Regular Mode Re-injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
@@ -228,46 +238,55 @@ QUnit.test("Test Regular Mode Re-injected Correctly", function (assert) {
     var mainTitle2 = $("#mainTitle2");
     var mainTitle3 = $("#mainTitle3");
     var submit_changes = $("#submit_changes");
+    //test if jumbotron title is re-injected properly
     assert.equal(
       jmbTitle.html(),
       data.jmbTitle,
       "Regular jumbotron title injected correctly"
     );
+    //test if jumbotron description is re-injected properly
     assert.equal(
       jmbDescription.html(),
       data.jmbDescription,
       "Regular jumbotron description injected correctly"
     );
+    //test if column title 1 is re-injected properly
     assert.equal(
       mainTitle1.html(),
       data.mainTitle1,
       "Regular column title 1 injected correctly"
     );
+    //test if column title 2 is re-injected properly
     assert.equal(
       mainTitle2.html(),
       data.mainTitle2,
       "Regular column title 2 injected correctly"
     );
+    //test if column title 3 is re-injected properly
     assert.equal(
       mainTitle3.html(),
       data.mainTitle3,
       "Regular column title 3 injected correctly"
     );
+    //test if column paragraph 1 is re-injected properly
     assert.equal(
       mainPar1.html(),
       data.mainPar1,
       "Regular paragragh column 1 injected correctly"
     );
+    //test if column paragraph 2 is re-injected properly
     assert.equal(
       mainPar2.html(),
       data.mainPar2,
       "Regular paragragh column 2 injected correctly"
     );
+    //test if column paragraph 3 is re-injected properly
     assert.equal(
       mainPar3.html(),
       data.mainPar3,
       "Regular paragragh column 3 injected correctly"
     );
+    //test for absense of admin mode save button
     assert.equal(
       submit_changes.html(),
       undefined,
@@ -278,6 +297,7 @@ QUnit.test("Test Regular Mode Re-injected Correctly", function (assert) {
   });
 });
 
+//Test for admin vs normal user functionality
 QUnit.test("Test User Restrictions", function (assert) {
   var adminTab = $("#admin-head");
   var u = window.trapsourceTest.giveMeUser();
@@ -292,12 +312,14 @@ QUnit.test("Test User Restrictions", function (assert) {
       .text(name)
       .css("font-weight", "bold");
     if (u.uid === "DaQoaYhJ7KW8ep4m4P0YLZUfcTk1") {
+      //test if admin user is correctly implemented
       assert.equal(
         adminTab.html(),
         "Admin",
         "Admin User: Admin tab correctly displayed"
       );
     } else {
+      //test of regular user is correctly implemented
       assert.equal(
         adminTab.html(),
         undefined,
@@ -305,6 +327,7 @@ QUnit.test("Test User Restrictions", function (assert) {
       );
     }
   } else {
+    //test if no user profile when not logged in
     assert.equal(adminTab.html(), undefined, "No user profile detected");
   }
 });
