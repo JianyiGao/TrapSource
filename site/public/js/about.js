@@ -4,6 +4,16 @@ $(document).ready(function() {
   window.trapsourceTest.admin = admin;
   window.trapsourceTest.regular = regular;
 
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    console.log(nav.css('top'));
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
+
   var database = firebase.database();
   var user;
   var snapshot;
@@ -12,14 +22,14 @@ $(document).ready(function() {
 
   // render function that renders the about whether in admin or in regular user
   function render() {
-    if (snapshot && user && user.uid === "DaQoaYhJ7KW8ep4m4P0YLZUfcTk1") {
+    if (snapshot && user && user.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
       admin(snapshot);
     } else if (snapshot) {
       regular(snapshot);
     }
   }
   // get the values for this page from the database
-  database.ref("about").on("value", firebaseInit);
+  database.ref('about').on('value', firebaseInit);
 
   function firebaseInit(s) {
     snapshot = s;
@@ -28,22 +38,22 @@ $(document).ready(function() {
 
   // if a user logins change the header
   firebase.auth().onAuthStateChanged(function(u) {
-      window.trapsourceTest.giveMeUser = giveMeUser;
-      function giveMeUser() {
-          return u;
-      }
+    window.trapsourceTest.giveMeUser = giveMeUser;
+    function giveMeUser() {
+      return u;
+    }
     if (u) {
       var name;
       if (u.displayName) {
         name = u.displayName;
       } else {
-        name = u.email.substr(0, u.email.indexOf("@"));
+        name = u.email.substr(0, u.email.indexOf('@'));
       }
-      $("#login-head")
+      $('#login-head')
         .text(name)
-        .css("font-weight", "bold");
-      if (u.uid === "DaQoaYhJ7KW8ep4m4P0YLZUfcTk1") {
-        $("#nav-head").append("<a id='admin-head' href='admin.html'>Admin</a>");
+        .css('font-weight', 'bold');
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        $('#nav-head').append('<a id=\'admin-head\' href=\'admin.html\'>Admin</a>');
       }
     }
     user = u;
@@ -54,14 +64,14 @@ $(document).ready(function() {
   function regular(snapshot) {
     adminOn = false;
     about = snapshot.val();
-    $("#aboutWrapper").replaceWith(
-      "<div id=\"aboutWrapper\"> <div id='about'> <h1 id='abtTitle'>" +
+    $('#aboutWrapper').replaceWith(
+      '<div id="aboutWrapper"> <div id=\'about\'> <h1 id=\'abtTitle\'>' +
         about.abtTitle +
-        "</h1> <h2> <div id='abtDescription'>" +
+        '</h1> <h2> <div id=\'abtDescription\'>' +
         about.abtDescription +
-        "</div> </h2> <div id='abtPar'>" +
+        '</div> </h2> <div id=\'abtPar\'>' +
         about.abtPar +
-        "</div> </div> </div>"
+        '</div> </div> </div>'
     );
   }
 
@@ -72,23 +82,23 @@ $(document).ready(function() {
     }
     about = snapshot.val();
     // replace the wrapper for the page with the contents of admin page, including the a save changes button
-    $("#aboutWrapper").replaceWith(
-      "<div id=\"aboutWrapper\"> <div id='about'> <h1 contenteditable=\"true\" id='abtTitle'>" +
+    $('#aboutWrapper').replaceWith(
+      '<div id="aboutWrapper"> <div id=\'about\'> <h1 contenteditable="true" id=\'abtTitle\'>' +
         about.abtTitle +
-        "</h1> <h2> <div contenteditable=\"true\" id='abtDescription'>" +
+        '</h1> <h2> <div contenteditable="true" id=\'abtDescription\'>' +
         about.abtDescription +
-        "</div> </h2> <div contenteditable=\"true\" id='abtPar'>" +
+        '</div> </h2> <div contenteditable="true" id=\'abtPar\'>' +
         about.abtPar +
         '</div> </div> <div class="text-center"> <a id="submit_changes">Save Changes</a></div>'
     );
     //  submit changes on click handler for admin mode
-    $("#submit_changes").on("click", function() {
-      database.ref("about").set({
-        abtTitle: $("#abtTitle").html(),
-        abtDescription: $("#abtDescription").html(),
-        abtPar: $("#abtPar").html()
+    $('#submit_changes').on('click', function() {
+      database.ref('about').set({
+        abtTitle: $('#abtTitle').html(),
+        abtDescription: $('#abtDescription').html(),
+        abtPar: $('#abtPar').html()
       });
-      toastr.success("Changes saved");
+      toastr.success('Changes saved');
     });
   }
 });

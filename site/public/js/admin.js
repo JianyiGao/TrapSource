@@ -3,7 +3,15 @@ $(document).ready(function() {
   window.trapsourceTest.render = render;
   window.trapsourceTest.sidePanelRender = sidePanelRender;
   window.trapsourceTest.save = save;
-
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    console.log(nav.css('top'));
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
   // check if user is login
   firebase.auth().onAuthStateChanged(function(u) {
     window.trapsourceTest.giveMeUser = giveMeUser;

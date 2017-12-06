@@ -14,6 +14,16 @@ $(document).ready(function() {
   //window.trapsourceTest.showLoginForm = showLoginForm;
   //window.trapsourceTest.showRegisterForm = showRegisterForm;
 
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    console.log(nav.css('top'));
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
+
   toastr.options.closeButton = true;
   firebase.auth().onAuthStateChanged(function(u) {
     hideLoginModal();

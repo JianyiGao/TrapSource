@@ -2,6 +2,16 @@ $(document).ready(function() {
   window.trapsourceTest = {};
   window.trapsourceTest.firebaseInit = firebaseInit;
   window.trapsourceTest.closure = closure;
+
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    console.log(nav.css('top'));
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
   var treeType = $('#tree-type');
   treeType.on('change', function() {
     if ($(this).val() === 'Novice') {
