@@ -43,7 +43,60 @@ QUnit.test('Test User Restrictions', function(assert) {
 //console.log($(this).find(("h2, p")).text())})
 
 function recursiveTest(index) {
-  QUnit.test('Test Question ' + index + ' Was Injected Correctly', function(
+  QUnit.test(
+    'Novice Tree Question ' + index + ' Was Injected Correctly',
+    function(assert) {
+      var done = assert.async();
+      var database = firebase.database();
+      var data = {};
+      database.ref('tree').once('value', function(snapshot) {
+        data = snapshot.val();
+        $('#tree-type').val('Advanced');
+        //window.trapsourceTest.firebaseInit(snapshot);
+
+        //window.trapsourceTest.closure = closure();
+        // $("#tree-type").val('Advanced');
+        var question = $('#question');
+        assert.equal(
+          question.find('h2').text(),
+          data[index].questionTitle,
+          'Question Title Loaded correctly'
+        );
+        assert.equal(
+          question.find('p').text(),
+          data[index].questionParagraph,
+          'Question Description Loaded correctly'
+        );
+        var buttons = $('.answer_button');
+        var next = null;
+        $.each(buttons, function(key, button) {
+          if (data[index].answers[key].nextBool === false) {
+            next = key;
+          }
+          button = $(button);
+          assert.equal(
+            button.text(),
+            data[index].answers[key].answerTitle,
+            'Button ' + key + ' Loaded correctly'
+          );
+        });
+        if (next !== null && index + 1 < data.length) {
+          console.log(next);
+          $(buttons.get(next)).trigger('click');
+          recursiveTest(index + 1);
+        } else {
+          advancedTreeTest();
+        }
+        done();
+      });
+    }
+  );
+}
+
+recursiveTest(0);
+
+function advancedTreeTest() {
+  QUnit.test('Test Advanced Tree Has Correct Data From Database', function(
     assert
   ) {
     var done = assert.async();
@@ -56,88 +109,40 @@ function recursiveTest(index) {
 
       //window.trapsourceTest.closure = closure();
       // $("#tree-type").val('Advanced');
-      var question = $('#question');
-      assert.equal(
-        question.find('h2').text(),
-        data[index].questionTitle,
-        'Question Title Loaded correctly'
-      );
-      assert.equal(
-        question.find('p').text(),
-        data[index].questionParagraph,
-        'Question Description Loaded correctly'
-      );
-      var buttons = $('.answer_button');
-      var next = null;
-      $.each(buttons, function(key, button) {
-        if (data[index].answers[key].nextBool === false) {
-          next = key;
-        }
-        button = $(button);
+      window.trapsourceTest.advanced();
+      var h2 = {};
+      var p = {};
+      /*
+               $("#container").each(function(index){
+                   h2=$(this).find("h2").text();
+                   console.log(index+": "+h2);
+                  p=$(this).find("p").text();
+                   console.log(p);
+              });
+              */
+      $('.advanced-question-container').each(function(index) {
+        h2 = $(this)
+          .find('h2')
+          .text();
+        //  console.log(index+": "+h2);
         assert.equal(
-          button.text(),
-          data[index].answers[key].answerTitle,
-          'Button ' + key + ' Loaded correctly'
+          h2,
+          data[index].questionTitle,
+          'Question Title Loaded correctly'
         );
+        //console.log ((index+": "+data.tree[index].questionTitle));
+        p = $(this)
+          .find('p')
+          .text();
+        // console.log(index+": "+p);
+        assert.equal(
+          p,
+          data[index].questionParagraph,
+          'Question Paragraph Loaded correctly'
+        );
+        // console.log ((index+": "+data.tree[index].questionParagraph));
       });
-      if (next !== null && index + 1 < data.length) {
-        console.log(next);
-        $(buttons.get(next)).trigger('click');
-        recursiveTest(index + 1);
-      }
       done();
     });
   });
 }
-
-recursiveTest(0);
-
-QUnit.test('Test Advanced Tree Has Correct Data From Database', function(
-  assert
-) {
-  var done = assert.async();
-  var database = firebase.database();
-  var data = {};
-  database.ref('tree').once('value', function(snapshot) {
-    data = snapshot.val();
-    $('#tree-type').val('Advanced');
-    //window.trapsourceTest.firebaseInit(snapshot);
-
-    //window.trapsourceTest.closure = closure();
-    // $("#tree-type").val('Advanced');
-    window.trapsourceTest.advanced();
-    var h2 = {};
-    var p = {};
-    /*
-             $("#container").each(function(index){
-                 h2=$(this).find("h2").text();
-                 console.log(index+": "+h2);
-                p=$(this).find("p").text();
-                 console.log(p);
-            });
-            */
-    $('.advanced-question-container').each(function(index) {
-      h2 = $(this)
-        .find('h2')
-        .text();
-      //  console.log(index+": "+h2);
-      assert.equal(
-        h2,
-        data[index].questionTitle,
-        'Question Title Loaded correctly'
-      );
-      //console.log ((index+": "+data.tree[index].questionTitle));
-      p = $(this)
-        .find('p')
-        .text();
-      // console.log(index+": "+p);
-      assert.equal(
-        p,
-        data[index].questionParagraph,
-        'Question Paragraph Loaded correctly'
-      );
-      // console.log ((index+": "+data.tree[index].questionParagraph));
-    });
-    done();
-  });
-});
