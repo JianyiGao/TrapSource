@@ -1,14 +1,18 @@
-$(document).ready(function() {
-  setTimeout(function() {
+/*
+******This tests the Index/Landing page using QUnit tests******
+*/
+$(document).ready(function () {
+  setTimeout(function () {
     console.log($("#admin-head").attr("href", "admin.test.html"));
   }, 100);
 });
 
-QUnit.test("Test Firebase Initial Data Injection", function(assert) {
+//Tests Database data injections
+QUnit.test("Test Firebase Initial Data Injection", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/index/index").once("value", function(snapshot) {
+  database.ref("test/index/index").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.firebaseInit(snapshot);
     var jmbTitle = $("#jmbTitle");
@@ -19,41 +23,49 @@ QUnit.test("Test Firebase Initial Data Injection", function(assert) {
     var mainTitle1 = $("#mainTitle1");
     var mainTitle2 = $("#mainTitle2");
     var mainTitle3 = $("#mainTitle3");
+    //test for jumbotron
     assert.equal(
       jmbTitle.html(),
       data.jmbTitle,
       "Jumbotron title injected correctly"
     );
+    //test for jumbotron description
     assert.equal(
       jmbDescription.html(),
       data.jmbDescription,
       "Jumbotron description injected correctly"
     );
+    //test for column title 1
     assert.equal(
       mainTitle1.html(),
       data.mainTitle1,
       "Column title 1 injected correctly"
     );
+    //test for column title 2
     assert.equal(
       mainTitle2.html(),
       data.mainTitle2,
       "Column title 2 injected correctly"
     );
+    //test for column title 3
     assert.equal(
       mainTitle3.html(),
       data.mainTitle3,
       "Column title 3 injected correctly"
     );
+    //test for column paragraph 1
     assert.equal(
       mainPar1.html(),
       data.mainPar1,
       "Paragragh column 1 injected correctly"
     );
+    //test for column paragraph 2
     assert.equal(
       mainPar2.html(),
       data.mainPar2,
       "Paragragh column 2 injected correctly"
     );
+    //test for column paragraph 3
     assert.equal(
       mainPar3.html(),
       data.mainPar3,
@@ -64,11 +76,11 @@ QUnit.test("Test Firebase Initial Data Injection", function(assert) {
   });
 });
 
-QUnit.test("Test Admin Mode Injected Correctly", function(assert) {
+QUnit.test("Test Admin Mode Injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/index/index").once("value", function(snapshot) {
+  database.ref("test/index/index").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.admin(snapshot);
     var jmbTitle = $("#jmbTitle");
@@ -130,11 +142,11 @@ QUnit.test("Test Admin Mode Injected Correctly", function(assert) {
   });
 });
 
-QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
+QUnit.test("Test Admin Mode Is Correctly Editable", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/index/index").once("value", function(snapshot) {
+  database.ref("test/index/index").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.admin(snapshot);
     var jmbTitle = $("#jmbTitle");
@@ -190,11 +202,11 @@ QUnit.test("Test Admin Mode Is Correctly Editable", function(assert) {
   });
 });
 
-QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
+QUnit.test("Test Regular Mode Re-injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
   var data = {};
-  database.ref("test/index/index").once("value", function(snapshot) {
+  database.ref("test/index/index").once("value", function (snapshot) {
     data = snapshot.val();
     window.trapsourceTest.regular(snapshot);
     var jmbTitle = $("#jmbTitle");
@@ -256,7 +268,7 @@ QUnit.test("Test Regular Mode Re-injected Correctly", function(assert) {
   });
 });
 
-QUnit.test("Test User Restrictions", function(assert) {
+QUnit.test("Test User Restrictions", function (assert) {
   var adminTab = $("#admin-head");
   var u = window.trapsourceTest.giveMeUser();
   if (u) {
