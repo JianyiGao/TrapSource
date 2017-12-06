@@ -1,6 +1,7 @@
 $(document).ready(function() {
   window.trapsourceTest = {};
   window.trapsourceTest.firebaseInit = firebaseInit;
+  window.trapsourceTest.closure = closure;
   var treeType = $('#tree-type');
   treeType.on('change', function() {
     if ($(this).val() === 'Novice') {
@@ -15,10 +16,10 @@ $(document).ready(function() {
 
   //user priviledges
   firebase.auth().onAuthStateChanged(function(u) {
-      window.trapsourceTest.giveMeUser = giveMeUser;
-      function giveMeUser() {
-          return u;
-      }
+    window.trapsourceTest.giveMeUser = giveMeUser;
+    function giveMeUser() {
+      return u;
+    }
     if (u) {
       var name;
       if (u.displayName) {
@@ -47,19 +48,19 @@ $(document).ready(function() {
     }
   });
   */
-/////////////////////
-//load tree json from database
-var database = firebase.database();
+  /////////////////////
+  //load tree json from database
+  var database = firebase.database();
   database.ref('tree').on('value', firebaseInit);
-  function firebaseInit(s)  {
+  function firebaseInit(s) {
     snapshot = s;
     if (treeType.val() === 'Novice') {
       closure();
     } else {
       advanced();
     }
-  };
-   window.trapsourceTest.advanced = advanced;
+  }
+  window.trapsourceTest.advanced = advanced;
 
   //advanced tree render
   function advanced() {
