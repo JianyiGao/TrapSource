@@ -5,7 +5,6 @@ $(document).ready(function() {
   window.trapsourceTest.save = save;
   $('#hamburger').on('click', function() {
     var nav = $('#nav-head');
-    console.log(nav.css('top'));
     if (nav.css('top') === '-500px') {
       $('#nav-head').css('top', 'auto');
     } else {
