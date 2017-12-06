@@ -76,6 +76,7 @@ QUnit.test("Test Firebase Initial Data Injection", function (assert) {
   });
 });
 
+//Test for admin mode database injection
 QUnit.test("Test Admin Mode Injected Correctly", function (assert) {
   var done = assert.async();
   var database = firebase.database();
@@ -92,46 +93,55 @@ QUnit.test("Test Admin Mode Injected Correctly", function (assert) {
     var mainTitle2 = $("#mainTitle2");
     var mainTitle3 = $("#mainTitle3");
     var submit_changes = $("#submit_changes");
+    //test for admin jumbotron injection
     assert.equal(
       jmbTitle.html(),
       data.jmbTitle,
       "Admin jumbotron title injected correctly"
     );
+    //test for admin jumbotron description injection
     assert.equal(
       jmbDescription.html(),
       data.jmbDescription,
       "Admin jumbotron description injected correctly"
     );
+    //test for admin column title 1  
     assert.equal(
       mainTitle1.html(),
       data.mainTitle1,
       "Admin column title 1 injected correctly"
     );
+    //test for admin column title 2
     assert.equal(
       mainTitle2.html(),
       data.mainTitle2,
       "Admin column title 2 injected correctly"
     );
+    //test for admin column title 3
     assert.equal(
       mainTitle3.html(),
       data.mainTitle3,
       "Admin column title 3 injected correctly"
     );
+    //test for admin column paragraph 1
     assert.equal(
       mainPar1.html(),
       data.mainPar1,
       "Admin paragragh column 1 injected correctly"
     );
+    //test for admin column paragraph 2
     assert.equal(
-      mainPar2.html(),
+      mainPar2.h3ml(),
       data.mainPar2,
       "Admin paragragh column 2 injected correctly"
     );
+    //test for admin column paragraph 3
     assert.equal(
       mainPar3.html(),
       data.mainPar3,
       "Admin paragragh column 3 injected correctly"
     );
+    //test for admin save-button 
     assert.notEqual(
       submit_changes.html(),
       undefined,
