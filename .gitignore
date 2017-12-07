@@ -9,6 +9,7 @@ Thumbs.db
 # ==========================
 .nodemonignore
 .sass-cache/
+.vscode/
 node_modules/
 public/lib/
 app/tests/coverage/

@@ -224,6 +224,7 @@ var initGlobalConfig = function () {
   return config;
 };
 
+
 /**
  * Set configuration object
  */

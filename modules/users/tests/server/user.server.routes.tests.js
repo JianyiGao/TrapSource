@@ -111,7 +111,7 @@ describe('User CRUD tests', function () {
             }
 
             signoutRes.redirect.should.equal(true);
-
+            ///////differnt from master. semver.satisfies in if statement
             // NodeJS v4 changed the status code representation so we must check
             // before asserting, to be comptabile with all node versions.
             if (semver.satisfies(process.versions.node, '>=4.0.0')) {

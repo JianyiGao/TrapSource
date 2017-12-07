@@ -22,6 +22,8 @@ module.exports.init = function init(callback) {
     mongooseService.loadModels(seedDB);
 
     // Initialize express
+
+    /////////set up database
     var app = express.init(db);
     if (callback) callback(app, db, config);
 

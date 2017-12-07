@@ -25,12 +25,12 @@
         </span>
       </a>
     </div>
-    <div class="social-account-container" ng-hide="vm.isConnectedSocialAccount('twitter')">
-      <a href="" ng-click="vm.callOauthProvider('/api/auth/twitter')">
-        <img class="social-button" ng-src="/modules/users/client/img/buttons/twitter.png">
-        <span class="btn btn-success btn-add-remove-account">
-          <i class="glyphicon glyphicon-plus"></i>
-        </span>
+    <!--
+    We don't use any social accounts besides facebook
+    <div class="social-account-container" ng-hide="isConnectedSocialAccount('twitter')">
+      <img ng-src="/modules/users/client/img/buttons/twitter.png">
+      <a class="btn btn-success btn-remove-account" href="/api/auth/twitter" target="_self">
+        <i class="glyphicon glyphicon-plus"></i>
       </a>
     </div>
     <div class="social-account-container" ng-hide="vm.isConnectedSocialAccount('google')">
@@ -65,5 +65,6 @@
         </span>
       </a>
     </div>
+  -->
   </div>
 </section>
