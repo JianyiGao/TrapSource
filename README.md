@@ -63,6 +63,6 @@ http://localhost:3000/test/index.test.html
 ### Credits:
 
  * [MEAN JS](http://meanjs.org/) for everything that is this project
- * [Bootstrap](https://getbootstrap.com/) for beautiful animations
+ * [Bootstrap](https://getbootstrap.com/) for beautiful grids and css
  * [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for all JavaScript workings
  * [Toastr](https://codeseven.github.io/toastr/) for the beautiful success/failures/etc notifications
