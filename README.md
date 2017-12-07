@@ -1,4 +1,3 @@
-# TrapSource
 [![TrapSource Logo](site/public/images/logo.png?raw=true)](https://trapsource-c3482.firebaseapp.com/)
 
 Deployed @ https://trapsource-c3482.firebaseapp.com/
