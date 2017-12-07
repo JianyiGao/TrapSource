@@ -1,4 +1,28 @@
 $(document).ready(function() {
+  window.trapsourceTest = {};
+  window.trapsourceTest.shakeModal = shakeModal;
+  window.trapsourceTest.showLoginForm = showLoginForm;
+  window.trapsourceTest.showRegisterForm = showRegisterForm;
+  window.trapsourceTest.shakeModalPass = shakeModalPass;
+  window.trapsourceTest.shakeModalRegister = shakeModalRegister;
+  window.trapsourceTest.validateEmail = validateEmail;
+  window.trapsourceTest.shakeModalEmail = shakeModalEmail;
+  window.trapsourceTest.openLoginModal = openLoginModal;
+  window.trapsourceTest.openRegisterModal = openRegisterModal;
+  window.trapsourceTest.hideLoginModal = hideLoginModal;
+  //window.trapsourceTest.validateEmail = validateEmail;
+  //window.trapsourceTest.showLoginForm = showLoginForm;
+  //window.trapsourceTest.showRegisterForm = showRegisterForm;
+
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
+
   toastr.options.closeButton = true;
   firebase.auth().onAuthStateChanged(function(u) { //check if user is logged in
     hideLoginModal();
@@ -26,25 +50,52 @@ $(document).ready(function() {
       var userButtons = $('#user-buttons');
       userButtons.empty();
       var userProfile = $('#user-profile');
-      userProfile.append(
-        '<img src="' +
-          img +
-          '"><p id=\'user-name\'>' +
-          name +
-          '</p><a id="sign-out" class="btn btn-default">Sign out</a>'
-      );
+      if (u.uid === 'DaQoaYhJ7KW8ep4m4P0YLZUfcTk1') {
+        userProfile.append(
+          '<img src="' +
+            img +
+            '"><p id=\'user-name\'>' +
+            name +
+            ' (Admin)' +
+            '</p><a id="sign-out" class="btn btn-default">Sign out</a>'
+        );
+      } else {
+        userProfile.append(
+          '<img src="' +
+            img +
+            '"><p id=\'user-name\'>' +
+            name +
+            '</p><a id="sign-out" class="btn btn-default">Sign out</a><a id="delete-account" class="btn btn-danger">Delete account</a>'
+        );
+      }
+      function signOut() {
+        userProfile.empty();
+        userButtons.append(
+          '<h2>Login to Trapsource</h2><a style=\'margin-right: 0.3rem;\' class=\'btn btn-primary\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openLoginModal();\'>Log in</a><a class=\'btn btn-default\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openRegisterModal();\'>Register</a>'
+        );
+      }
+
       $('#sign-out').on('click', function() {
         firebase
           .auth()
           .signOut()
-          .then(function() {
-            userProfile.empty();
-            userButtons.append(
-              '<h2>Login to Trapsource</h2><a class=\'btn big-primary\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openLoginModal();\'>Log in</a><a class=\'btn big-default\' data-toggle=\'modal\' href=\'javascript:void(0)\' onclick=\'openRegisterModal();\'>Register</a>'
-            );
-          })
+          .then(signOut)
           .catch(function(error) {
             console.log(error);
+          });
+      });
+      $('#delete-account').on('click', function() {
+        u
+          .delete()
+          .then(function() {
+            signOut();
+            $('#login-head')
+              .text('Log In')
+              .css('font-weight', 'normal');
+            toastr.success('Account deleted sucessfully');
+          })
+          .catch(function(error) {
+            toastr.error('There was some issue deleting the account');
           });
       });
       toastr.success('login successful');
@@ -107,10 +158,16 @@ $('#register-btn').on('click', function(e) { //called when register button is cl
         console.log(errorMessage);
         shakeModalRegister(); //error message if account exists
       });
+<<<<<<< HEAD
   } else if (!validateEmail(email)) { //check if email is valid with function
       shakeModalEmail();
   }
   else { //display error message if passwords dont match
+=======
+  } else if (!validateEmail(email)) {
+    shakeModalEmail();
+  } else {
+>>>>>>> 6ADevelopment_Test
     shakeModalPass();
   }
 });

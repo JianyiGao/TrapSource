@@ -1,4 +1,18 @@
 $(document).ready(function() {
+  window.trapsourceTest = {};
+  window.trapsourceTest.firebaseInit = firebaseInit;
+  window.trapsourceTest.admin = admin;
+  window.trapsourceTest.regular = regular;
+
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
+
   var database = firebase.database();
   var user;
   var snapshot;
@@ -14,12 +28,19 @@ $(document).ready(function() {
     }
   }
   // get the values for this page from the database
-  database.ref('about').on('value', function(s) {
+  database.ref('about').on('value', firebaseInit);
+
+  function firebaseInit(s) {
     snapshot = s;
     render();
-  });
+  }
+
   // if a user logins change the header
   firebase.auth().onAuthStateChanged(function(u) {
+    window.trapsourceTest.giveMeUser = giveMeUser;
+    function giveMeUser() {
+      return u;
+    }
     if (u) {
       var name;
       if (u.displayName) {

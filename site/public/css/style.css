@@ -28,7 +28,25 @@ header {
 }
 
 nav {
-    display: none;
+    position: absolute;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    top: -500px;
+    background-color: #3d3d3d;
+    z-index: 999;
+    padding: 1rem 0;
+}
+
+nav a {
+    display: block;
+    color: #e5e5e5 !important;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+nav a:active {
+    background-color: #00c6ff;
 }
 
 #hamburger {
@@ -95,11 +113,14 @@ nav {
 }
 
 #learn_more:hover {
-    border: 1px solid #3D3D3D;
+    border: 1px solid #3d3d3d;
     background: #ffffff;
-    color: #3D3D3D;
+    color: #3d3d3d;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ADevelopment_Test
 
 #sign_in,
 #sign_out {
@@ -194,12 +215,21 @@ footer p {
 
     nav {
         display: inline-block;
+        position: static;
+        background-color: inherit;
         float: right;
+        width: auto;
         margin-top: 1.5rem;
         margin-right: 2rem;
+        padding: 0;
+    }
+
+    nav a:active {
+        background-color: inherit;
     }
 
     nav a {
+        display: inline;
         margin-right: 1rem;
         text-decoration: none;
         transition: all 0.15s ease-in-out;
@@ -279,6 +309,10 @@ footer p {
 .text-center {
     margin-top: 1rem;
     text-align: center;
+}
+
+.toast-message {
+    color: #ffffff !important;
 }
 
 /*spinner*/

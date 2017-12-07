@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Trap Source</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="../css/toastr.css">
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.4.1.css">
+
+</head>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<body>
+
+  <div id="wrap" class="page-wrap">
+    <header>
+      <a href="index.test.html">
+        <img id="logo" src="images/logo.png" alt="Trap Source Logo">
+      </a>
+      <nav id="nav-head">
+        <a href="index.test.html">Home</a>
+        <a href="tree.test.html">Tree</a>
+        <a href="about.test.html">About</a>
+        <a id="login-head" href="login.test.html">Login</a>
+      </nav>
+      <img id="hamburger" src="images/hamburger.svg" alt="Menu">
+    </header>
+    <div id="nav_line"></div>
+    <div id="header_title">
+      <h1>Admin Page</h1>
+
+    </div>
+    <!--
+  <div id="jsoneditor""></div>
+  <div id="submit_button" class="noselect">Submit</div>
+    -->
+
+
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-1 ">
+        <div class="row">
+
+          <div class="col-xs-6 text-center" style="margin-bottom: 1rem;">
+            <div id="up-arrow" class="btn btn-primary rm-li" style="background-color: #eee; border-color: #cccccc;">
+
+              <img style="vertical-align: middle;" id=" up_reg " src="images/up_arrow.svg ">
+            </div>
+          </div>
+
+          <div class="col-xs-6 text-center ">
+            <div id="down-arrow" class="btn btn-primary rm-li" style="background-color: #eee; border-color: #cccccc;">
+
+              <img style="vertical-align: middle;" id=" down_reg " src="images/down_arrow.svg ">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="well">
+            <ul id="sidepanel" class="nav nav-pills nav-stacked">
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 well tab-content" style="margin-left: 0.5rem;">
+        <div id="container">
+
+
+          <div class="spinner_cont">
+            <h2>Loading page...</h2>
+            <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="div-line"> </div>
+        <div class="row">
+          <button id="upload-form" class="btn btn-success rm-li">Upload changes</button>
+          <button id="clear-changes" class="btn btn-default rm-li">Clear changes</button>
+          <button id="delete-question" class="btn btn-danger rm-li">Delete question</button>
+        </div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+  </div>
+  </div>
+  <div id="footer_line"></div>
+  <footer class="site-footer">
+    <p>Copyright &copy; 2017 Trap Source</p>
+    <p id="developed_by">Developed with &#9829; by team 6A </p>
+  </footer>
+
+</body>
+
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIQQbQkegzVvTF4mh7zMqoBsD4x1HmUCw",
+    authDomain: "trapsource-c3482.firebaseapp.com",
+    databaseURL: "https://trapsource-c3482.firebaseio.com",
+    projectId: "trapsource-c3482",
+    storageBucket: "trapsource-c3482.appspot.com",
+    messagingSenderId: "1054890812044"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/toastr.min.js"></script>
+<script src="../js/admin.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/qunit/qunit-2.4.1.js"></script>
+<script src="admin.test.js"></script>

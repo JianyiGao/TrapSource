@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  toastr.options.closeButton = true;
-  firebase.auth().onAuthStateChanged(function(u) {
+$(document).ready(function() { 
+  toastr.options.closeButton = true; // 
+  firebase.auth().onAuthStateChanged(function(u) { // firebase auth
     hideLoginModal();
     if (u) {
       console.log(u);
@@ -83,7 +83,7 @@ $('#login-btn').on('click', function(e) {
     });
 });
 
-$('#register-btn').on('click', function(e) {
+$('#register-btn').on('click', function(e) { // register button
   e.preventDefault();
   console.log('click');
   var email = $('#email-register').val();
@@ -104,7 +104,7 @@ $('#register-btn').on('click', function(e) {
   }
 });
 
-function showRegisterForm() {
+function showRegisterForm() { // register form display
   $('.loginBox').fadeOut('fast', function() {
     $('.registerBox').fadeIn('fast');
     $('.login-footer').fadeOut('fast', function() {
@@ -116,7 +116,7 @@ function showRegisterForm() {
     .removeClass('alert alert-danger')
     .html('');
 }
-function showLoginForm() {
+function showLoginForm() { // diplay login 
   $('#loginModal .registerBox').fadeOut('fast', function() {
     $('.loginBox').fadeIn('fast');
     $('.register-footer').fadeOut('fast', function() {
@@ -130,30 +130,30 @@ function showLoginForm() {
     .html('');
 }
 
-function hideLoginModal() {
+function hideLoginModal() { // hide login
   setTimeout(function() {
     $('#loginModal').modal('hide');
   }, 230);
 }
 
-function openLoginModal() {
+function openLoginModal() { // open login
   showLoginForm();
   setTimeout(function() {
     $('#loginModal').modal('show');
   }, 230);
 }
-function openRegisterModal() {
+function openRegisterModal() { 
   showRegisterForm();
   setTimeout(function() {
     $('#loginModal').modal('show');
   }, 230);
 }
 
-function loginAjax() {
+function loginAjax() { 
   shakeModal();
 }
 
-function shakeModal() {
+function shakeModal() { 
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
     .addClass('alert alert-danger')

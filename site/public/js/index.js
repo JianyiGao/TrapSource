@@ -1,6 +1,23 @@
 $(document).ready(function adminWrapper() {
+<<<<<<< HEAD
 
   //connects to database at firebase
+=======
+  window.trapsourceTest = {};
+  window.trapsourceTest.firebaseInit = firebaseInit;
+  window.trapsourceTest.admin = admin;
+  window.trapsourceTest.regular = regular;
+
+  $('#hamburger').on('click', function() {
+    var nav = $('#nav-head');
+    if (nav.css('top') === '-500px') {
+      $('#nav-head').css('top', 'auto');
+    } else {
+      $('#nav-head').css('top', '-500px');
+    }
+  });
+
+>>>>>>> 6ADevelopment_Test
   var database = firebase.database();
   var provider = new firebase.auth.GoogleAuthProvider();
   var user;
@@ -14,10 +31,12 @@ $(document).ready(function adminWrapper() {
       regular(snapshot);
     }
   }
-  database.ref('index').on('value', function(s) {
+  database.ref('index').on('value', firebaseInit);
+
+  function firebaseInit(s) {
     snapshot = s;
     render();
-  });
+  }
 
   //regular user priviledeges
   function regular(snapshot) {
@@ -76,7 +95,7 @@ $(document).ready(function adminWrapper() {
     $('#containerInject').replaceWith(
       '<div id="containerInject"> <div id=\'jumbotron\'> <h1 id=\'jmbTitle\' contenteditable=\'true\'>' +
         index.jmbTitle +
-        ' </h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\' contenteditable=\'true\'>' +
+        '</h1> <div class=\'jmb_ttl\'> <div id=\'jmbDescription\' contenteditable=\'true\'>' +
         index.jmbDescription +
         '</div> </div> <a id=\'learn_more\' href=\'about.html\'>Learn more</a> </div> <div id=\'text_column_wrapper\'> <article class=\'text_column\'> <div> <img src=\'images/icon1.svg\' alt=\'icon\'> <h2 id=\'mainTitle1\' contenteditable=\'true\'>' +
         index.mainTitle1 +
@@ -138,6 +157,11 @@ $(document).ready(function adminWrapper() {
   //user authentication using firebase
   //only admin if the user ID is correct
   firebase.auth().onAuthStateChanged(function(u) {
+    window.trapsourceTest.giveMeUser = giveMeUser;
+    function giveMeUser() {
+      return u;
+    }
+
     if (u) {
       var name;
       if (u.displayName) {

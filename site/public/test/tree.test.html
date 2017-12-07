@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trap Source</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tree.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.4.1.css">
+
+
+</head>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+<body>
+  <div id="wrap" class="page-wrap">
+    <header>
+      <a href="index.test.html">
+        <img id="logo" src="images/logo.png" alt="Trap Source Logo">
+      </a>
+      <nav id="nav-head">
+        <a href="index.test.html">Home</a>
+        <a class="current_page" href="">Tree</a>
+        <a href="about.test.html">About</a>
+        <a id="login-head" href="login.test.html">Login</a>
+      </nav>
+      <img id="hamburger" src="images/hamburger.svg" alt="Menu">
+    </header>
+    <div id="nav_line"></div>
+    <div id="tree">
+      <h1>Decision Tree</h1>
+      <div id="tree-type-container">
+        <select name="tree-type" id="tree-type">
+          <option value="Novice">Novice</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <div id="container">
+        <div class="spinner_cont">
+          <h2>Loading tree...</h2>
+          <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer_line"></div>
+  <footer class="site-footer">
+    <p>Copyright &copy; 2017 Trap Source</p>
+    <p id="developed_by">Developed with &#9829; by team 6A </p>
+  </footer>
+</body>
+
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDIQQbQkegzVvTF4mh7zMqoBsD4x1HmUCw",
+    authDomain: "trapsource-c3482.firebaseapp.com",
+    databaseURL: "https://trapsource-c3482.firebaseio.com",
+    projectId: "trapsource-c3482",
+    storageBucket: "trapsource-c3482.appspot.com",
+    messagingSenderId: "1054890812044"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/tree.js"></script>
+<script src="https://code.jquery.com/qunit/qunit-2.4.1.js"></script>
+<script src="tree.test.js"></script>
