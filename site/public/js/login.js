@@ -158,16 +158,9 @@ $('#register-btn').on('click', function(e) { //called when register button is cl
         console.log(errorMessage);
         shakeModalRegister(); //error message if account exists
       });
-<<<<<<< HEAD
-  } else if (!validateEmail(email)) { //check if email is valid with function
-      shakeModalEmail();
-  }
-  else { //display error message if passwords dont match
-=======
   } else if (!validateEmail(email)) {
     shakeModalEmail();
   } else {
->>>>>>> 6ADevelopment_Test
     shakeModalPass();
   }
 });

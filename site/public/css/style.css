@@ -24,7 +24,7 @@ header {
 }
 
 .toast-message {
-  color: #ffffff !important;
+    color: #ffffff !important;
 }
 
 nav {
@@ -117,10 +117,6 @@ nav a:active {
     background: #ffffff;
     color: #3d3d3d;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 6ADevelopment_Test
 
 #sign_in,
 #sign_out {

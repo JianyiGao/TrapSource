@@ -1,8 +1,4 @@
 $(document).ready(function adminWrapper() {
-<<<<<<< HEAD
-
-  //connects to database at firebase
-=======
   window.trapsourceTest = {};
   window.trapsourceTest.firebaseInit = firebaseInit;
   window.trapsourceTest.admin = admin;
@@ -17,7 +13,6 @@ $(document).ready(function adminWrapper() {
     }
   });
 
->>>>>>> 6ADevelopment_Test
   var database = firebase.database();
   var provider = new firebase.auth.GoogleAuthProvider();
   var user;
