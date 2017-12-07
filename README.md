@@ -41,7 +41,7 @@ npm install -g lite-server
 ```
 lite-server
 ```
-2. WebApp will automatically pops up. In the rare case it doesn't, go to your favorite web browser
+3. WebApp will automatically pops up. In the rare case it doesn't, go to your favorite web browser
 ```
 http://localhost:3000/
 ```
