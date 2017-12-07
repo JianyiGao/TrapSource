@@ -66,4 +66,3 @@ http://localhost:3000/test/index.test.html
  * [Bootstrap](https://getbootstrap.com/) for beautiful animations
  * [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for all JavaScript workings
  * [Toastr](https://codeseven.github.io/toastr/) for the beautiful success/failures/etc notifications
- * [jsoneditor](https://github.com/josdejong/jsoneditor) for making Admin feature easy
