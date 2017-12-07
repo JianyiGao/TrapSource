@@ -4,7 +4,8 @@
 Deployed @ https://trapsource-c3482.firebaseapp.com/
 
 Features list:
-
+ * Home Page
+ ![home](site/public/images/home.png?raw=true) 
  * Decision Tree
  ![novice_tree](site/public/images/novice_tree.png?raw=true) 
  * Advanced Tree
