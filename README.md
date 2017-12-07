@@ -5,19 +5,19 @@ Deployed @ https://trapsource-c3482.firebaseapp.com/
 
 Features list:
  * Home Page
- ![home](site/public/images/home.png?raw=true) 
+ ![home](/site/public/images/home.png?raw=true) 
  * Decision Tree
- ![novice_tree](site/public/images/novice_tree.png?raw=true) 
+ ![novice_tree](/site/public/images/novice_tree.png?raw=true) 
  * Advanced Tree
- ![advanced_tree](site/public/images/advanced_tree.png?raw=true) 
+ ![advanced_tree](/site/public/images/advanced_tree.png?raw=true) 
  * User Login/ Authentications
- ![user](site/public/images/user.png?raw=true) 
+ ![user](/site/public/images/user.png?raw=true) 
  * Admin Portal
- ![admin](site/public/images/admin.png?raw=true) 
+ ![admin](/site/public/images/admin.png?raw=true) 
  * Direct Website Editing
- ![admin_edit](site/public/images/admin_edit.png?raw=true) 
+ ![admin_edit](/site/public/images/admin_edit.png?raw=true) 
  * Testings
- ![tests](site/public/images/test.png?raw=true) 
+ ![tests](/site/public/images/test.png?raw=true) 
 ### To run project locally
 1. in cmd run
 ```
