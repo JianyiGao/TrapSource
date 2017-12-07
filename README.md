@@ -32,14 +32,19 @@ Features List:
 
 <img src="/site/public/images/tests.PNG" width="500">
 
-### To run project locally
-1. in cmd run
+### Prerequisites 
 ```
-npm install -g lite-server
+Install Node.js and NPM
+```
+
+### To run project locally
+1. in cmd/bash run
+```
+$ npm install -g lite-server
 ```
 2. on directory with public files /site/public run
 ```
-lite-server
+$ lite-server
 ```
 3. WebApp will automatically pops up. In the rare case it doesn't, go to your favorite web browser
 ```
@@ -62,7 +67,6 @@ http://localhost:3000/test/index.test.html
 
 ### Credits:
 
- * [MEAN JS](http://meanjs.org/) for everything that is this project
  * [Bootstrap](https://getbootstrap.com/) for beautiful grids and css
  * [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for all JavaScript workings
  * [Toastr](https://codeseven.github.io/toastr/) for the beautiful success/failures/etc notifications
