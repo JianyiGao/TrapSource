@@ -52,6 +52,12 @@ http://localhost:3000/
 Use Admin feature to directly update database from WebApp. Can also log into firebase.google.com as Admin user
 ```
 
+### To run tests
+
+```
+http://localhost:3000/test/index.test.html
+```
+
 
 
 ### Credits:
