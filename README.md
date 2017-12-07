@@ -35,7 +35,7 @@ Features List:
 ### Prerequisites 
 * Git - [Download & Install Git](https://git-scm.com/downloads)
 * Node.js - [Download & Install Node.js](https://nodejs.org/en/download/)
-* Google Firebase account
+* Google Firebase account - [Firebase](https://firebase.google.com/)
 
 ### To run project locally
 1. in cmd/bash run
