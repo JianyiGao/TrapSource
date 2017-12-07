@@ -33,9 +33,9 @@ Features List:
 <img src="/site/public/images/tests.PNG" width="500">
 
 ### Prerequisites 
-```
-Install Node.js and NPM
-```
+* Git - [Download & Install Git](https://git-scm.com/downloads)
+* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/)
+* Google Firebase account
 
 ### To run project locally
 1. in cmd/bash run
