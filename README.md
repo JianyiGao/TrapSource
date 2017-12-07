@@ -60,4 +60,4 @@ Use Admin feature to directly update database from WebApp. Can also log into fir
  * [Bootstrap](https://getbootstrap.com/) for beautiful animations
  * [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for all JavaScript workings
  * [Toastr](https://codeseven.github.io/toastr/) for the beautiful success/failures/etc notifications
- * [jsopneditor](https://github.com/josdejong/jsoneditor) for making Admin feature easy
+ * [jsoneditor](https://github.com/josdejong/jsoneditor) for making Admin feature easy
