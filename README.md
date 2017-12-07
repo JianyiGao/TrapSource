@@ -32,21 +32,23 @@ Features List:
 
 <img src="/site/public/images/tests.PNG" width="500">
 
-### Prerequisites 
+### To run project locally
+
+1. in cmd run
+
 ```
-Install Node.js and NPM
+npm install -g lite-server
 ```
 
-### To run project locally
-1. in cmd/bash run
-```
-$ npm install -g lite-server
-```
 2. on directory with public files /site/public run
+
 ```
-$ lite-server
+lite-server
 ```
-3. WebApp will automatically pops up. In the rare case it doesn't, go to your favorite web browser
+
+2. WebApp will automatically pops up. In the rare case it doesn't, go to your
+   favorite web browser
+
 ```
 http://localhost:3000/
 ```
@@ -57,16 +59,13 @@ http://localhost:3000/
 Use Admin feature to directly update database from WebApp. Can also log into firebase.google.com as Admin user
 ```
 
-### To run tests
-
-```
-http://localhost:3000/test/index.test.html
-```
-
-
-
 ### Credits:
 
- * [Bootstrap](https://getbootstrap.com/) for beautiful grids and css
- * [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for all JavaScript workings
- * [Toastr](https://codeseven.github.io/toastr/) for the beautiful success/failures/etc notifications
+* [MEAN JS](http://meanjs.org/) for everything that is this project
+* [Bootstrap](https://getbootstrap.com/) for beautiful animations
+* [jquery](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) for
+  all JavaScript workings
+* [Toastr](https://codeseven.github.io/toastr/) for the beautiful
+  success/failures/etc notifications
+* [jsopneditor](https://github.com/josdejong/jsoneditor) for making Admin
+  feature easy
