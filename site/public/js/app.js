@@ -1,5 +1,5 @@
-$(document).ready(function() { 
-  toastr.options.closeButton = true; // 
+$(document).ready(function() {
+  toastr.options.closeButton = true; //
   firebase.auth().onAuthStateChanged(function(u) { // firebase auth
     hideLoginModal();
     if (u) {
@@ -116,7 +116,7 @@ function showRegisterForm() { // register form display
     .removeClass('alert alert-danger')
     .html('');
 }
-function showLoginForm() { // diplay login 
+function showLoginForm() { // diplay login
   $('#loginModal .registerBox').fadeOut('fast', function() {
     $('.loginBox').fadeIn('fast');
     $('.register-footer').fadeOut('fast', function() {
@@ -142,18 +142,18 @@ function openLoginModal() { // open login
     $('#loginModal').modal('show');
   }, 230);
 }
-function openRegisterModal() { 
+function openRegisterModal() {
   showRegisterForm();
   setTimeout(function() {
     $('#loginModal').modal('show');
   }, 230);
 }
 
-function loginAjax() { 
+function loginAjax() {
   shakeModal();
 }
 
-function shakeModal() { 
+function shakeModal() {
   $('#loginModal .modal-dialog').addClass('shake');
   $('.error')
     .addClass('alert alert-danger')
@@ -185,3 +185,11 @@ function shakeModalRegister() {
     $('#loginModal .modal-dialog').removeClass('shake');
   }, 1000);
 }
+
+<firebase-app
+  name="yourAppName"
+  api-key= "{{yourApi}}"
+  auth-domain= "{{yourAuthDomain}}"
+  database-url= "{{yourDbUrl}}"
+>
+</firebase-app>

@@ -118,7 +118,7 @@ html {
 }
 
 .login .modal-dialog {
-    width: 350px;
+    width: 550px;
 }
 
 .login .modal-footer {
@@ -129,7 +129,7 @@ html {
 
 .login .modal-header {
     border: 0 none;
-    padding: 15px 15px 15px;
+    padding: 10px 15px 15px;
     /*     padding: 11px 15px; */
 }
 
