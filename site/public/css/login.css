@@ -301,12 +301,21 @@ html {
     color: #00a4e4;
 }
 
+.addition-profile {
+  margin-top: 0.5rem;
+  width: 80%;
+}
+
+#update-btn {
+  margin-top: 1rem
+}
+
 #google_login {
     cursor: pointer;
 }
 
 #user-profile {
-    width: 8rem;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -314,7 +323,7 @@ html {
 #user-profile img {
     border-radius: 100%;
     border: 2px solid #00a4e4;
-    width: 100%;
+    width: 8rem;
     -webkit-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
     -moz-box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
     box-shadow: 0px 5px 15px 0px rgba(199, 199, 199, 1);
@@ -351,7 +360,11 @@ body {
 }
 
 #delete-account {
-    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+#sign-out {
+    margin-bottom: 2rem;
 }
 
 .container {

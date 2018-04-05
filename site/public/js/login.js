@@ -66,6 +66,18 @@ $(document).ready(function() {
             '"><p id=\'user-name\'>' +
             name +
             '</p><a id="sign-out" class="btn btn-default">Sign out</a><a id="delete-account" class="btn btn-danger">Delete account</a>'
+            + '<div class="form">' +
+              '<form class = "col-md-offset-1 col-md-10">' +
+                '<input id="company-name" class="form-control addition-profile" type="text" placeholder="Company Name" name="companyname">' +
+                '<input id="website" class="form-control addition-profile" type="text" placeholder="Website" name="website">' +
+                '<input id="size" class="form-control addition-profile" type="text" placeholder="Company size" name="companysize">' +
+                '<input id="profit" class="form-control addition-profile" type="text" placeholder="For-Profit/ Non-Profit" name="profit">'+
+                '<input id="role" class="form-control addition-profile" type="text" placeholder="Your role in the business" name="role">'+
+                '<input id="revenue" class="form-control addition-profile" type="text" placeholder="Annual Revenue" name="revenue">'+
+                '<input id="length" class="form-control addition-profile" type="text" placeholder="Length of time in business" name="length">'+
+                '<input id="update-btn" class="btn btn-default" type="button" value="Update" name="update">' +
+              '</form>'+
+            '</div>'
         );
       }
       function signOut() {
